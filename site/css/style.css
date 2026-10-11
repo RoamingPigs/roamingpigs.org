@@ -1,40 +1,58 @@
+/* ==========================================================================
+   ROAMINGPIGS.ORG — THE CRYPTOGRAPHIC PROVENANCE LEDGER & OPEN SCIENTIFIC REPO
+   Archetype 1: RFC Masthead & Section Anchors, 70/30 Asymmetric Layout
+   Color Canon: Cold Sterile Clean-Room Ground (#f8fafc), White Pane (#ffffff),
+   Sharp Slate Rules (#cbd5e1), Ink Slate-900 (#0f172a), Provenance Emerald (#059669),
+   Registry Cobalt (#1d4ed8), and Invariant Amber (#b45309).
+   Zero Generic Dark-Mode Cards or Blurry Navbars.
+   ========================================================================== */
+
 :root {
-  --bg-primary: #0a0a12;
-  --bg-secondary: #12121e;
-  --bg-card: #161626;
-  --bg-card-hover: #1c1c30;
-  --accent-gold: #d4a574;
-  --accent-gold-light: #e4c5a4;
-  --accent-blue: #3b82f6;
-  --accent-blue-light: #60a5fa;
-  --accent-green: #10b981;
-  --text-primary: #f0f0f5;
-  --text-secondary: #9ca3af;
-  --text-muted: #6b7280;
-  --border-color: #27273a;
-  --border-hover: #3d3d56;
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 0.75rem;
-  --spacing-md: 1.25rem;
-  --spacing-lg: 2rem;
-  --spacing-xl: 3.5rem;
-  --max-width: 1120px;
+  /* Clean-Room Palette */
+  --ground-bg: #f8fafc;
+  --doc-bg: #ffffff;
+  --rule-border: #cbd5e1;
+  --rule-dark: #94a3b8;
+  --rule-light: #e2e8f0;
+  
+  /* Precision Inks */
+  --ink-900: #0f172a;
+  --ink-700: #334155;
+  --ink-500: #64748b;
+  --ink-400: #94a3b8;
+  
+  /* Semantic Accent Channels */
+  --provenance-emerald: #059669;
+  --provenance-emerald-bg: #ecfdf5;
+  --registry-cobalt: #1d4ed8;
+  --registry-cobalt-bg: #eff6ff;
+  --invariant-amber: #b45309;
+  --invariant-amber-bg: #fffbeb;
+  --hazard-crimson: #b91c1c;
+  --hazard-crimson-bg: #fef2f2;
+
+  /* Typography Stacks */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --font-serif: "Newsreader", "Charter", "Georgia", serif;
+
+  --max-width: 1360px;
 }
 
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  border-radius: 0 !important; /* Strict sharp scientific lines */
 }
 
 html {
-  background: var(--bg-primary);
-  color: var(--text-primary);
+  background-color: var(--ground-bg);
+  color: var(--ink-900);
   font-family: var(--font-sans);
-  line-height: 1.6;
-  font-size: 16px;
+  line-height: 1.65;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
 }
 
@@ -42,413 +60,695 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: var(--ground-bg);
 }
 
-.container {
+.repo-container {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 1.5rem;
   width: 100%;
 }
 
-/* Navbar */
-.navbar {
-  background: rgba(10, 10, 18, 0.85);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-color);
-  position: sticky;
-  top: 0;
-  z-index: 100;
+/* --------------------------------------------------------------------------
+   TOP METADATA BANNER & REPOSITORY NAV
+   -------------------------------------------------------------------------- */
+.repo-topbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--rule-border);
+  padding: 0.6rem 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
 }
-.nav-inner {
+
+.topbar-flex {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  height: 4rem;
+  align-items: center;
 }
-.nav-brand {
+
+.topbar-status {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  color: var(--ink-700);
+}
+
+.status-badge-verified {
+  background: var(--provenance-emerald-bg);
+  color: var(--provenance-emerald);
+  border: 1px solid rgba(5, 150, 105, 0.3);
+  padding: 0.15rem 0.5rem;
   font-weight: 700;
-  font-size: 1.15rem;
-  letter-spacing: -0.01em;
-  color: var(--text-primary);
-  text-decoration: none;
-}
-.nav-logo {
-  width: 28px;
-  height: 28px;
-}
-.nav-tag {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  color: var(--accent-gold);
-  background: rgba(212, 165, 116, 0.12);
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-  border: 1px solid rgba(212, 165, 116, 0.25);
-}
-.nav-links {
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  gap: 0.35rem;
+}
+
+.status-badge-verified::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--provenance-emerald);
+}
+
+.topbar-links {
+  display: flex;
   gap: 1.5rem;
   list-style: none;
 }
-.nav-links a {
-  color: var(--text-secondary);
+
+.topbar-links a {
+  color: var(--ink-700);
   text-decoration: none;
-  font-size: 0.92rem;
+  font-weight: 600;
   transition: color 0.15s ease;
 }
-.nav-links a:hover {
-  color: var(--text-primary);
-}
-.nav-cta {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  color: var(--text-primary) !important;
-  padding: 0.45rem 0.9rem;
-  border-radius: 6px;
-  font-family: var(--font-mono);
-  font-size: 0.82rem !important;
-}
-.nav-cta:hover {
-  border-color: var(--accent-gold);
+
+.topbar-links a:hover {
+  color: var(--registry-cobalt);
 }
 
-/* Hero */
-.hero {
-  padding: var(--spacing-xl) 0 var(--spacing-lg);
-  border-bottom: 1px solid var(--border-color);
-  background: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+.topbar-links .active-portal {
+  color: var(--registry-cobalt);
+  border-bottom: 2px solid var(--registry-cobalt);
+  padding-bottom: 2px;
 }
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+
+/* --------------------------------------------------------------------------
+   RFC MASTHEAD (Official Specification Header)
+   -------------------------------------------------------------------------- */
+.rfc-masthead-wrapper {
+  background: #ffffff;
+  border-bottom: 2px solid var(--ink-900);
+  padding: 2rem 0 1.75rem 0;
+}
+
+.rfc-header-box {
+  background: #ffffff;
+  border: 1px solid var(--rule-border);
+  padding: 1.25rem 1.5rem;
   font-family: var(--font-mono);
-  font-size: 0.82rem;
-  color: var(--accent-gold);
-  background: rgba(212, 165, 116, 0.1);
-  border: 1px solid rgba(212, 165, 116, 0.25);
-  padding: 0.35rem 0.75rem;
-  border-radius: 999px;
-  margin-bottom: var(--spacing-md);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
-.hero h1 {
-  font-size: 2.75rem;
-  line-height: 1.15;
+
+.rfc-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  color: var(--ink-700);
+}
+
+.rfc-header-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  text-align: right;
+  color: var(--ink-700);
+}
+
+.rfc-label {
+  color: var(--ink-500);
+}
+
+.rfc-title-area {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.rfc-logo {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--rule-border);
+  padding: 4px;
+}
+
+.rfc-title-block h1 {
+  font-size: 1.75rem;
   font-weight: 800;
   letter-spacing: -0.02em;
-  margin-bottom: var(--spacing-md);
-  color: var(--text-primary);
+  color: var(--ink-900);
+  line-height: 1.25;
 }
-.hero-lead {
-  font-size: 1.25rem;
-  color: var(--text-secondary);
-  max-width: 840px;
-  margin-bottom: var(--spacing-lg);
+
+.rfc-lead-abstract {
+  font-size: 1.05rem;
+  color: var(--ink-700);
+  margin-top: 0.6rem;
+  max-width: 950px;
   line-height: 1.6;
 }
 
-/* Researcher Identifiers Banner */
-.identifiers-banner {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 1rem 1.25rem;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1.25rem;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-}
-.identifiers-title {
-  color: var(--text-primary);
-  font-weight: 600;
-}
-.id-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  color: var(--text-secondary);
-  text-decoration: none;
-  background: rgba(255, 255, 255, 0.04);
-  padding: 0.3rem 0.65rem;
-  border-radius: 4px;
-  border: 1px solid var(--border-color);
-  transition: all 0.15s ease;
-}
-.id-badge:hover {
-  border-color: var(--accent-gold);
-  color: var(--text-primary);
-}
-.id-badge.orcid {
-  border-color: rgba(166, 206, 57, 0.4);
-  color: #a6ce39;
-}
-.id-badge.orcid:hover {
-  border-color: #a6ce39;
-  background: rgba(166, 206, 57, 0.1);
+/* --------------------------------------------------------------------------
+   70 / 30 ASYMMETRIC REPOSITORY LAYOUT
+   -------------------------------------------------------------------------- */
+.repo-body-section {
+  padding: 2.5rem 0 4rem 0;
 }
 
-/* Section styling */
-.section {
-  padding: var(--spacing-xl) 0;
-  border-bottom: 1px solid var(--border-color);
-}
-.section-header {
-  margin-bottom: var(--spacing-lg);
-}
-.section-tag {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--accent-gold);
-  margin-bottom: var(--spacing-xs);
-}
-.section-title {
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--text-primary);
-}
-.section-subtitle {
-  font-size: 1.05rem;
-  color: var(--text-secondary);
-  max-width: 780px;
-  margin-top: 0.35rem;
+.repo-asymmetric-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(320px, 3fr);
+  gap: 2.5rem;
+  align-items: start;
 }
 
-/* Research Cards */
-.pillar-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 10px;
-  padding: var(--spacing-lg);
-  margin-bottom: var(--spacing-lg);
-  transition: border-color 0.2s ease;
-}
-.pillar-card:hover {
-  border-color: var(--border-hover);
-}
-.pillar-header {
+/* --------------------------------------------------------------------------
+   LEFT PANE (70%): SCIENTIFIC PAPERS, THEOREMS & EXPERIMENTS
+   -------------------------------------------------------------------------- */
+.document-pane {
+  background: var(--doc-bg);
+  border: 1px solid var(--rule-border);
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.04);
+  padding: 2.5rem;
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.doc-section {
+  position: relative;
+}
+
+.section-anchor-header {
+  border-bottom: 2px solid var(--ink-900);
+  padding-bottom: 0.6rem;
+  margin-bottom: 1.25rem;
+  display: flex;
   justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: var(--spacing-sm);
+  align-items: baseline;
 }
-.pillar-badge {
+
+.section-anchor-header h2 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--ink-900);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-num {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--registry-cobalt);
+}
+
+.section-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid;
+}
+
+.section-badge.emerald {
+  color: var(--provenance-emerald);
+  background: var(--provenance-emerald-bg);
+  border-color: rgba(5, 150, 105, 0.3);
+}
+
+.section-badge.cobalt {
+  color: var(--registry-cobalt);
+  background: var(--registry-cobalt-bg);
+  border-color: rgba(29, 78, 216, 0.3);
+}
+
+.section-badge.amber {
+  color: var(--invariant-amber);
+  background: var(--invariant-amber-bg);
+  border-color: rgba(180, 83, 9, 0.3);
+}
+
+.doc-prose {
+  color: var(--ink-700);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.doc-prose strong {
+  color: var(--ink-900);
+}
+
+/* Data Tables */
+.doc-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--rule-border);
+  margin: 1.25rem 0;
+}
+
+.doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  text-align: left;
+}
+
+.doc-table th {
+  background: #f1f5f9;
+  color: var(--ink-900);
+  font-weight: 700;
+  padding: 0.65rem 0.9rem;
+  border-bottom: 1px solid var(--rule-border);
   font-family: var(--font-mono);
   font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 0.25rem 0.6rem;
-  border-radius: 4px;
-  background: rgba(59, 130, 246, 0.12);
-  color: var(--accent-blue-light);
-  border: 1px solid rgba(59, 130, 246, 0.3);
-}
-.pillar-title {
-  font-size: 1.45rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  line-height: 1.3;
-}
-.pillar-desc {
-  color: var(--text-secondary);
-  font-size: 1.02rem;
-  margin-bottom: var(--spacing-md);
-  line-height: 1.6;
+  letter-spacing: 0.04em;
 }
 
-/* Stat Grid */
-.stat-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
-  margin: var(--spacing-md) 0;
-}
-.stat-box {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  padding: 1rem;
-}
-.stat-val {
-  font-family: var(--font-mono);
-  font-size: 1.45rem;
-  font-weight: 700;
-  color: var(--accent-gold);
-  line-height: 1.2;
-}
-.stat-label {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-top: 0.25rem;
+.doc-table td {
+  padding: 0.7rem 0.9rem;
+  border-bottom: 1px solid var(--rule-light);
+  color: var(--ink-700);
 }
 
-/* Spec Table */
-.table-wrap {
-  overflow-x: auto;
-  margin: var(--spacing-md) 0;
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
+.doc-table tr:hover td {
+  background: #f8fafc;
 }
-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-  font-size: 0.9rem;
-}
-th, td {
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid var(--border-color);
-}
-th {
-  background: var(--bg-secondary);
-  color: var(--text-primary);
+
+.doc-table td.mono {
   font-family: var(--font-mono);
   font-size: 0.8rem;
+  color: var(--ink-900);
+  font-weight: 600;
+}
+
+.doc-table td.verified {
+  color: var(--provenance-emerald);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* Interactive SVG Waveform Inspector */
+.waveform-inspector-card {
+  background: #f8fafc;
+  border: 1px solid var(--rule-border);
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.waveform-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.waveform-tab-btn {
+  background: #ffffff;
+  border: 1px solid var(--rule-border);
+  padding: 0.4rem 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--ink-700);
+  transition: all 0.15s ease;
+}
+
+.waveform-tab-btn:hover {
+  background: #f1f5f9;
+  color: var(--registry-cobalt);
+}
+
+.waveform-tab-btn.active {
+  background: var(--ink-900);
+  color: #ffffff;
+  border-color: var(--ink-900);
+}
+
+.waveform-display-box {
+  background: #ffffff;
+  border: 1px solid var(--rule-border);
+  height: 140px;
+  position: relative;
+  overflow: hidden;
+}
+
+.waveform-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.waveform-info-strip {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-700);
+  border-top: 1px solid var(--rule-light);
+  padding-top: 0.6rem;
+}
+
+/* Native MathML Theorem Blocks */
+.theorem-card {
+  background: #ffffff;
+  border-left: 3px solid var(--registry-cobalt);
+  border-top: 1px solid var(--rule-border);
+  border-right: 1px solid var(--rule-border);
+  border-bottom: 1px solid var(--rule-border);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.theorem-title {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--registry-cobalt);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.math-formula-box {
+  background: #f8fafc;
+  border: 1px solid var(--rule-light);
+  padding: 1.25rem;
+  margin: 0.75rem 0;
+  overflow-x: auto;
+  text-align: center;
+}
+
+math[display="block"] {
+  font-size: 1.15rem;
+  color: var(--ink-900);
+  font-family: var(--font-serif);
+}
+
+.theorem-explanation {
+  font-size: 0.88rem;
+  color: var(--ink-700);
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
+/* BibTeX Blocks */
+.bibtex-card {
+  background: #f8fafc;
+  border: 1px solid var(--rule-border);
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+}
+
+.bibtex-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ink-700);
+  margin-bottom: 0.6rem;
+}
+
+.copy-btn {
+  background: #ffffff;
+  border: 1px solid var(--rule-border);
+  color: var(--registry-cobalt);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.copy-btn:hover {
+  background: var(--registry-cobalt);
+  color: #ffffff;
+}
+
+.bibtex-code {
+  background: #ffffff;
+  border: 1px solid var(--rule-light);
+  padding: 0.85rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-900);
+  white-space: pre-wrap;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+
+/* --------------------------------------------------------------------------
+   RIGHT PANE (30%): STICKY VERIFICATION RAIL
+   -------------------------------------------------------------------------- */
+.verification-rail {
+  position: sticky;
+  top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.rail-panel {
+  background: #ffffff;
+  border: 1px solid var(--rule-border);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+  padding: 1.25rem;
+}
+
+.rail-panel-header {
+  border-bottom: 2px solid var(--ink-900);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rail-panel-header h3 {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--ink-900);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
-td {
-  color: var(--text-secondary);
-}
-tr:last-child td {
-  border-bottom: none;
-}
-code {
+
+/* Merkle Digest Card */
+.digest-box {
+  background: #f8fafc;
+  border: 1px solid var(--rule-light);
+  padding: 0.75rem;
   font-family: var(--font-mono);
-  font-size: 0.85em;
-  background: rgba(255, 255, 255, 0.06);
-  padding: 0.15em 0.35em;
-  border-radius: 3px;
-  color: var(--text-primary);
+  font-size: 0.75rem;
 }
 
-/* Action Buttons */
-.btn-group {
+.digest-tag {
+  color: var(--ink-500);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+}
+
+.digest-hash {
+  word-break: break-all;
+  color: var(--provenance-emerald);
+  font-weight: 700;
+  font-size: 0.72rem;
+  margin: 0.35rem 0;
+  line-height: 1.4;
+}
+
+.digest-meta {
+  color: var(--ink-700);
+  font-size: 0.7rem;
+  border-top: 1px solid var(--rule-light);
+  padding-top: 0.35rem;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: var(--spacing-md);
-}
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  padding: 0.55rem 1rem;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: all 0.15s ease;
-  cursor: pointer;
-}
-.btn-primary {
-  background: var(--accent-gold);
-  color: #0a0a12;
-  font-weight: 600;
-  border: 1px solid var(--accent-gold);
-}
-.btn-primary:hover {
-  background: var(--accent-gold-light);
-  border-color: var(--accent-gold-light);
-}
-.btn-secondary {
-  background: var(--bg-secondary);
-  color: var(--text-primary);
-  border: 1px solid var(--border-color);
-}
-.btn-secondary:hover {
-  border-color: var(--text-secondary);
+  justify-content: space-between;
 }
 
-/* BibTeX Box */
-.bibtex-box {
-  background: #0d0d17;
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  padding: 0.9rem 1.1rem;
+/* Persistent Identifiers */
+.id-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   font-family: var(--font-mono);
-  font-size: 0.82rem;
-  color: var(--text-secondary);
+  font-size: 0.75rem;
+}
+
+.id-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8fafc;
+  border: 1px solid var(--rule-light);
+  padding: 0.45rem 0.65rem;
+}
+
+.id-key {
+  color: var(--ink-500);
+  font-weight: 600;
+}
+
+.id-val {
+  color: var(--registry-cobalt);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.id-val:hover {
+  text-decoration: underline;
+}
+
+/* PRG 6-Gate Audit Scorecard */
+.gate-audit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.gate-audit-item {
+  background: #f8fafc;
+  border: 1px solid var(--rule-light);
+  border-left: 3px solid var(--provenance-emerald);
+  padding: 0.5rem 0.65rem;
+  font-family: var(--font-mono);
+}
+
+.gate-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.72rem;
+}
+
+.gate-id {
+  font-weight: 700;
+  color: var(--ink-900);
+}
+
+.gate-badge {
+  font-weight: 700;
+  color: var(--provenance-emerald);
+}
+
+.gate-desc {
+  font-size: 0.7rem;
+  color: var(--ink-700);
+  margin-top: 0.2rem;
+}
+
+/* Replication Commands */
+.repl-cmd-box {
+  background: var(--ink-900);
+  color: #f8fafc;
+  padding: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
   line-height: 1.5;
   overflow-x: auto;
-  white-space: pre;
-  margin: var(--spacing-sm) 0;
 }
 
-/* PRG Matrix */
-.prg-grid {
+.repl-comment {
+  color: var(--ink-400);
+}
+
+.repl-code {
+  color: #a7f3d0;
+}
+
+/* --------------------------------------------------------------------------
+   FOOTER
+   -------------------------------------------------------------------------- */
+.repo-footer {
+  background: #ffffff;
+  border-top: 2px solid var(--ink-900);
+  padding: 2.5rem 0;
+  font-size: 0.82rem;
+  color: var(--ink-700);
+}
+
+.footer-inner-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.25rem;
-  margin-top: var(--spacing-md);
-}
-.prg-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 1.25rem;
-}
-.prg-num {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--accent-gold);
-  margin-bottom: 0.25rem;
-}
-.prg-title {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 0.4rem;
-}
-.prg-desc {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 2rem;
 }
 
-/* Footer */
-.footer {
-  margin-top: auto;
-  border-top: 1px solid var(--border-color);
-  padding: var(--spacing-lg) 0;
-  background: var(--bg-primary);
+.footer-bio h4 {
+  font-size: 1.1rem;
+  color: var(--ink-900);
+  font-weight: 800;
+  margin-bottom: 0.5rem;
 }
-.footer-inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  font-size: 0.88rem;
-  color: var(--text-muted);
+
+.footer-links-col h5 {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-900);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
 }
-.footer-links {
-  display: flex;
-  gap: 1.25rem;
+
+.footer-links-col ul {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }
-.footer-links a {
-  color: var(--text-secondary);
+
+.footer-links-col a {
+  color: var(--ink-700);
   text-decoration: none;
 }
-.footer-links a:hover {
-  color: var(--accent-gold);
+
+.footer-links-col a:hover {
+  color: var(--registry-cobalt);
 }
 
-@media (max-width: 768px) {
-  .hero h1 { font-size: 2.1rem; }
-  .hero-lead { font-size: 1.05rem; }
-  .nav-links { display: none; }
-  .stat-grid { grid-template-columns: 1fr; }
+.footer-bottom-row {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule-border);
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--ink-500);
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .repo-asymmetric-grid {
+    grid-template-columns: 1fr;
+  }
+  .verification-rail {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .rfc-header-box {
+    grid-template-columns: 1fr;
+  }
+  .rfc-header-right {
+    text-align: left;
+  }
+  .document-pane {
+    padding: 1.25rem;
+  }
+  .footer-inner-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-bottom-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
