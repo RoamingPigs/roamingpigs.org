@@ -1,6 +1,5 @@
 name = "roamingpigs-org"
 pages_build_output_dir = "dist"
-account_id = "e7b3fe2f838d4548f3611b30aaa9eb11"
 
 [env.production]
 vars = { ENVIRONMENT = "production" }
