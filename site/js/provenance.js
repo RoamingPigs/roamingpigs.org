@@ -60,6 +60,32 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================================
   // 2. BIBTEX & REPLICATION COMMAND CLIPBOARD COPY
   // =========================================================================
+  function copyTextToClipboard(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise((resolve, reject) => {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.left = '-9999px';
+      textarea.style.top = '0';
+      textarea.setAttribute('readonly', '');
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try {
+        const success = document.execCommand('copy');
+        document.body.removeChild(textarea);
+        if (success) resolve();
+        else reject(new Error('execCommand copy failed'));
+      } catch (err) {
+        document.body.removeChild(textarea);
+        reject(err);
+      }
+    });
+  }
+
   const copyButtons = document.querySelectorAll('.copy-btn');
   copyButtons.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -68,17 +94,16 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!el) return;
 
       const text = el.innerText || el.textContent;
-      navigator.clipboard.writeText(text).then(() => {
-        const orig = btn.textContent;
+      const origText = btn.textContent;
+      copyTextToClipboard(text).then(() => {
         btn.textContent = 'COPIED';
         setTimeout(() => {
-          btn.textContent = orig;
+          btn.textContent = origText;
         }, 2000);
       }).catch(() => {
-        // Fallback
-        btn.textContent = 'COPIED';
+        btn.textContent = 'FAILED';
         setTimeout(() => {
-          btn.textContent = 'COPY';
+          btn.textContent = origText;
         }, 2000);
       });
     });
