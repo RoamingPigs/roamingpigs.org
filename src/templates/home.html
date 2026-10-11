@@ -1,0 +1,226 @@
+{% extends "base.html" %}
+{% from "macros.html" import chip %}
+{% block main %}
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Independent AI systems research</p>
+      <h1>Research notes with the limits printed next to the numbers.</h1>
+      <p class="lede">I run small experiments on speech models, verifier ensembles and local inference hardware. This is the public record: what I ran, what came out, how big the sample was, and what the result does not show.</p>
+      <p class="byline">By <strong>Cisco Caceres</strong> &middot; <a href="https://orcid.org/0009-0005-7810-5077">ORCID</a> &middot; <a href="/about/">About</a></p>
+      <p class="status-line"><span>Self-published, not peer reviewed</span><span aria-hidden="true">&middot;</span><span>Updated <time datetime="{{ site.modified }}">{{ site.modified_human }}</time></span></p>
+    </div>
+    <aside class="key" aria-labelledby="key-h">
+      <h2 id="key-h">How to read a number here</h2>
+      <dl>
+        <div class="key-row"><dt>{{ chip('measured') }}</dt><dd>I ran it and recorded it: a model on audio, a meter on a wall socket. It describes that run and nothing wider.</dd></div>
+        <div class="key-row"><dt>{{ chip('modelled') }}</dt><dd>A formula or a calibrated estimate, not a reading. Good for planning, wrong in ways I try to name.</dd></div>
+        <div class="key-row"><dt>{{ chip('simulated') }}</dt><dd>Data a script generated from settings I chose. It shows how a method behaves, not how the world does.</dd></div>
+        <div class="key-row"><dt>{{ chip('proposed') }}</dt><dd>A question and a plan. No result yet.</dd></div>
+      </dl>
+      <p class="small">Each class has a shape as well as a colour. <a href="/method/">Full definitions</a>.</p>
+    </aside>
+  </div>
+</section>
+
+<section class="section" id="records" aria-labelledby="records-h">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="records-h">Current records</h2>
+      <p>Five records, each with its date, sample and limits. The full papers live on <a href="https://ciscocaceres.com/research/">ciscocaceres.com</a>. These pages hold the numbers and what they do and do not show.</p>
+    </div>
+
+    <div class="records">
+
+      <article class="record" id="radio-audio">
+        <header class="record-head">
+          <h3 class="record-title"><a href="#radio-audio">Speech models break down on radio-quality audio</a></h3>
+          <div class="chips">{{ chip('measured') }}</div>
+        </header>
+        <div class="record-body">
+          <div>
+            <p class="headline">Six open speech models transcribed five scripted maritime radio calls through six audio paths and five noise levels. Averaged over every path, word error was <strong class="num">{{ v.wer_clean }}%</strong> with no added noise and <strong class="num">{{ v.wer_0 }}%</strong> at 0 dB. Above 100% means the models wrote more wrong words than the call contained.</p>
+            <figure class="figure">
+              {{ ch.wer|safe }}
+              <figcaption><strong>Mean word error rate by noise level.</strong> Mean of {{ c.e2.models|length }} models, {{ c.e2.codecs|length }} audio paths and {{ c.e2.utterances }} utterances per bar, point estimates. Run {{ v.e2_date }}.</figcaption>
+            </figure>
+            <div class="limits">
+              <h4>What this does not show</h4>
+              <p>Five utterances is a pilot. The speech is synthetic (text to speech), not recorded radio traffic. There are no confidence intervals, so small gaps between codecs mean nothing yet. Decoding was greedy with a 48-token cap, and error above 100% includes inserted words. It says nothing about any product.</p>
+            </div>
+          </div>
+          <dl class="facts">
+            <div><dt>Run</dt><dd class="mono">{{ v.e2_date }}</dd></div>
+            <div><dt>Sample</dt><dd>{{ c.e2.models|length }} models ({{ v.e2_sizes }} parameters) &times; {{ c.e2.utterances }} utterances &times; {{ c.e2.codecs|length }} audio paths &times; {{ c.e2.snr_db|length }} noise levels = <span class="mono">{{ c.e2.records }}</span> transcripts</dd></div>
+            <div><dt>Method</dt><dd>Word error rate against the script, greedy decoding, no resampling</dd></div>
+            <div><dt>Source</dt><dd class="mono">e2-telephone-grid-ledger.json</dd></div>
+          </dl>
+        </div>
+        <ul class="record-links">
+          <li><a href="/datasets/trcs/">The dataset</a></li>
+          <li><a href="https://roamingpigs.ai/codec-grid/">Explore every transcript</a></li>
+          <li><a href="https://ciscocaceres.com/downloads/tactical-radio-channel-simulator/">Read the paper</a></li>
+        </ul>
+      </article>
+
+      <article class="record" id="silence-hallucination">
+        <header class="record-head">
+          <h3 class="record-title"><a href="#silence-hallucination">Given silence, every model still wrote words</a></h3>
+          <div class="chips">{{ chip('measured') }}</div>
+        </header>
+        <div class="record-body">
+          <div>
+            <p class="headline">On {{ c.e1.non_speech_clips_per_model }} clips of silence, static or radio squelch, each of {{ c.e1.models }} models wrote words on <strong class="num">{{ c.e1.ungated_hallucinated_clips[0] }} of {{ c.e1.non_speech_clips_per_model }}</strong>. A basic energy gate removed the words on both silence conditions. It did nothing on any of the six noise and squelch conditions, so <strong class="num">{{ c.e1.gated_hallucinated_clips[0] }} of {{ c.e1.non_speech_clips_per_model }}</strong> clips still produced text.</p>
+            <figure class="figure">
+              {{ ch.hal|safe }}
+              <figcaption><strong>Clips with invented words, by condition.</strong> Each row pools {{ c.e1.models }} models &times; {{ c.e1.seeds }} seeds. Run {{ v.e1_date }}.</figcaption>
+            </figure>
+            <div class="limits">
+              <h4>What this does not show</h4>
+              <p>The clips are 2.5 seconds of generated audio, three seeds per condition, one gate setting (&minus;42 dBFS). Real radio recordings may behave differently. The same models can be quiet with a better gate or a different decoder. Peak speed reached {{ v.e1_wpm_cell }} words per minute in one noise condition, which is a single cell, not a typical rate.</p>
+            </div>
+          </div>
+          <dl class="facts">
+            <div><dt>Run</dt><dd class="mono">{{ v.e1_date }}</dd></div>
+            <div><dt>Sample</dt><dd>{{ c.e1.models }} models &times; {{ c.e1.non_speech_conditions }} conditions &times; {{ c.e1.seeds }} seeds, {{ c.e1.clip_seconds }} s each</dd></div>
+            <div><dt>Method</dt><dd>Count clips where the transcript contains any word. Gate: 20 ms frames, &minus;42 dBFS threshold</dd></div>
+            <div><dt>Source</dt><dd class="mono">e1-hallucination-ledger.json</dd></div>
+          </dl>
+        </div>
+        <ul class="record-links">
+          <li><a href="/datasets/trcs/">The dataset</a></li>
+          <li><a href="https://ciscocaceres.com/downloads/tactical-radio-channel-simulator/">Read the paper</a></li>
+        </ul>
+      </article>
+
+      <article class="record" id="inference-energy">
+        <header class="record-head">
+          <h3 class="record-title"><a href="#inference-energy">What a local model costs in energy, read off a wall meter</a></h3>
+          <div class="chips">{{ chip('measured') }}{{ chip('modelled') }}</div>
+        </header>
+        <div class="record-body">
+          <div>
+            <p class="headline">On one {{ v.apu_mem }} GB unified-memory machine, a wall meter read <strong class="num">{{ v.j_min }} to {{ v.j_max }} joules</strong> per generated token across {{ v.n_runs }} models. Before I ran the meter, a calibrated model of mine had predicted <strong class="num">{{ c.apu.calibrated_9b.j_per_token }}</strong> for the smallest. The meter read <strong class="num">{{ v.j_first }}</strong>.</p>
+            <figure class="figure">
+              {{ ch.joules|safe }}
+              <figcaption><strong>Wall energy per generated token, mean power over the run.</strong> Includes the whole machine, with an idle floor of {{ c.apu.idle_wall_w|int }} W. Run {{ v.apu_date }}.</figcaption>
+            </figure>
+            <div class="limits">
+              <h4>What this does not show</h4>
+              <p>Each number is one run of {{ v.run_min }} to {{ v.run_max }} seconds and {{ v.run_tokens }} tokens. Energy per token uses mean wall power. Peak power gives higher values, up to {{ v.j_peak_first }} for the first run. This is one machine at batch size one. Serving many requests at once can lower energy per token several-fold, so this is not a comparison with data centre hardware.{% if v.excl %} A third run, on a {{ v.excl.params_b }}B mixture model, is left out. Its recorded speed implies {{ v.excl.implied_gbps|round|int }} GB/s of memory traffic on a {{ v.peak_gbps }} GB/s bus, so its speed or its active-parameter count is wrong in the ledger.{% endif %} <a href="https://roamingpigs.ai/inference-cost/">The calculator</a> shows the assumptions.</p>
+            </div>
+          </div>
+          <dl class="facts">
+            <div><dt>Run</dt><dd class="mono">{{ v.apu_date }}</dd></div>
+            <div><dt>Sample</dt><dd>{{ v.n_runs|capitalize }} runs, one per model, {{ v.run_tokens }} generated tokens each</dd></div>
+            <div><dt>Method</dt><dd>Smart-plug wall power averaged over the run, divided by tokens per second. Weights at {{ c.apu.metered_runs[0].quant }}</dd></div>
+            <div><dt>Source</dt><dd class="mono">sovereign-apu-inference-ledger.json</dd></div>
+          </dl>
+        </div>
+        <ul class="record-links">
+          <li><a href="https://roamingpigs.ai/inference-cost/">Open the calculator</a></li>
+          <li><a href="https://ciscocaceres.com/research/#paper-sovereign-economics">Read the paper</a></li>
+        </ul>
+      </article>
+
+      <article class="record" id="verifier-simulation">
+        <header class="record-head">
+          <h3 class="record-title"><a href="#verifier-simulation">Why voting across verifiers can mislead</a></h3>
+          <div class="chips">{{ chip('simulated') }}</div>
+        </header>
+        <div class="record-body">
+          <div>
+            <p class="headline">In a simulation, two code verifiers made mistakes on the same plausible-looking bugs, so their errors correlated at <strong class="num">{{ v.rho }}</strong> (covariance <span class="num">{{ v.cov }}</span>). When errors overlap like that, counting agreement overstates confidence. This illustrates the concern behind the method. It does not measure real verifiers.</p>
+            <div class="table-wrap" tabindex="0" role="region" aria-label="Data table, scrolls sideways on small screens">
+              <table>
+                <caption>Calibration split of the simulated pool.</caption>
+                <thead><tr><th>Statistic</th><th class="n">Value</th></tr></thead>
+                <tbody>
+                  <tr><td>Simulated candidates</td><td class="n">{{ v.cands }}</td></tr>
+                  <tr><td>Correct candidates</td><td class="n">{{ c.vec.correct_candidates }}</td></tr>
+                  <tr><td>Verifier A error rate</td><td class="n">{{ v.ea }}</td></tr>
+                  <tr><td>Verifier B error rate</td><td class="n">{{ v.eb }}</td></tr>
+                  <tr><td>Error correlation</td><td class="n">{{ v.rho }}</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="limits">
+              <h4>What this does not show</h4>
+              <p>A seeded script generated the candidates and the verifier scores from distributions I chose. The correlation is a property of those settings. A study with real model-written candidates and real verifiers is a separate piece of work. This record covers the simulation only.</p>
+            </div>
+          </div>
+          <dl class="facts">
+            <div><dt>Run</dt><dd class="mono">{{ v.vec_date }}</dd></div>
+            <div><dt>Sample</dt><dd>{{ c.vec.tasks }} task slots, {{ v.cands }} simulated candidates on the calibration split, seed 42</dd></div>
+            <div><dt>Method</dt><dd>Pearson correlation of the two verifiers' binary error indicators</dd></div>
+            <div><dt>Source</dt><dd class="mono">vec-scr-evaluation-ledger.json</dd></div>
+          </dl>
+        </div>
+        <ul class="record-links">
+          <li><a href="https://ciscocaceres.com/research/verifier-guided-compute/">Read the paper</a></li>
+        </ul>
+      </article>
+
+      <article class="record" id="agent-coordination">
+        <header class="record-head">
+          <h3 class="record-title"><a href="#agent-coordination">Do coordinated AI coding agents beat one agent?</a></h3>
+          <div class="chips">{{ chip('measured') }}</div>
+        </header>
+        <div class="record-body">
+          <div>
+            <p class="headline">On {{ c.echo.tasks }} small Python tasks, with {{ c.echo.attempts_per_arm }} attempts per arm, a single agent produced <strong class="num">{{ c.echo.accepted.single }}</strong> accepted solutions. Ordinary two-worker messaging produced <strong class="num">{{ c.echo.accepted.plain }}</strong>. Echo, the coordination layer I build, also produced <strong class="num">{{ c.echo.accepted.echo }}</strong>, with Git merge conflicts in {{ c.echo.merge_conflicts.echo }} of {{ c.echo.attempts_per_arm }} attempts. No coordination benefit is established.</p>
+            <figure class="figure">
+              {{ ch.echo|safe }}
+              <figcaption><strong>Accepted solutions out of {{ c.echo.attempts_per_arm }} attempts.</strong> The Echo arm used about {{ v.echo_tokens_x }} times the tokens per attempt of the single agent. Echo is my own project, so I have a stake in the result.</figcaption>
+            </figure>
+            <div class="limits">
+              <h4>What this does not show</h4>
+              <p>The tasks were reused and the agents may have seen them, so this is a diagnostic, not a benchmark. Transport timings measure messaging speed, not task success. A coordination benefit would need fresh tasks and repeated runs.</p>
+            </div>
+          </div>
+          <dl class="facts">
+            <div><dt>Run</dt><dd class="mono">{{ v.echo_date }}</dd></div>
+            <div><dt>Sample</dt><dd>{{ c.echo.tasks }} tasks &times; 3 arms, {{ c.echo.attempts_per_arm }} attempts per arm ({{ c.echo.attempts_per_arm * 3 }} in all)</dd></div>
+            <div><dt>Method</dt><dd>An attempt is accepted when all hidden acceptance checks pass</dd></div>
+            <div><dt>Source</dt><dd class="mono">e3-mast-coding-ledger.json</dd></div>
+          </dl>
+        </div>
+        <ul class="record-links">
+          <li><a href="https://echo.cc/research/">Echo research notes</a></li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="data-h">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="data-h">The dataset behind the audio records</h2>
+      <p>TRCS, the Tactical Radio Channel Simulator, is {{ c.trcs.files|int|string }} audio files with a SHA-256 for each one. You can re-run every check on this page from it.</p>
+    </div>
+    <div class="table-wrap prose" tabindex="0" role="region" aria-label="Data table, scrolls sideways on small screens">
+      <table>
+        <tbody>
+          <tr><th scope="row">Files</th><td class="n">{{ "{:,}".format(c.trcs.files) }} WAV, {{ c.trcs.hours }} hours, {{ c.trcs.megabytes|int }} MB</td></tr>
+          <tr><th scope="row">Conditions</th><td class="n">{{ c.trcs.conditions }} (8 non-speech, 1 speech control, 24 codec and noise cells)</td></tr>
+          <tr><th scope="row">Audio</th><td class="n">16 kHz mono; speech is synthetic text to speech</td></tr>
+          <tr><th scope="row">Manifest</th><td class="n">generated {{ c.trcs.generated_at }}</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><a href="/datasets/trcs/">Read the dataset card &rarr;</a></p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="fix-h">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="fix-h">When I got it wrong</h2>
+      <p>The first version of this site went live on {{ v.first_pub }} with figures, identifiers and labels I could not trace to a results file. I removed them {% if v.first_pub == site.modified_human %}the same day{% else %}on {{ site.modified_human }}{% endif %}. The list is public.</p>
+    </div>
+    <p><a href="/corrections/">Read the corrections &rarr;</a></p>
+  </div>
+</section>
+{% endblock %}

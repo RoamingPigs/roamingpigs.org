@@ -1,0 +1,3 @@
+{% macro chip(cls, label=None) -%}
+<span class="chip {{ cls }}"><svg aria-hidden="true"><use href="#g-{{ cls }}"/></svg>{{ label or cls|capitalize }}</span>
+{%- endmacro %}

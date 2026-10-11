@@ -1,0 +1,158 @@
+<!doctype html>
+<!-- nav-canonical-exempt: independent RoamingPigs property on a personal Cloudflare account, not an Abundera site; it has its own header and footer. -->
+<!-- footer-canonical-exempt: same reason as the nav exemption above. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Method: How a Number Gets onto RoamingPigs Notes</title>
+  <meta name="description" content="The four evidence classes (measured, modelled, simulated, proposed), what every record must show, and why nothing here is called verified.">
+  <link rel="canonical" href="https://roamingpigs.org/method/">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <meta name="theme-color" content="#f6f3ec">
+  <meta name="color-scheme" content="light">
+  <meta name="author" content="Cisco Caceres">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="RoamingPigs Research Notes">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Method: How a Number Gets onto RoamingPigs Notes">
+  <meta property="og:description" content="The four evidence classes (measured, modelled, simulated, proposed), what every record must show, and why nothing here is called verified.">
+  <meta property="og:url" content="https://roamingpigs.org/method/">
+  <meta property="og:image" content="https://roamingpigs.org/og/default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="RoamingPigs Research Notes: research notes with the limits printed next to the numbers">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Method: How a Number Gets onto RoamingPigs Notes">
+  <meta name="twitter:description" content="The four evidence classes (measured, modelled, simulated, proposed), what every record must show, and why nothing here is called verified.">
+  <meta name="twitter:image" content="https://roamingpigs.org/og/default.png">
+  <meta name="twitter:image:alt" content="RoamingPigs Research Notes: research notes with the limits printed next to the numbers">
+  <meta property="article:modified_time" content="2026-10-11">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://roamingpigs.org/#website","url":"https://roamingpigs.org/","name":"RoamingPigs Research Notes","inLanguage":"en","publisher":{"@id":"https://roamingpigs.org/#org"},"author":{"@id":"https://roamingpigs.org/#author"}},{"@type":"Organization","@id":"https://roamingpigs.org/#org","name":"RoamingPigs","url":"https://roamingpigs.org/","logo":"https://roamingpigs.org/icon-512.png","description":"An independent project publishing small AI systems experiments with their limits.","founder":{"@id":"https://roamingpigs.org/#author"},"sameAs":["https://roamingpigs.ai/","https://roamingpigs.com/","https://github.com/RoamingPigs","https://huggingface.co/RoamingPigs"]},{"@type":"Person","@id":"https://roamingpigs.org/#author","name":"Cisco Caceres","url":"https://ciscocaceres.com/","sameAs":["https://orcid.org/0009-0005-7810-5077","https://github.com/RoamingPigs","https://huggingface.co/RoamingPigs"]},{"@type":"WebPage","@id":"https://roamingpigs.org/method/#page","url":"https://roamingpigs.org/method/","name":"Method: How a Number Gets onto RoamingPigs Notes","description":"The four evidence classes (measured, modelled, simulated, proposed), what every record must show, and why nothing here is called verified.","inLanguage":"en","isPartOf":{"@id":"https://roamingpigs.org/#website"},"author":{"@id":"https://roamingpigs.org/#author"},"dateModified":"2026-10-11"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Research Notes","item":"https://roamingpigs.org/"},{"@type":"ListItem","position":2,"name":"Method","item":"https://roamingpigs.org/method/"}]}]}</script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preload" href="/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/site.css?v=df2b542f">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<svg class="defs" width="0" height="0" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="g-measured" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5" fill="currentColor"/></symbol>
+    <symbol id="g-modelled" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M8 2.5a5.5 5.5 0 0 1 0 11z" fill="currentColor"/></symbol>
+    <symbol id="g-simulated" viewBox="0 0 16 16"><path d="M8 1.8 14.2 8 8 14.2 1.8 8z" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/></symbol>
+    <symbol id="g-proposed" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-dasharray="2.6 2.2"/></symbol>
+  </defs>
+</svg>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/favicon.svg" alt="" width="28" height="28">RoamingPigs <span>Research Notes</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+<li><a href="/">Records</a></li><li><a href="/datasets/trcs/">Dataset</a></li><li><a href="/method/" aria-current="page">Method</a></li><li><a href="/cite/">Cite</a></li><li><a href="/about/">About</a></li>        <li><a class="sister" href="https://roamingpigs.ai/">Instruments <span aria-hidden="true">&nearr;</span><span class="sr-only"> (roamingpigs.ai)</span></a></li>
+      </ul>
+    </nav>
+    <details class="nav-toggle">
+      <summary>Menu</summary>
+      <nav class="site-nav-mobile" aria-label="Main (mobile)">
+        <ul>
+<li><a href="/">Records</a></li><li><a href="/datasets/trcs/">Dataset</a></li><li><a href="/method/" aria-current="page">Method</a></li><li><a href="/cite/">Cite</a></li><li><a href="/about/">About</a></li>          <li><a class="sister" href="https://roamingpigs.ai/">Instruments (roamingpigs.ai) &nearr;</a></li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main id="main">
+<article class="doc">
+  <div class="wrap">
+    <nav class="breadcrumb crumbs" aria-label="Breadcrumb"><a href="/">Research Notes</a> / Method</nav>
+    <div class="doc-grid">
+      <nav class="toc" aria-label="On this page">
+        <ol>
+          <li><a href="#classes">Evidence classes</a></li>
+          <li><a href="#every-record">What every record shows</a></li>
+          <li><a href="#provenance">Where numbers come from</a></li>
+          <li><a href="#review">Review status</a></li>
+          <li><a href="#naming">Naming</a></li>
+        </ol>
+      </nav>
+      <div>
+        <p class="eyebrow">Method</p>
+        <h1>How a number gets onto this site</h1>
+        <p class="lede">Most of what I run is small, quick and done by me alone. That is fine for finding out what is worth testing properly. It is not fine to present as settled. These rules keep the two apart.</p>
+
+        <div class="prose">
+        <h2 id="classes">Evidence classes <a class="anchor" href="#classes" aria-label="Link to this section">#</a></h2>
+        <p>Every record carries one or more of four marks. The mark says what kind of thing the number is before you read the number.</p>
+        </div>
+        <div class="def-grid">
+          <div class="def"><span class="chip measured"><svg aria-hidden="true"><use href="#g-measured"/></svg>Measured</span><p>Something I ran and recorded: a model scored on audio, a wall meter read during a run. It describes that run. It does not describe other models, other days or other machines.</p></div>
+          <div class="def"><span class="chip modelled"><svg aria-hidden="true"><use href="#g-modelled"/></svg>Modelled</span><p>A formula or a calibrated estimate. The inputs may be measured, but the output is a calculation. When a model and a meter disagree, the meter wins and I say so.</p></div>
+          <div class="def"><span class="chip simulated"><svg aria-hidden="true"><use href="#g-simulated"/></svg>Simulated</span><p>Data a script generated from settings I chose. Useful for showing how a method behaves under known conditions. It cannot show how real systems behave, and a simulation can never confirm its own settings.</p></div>
+          <div class="def"><span class="chip proposed"><svg aria-hidden="true"><use href="#g-proposed"/></svg>Proposed</span><p>A question and a plan, with nothing run. I list these so you can tell a result from an intention.</p></div>
+        </div>
+
+        <div class="prose">
+        <h2 id="every-record">What every record shows <a class="anchor" href="#every-record" aria-label="Link to this section">#</a></h2>
+        <ul>
+          <li>The date and time of the run, in UTC.</li>
+          <li>The sample: how many models, items, seeds or runs.</li>
+          <li>The method in one line, and the results file the numbers came from.</li>
+          <li>A short statement of what the result does not show.</li>
+          <li>A link to the full paper, where one exists.</li>
+        </ul>
+        <p>If I cannot fill in one of these, the number does not go on the page. I do not publish a figure without a date, a sample and a method. Where a result has no confidence interval, the page says so and treats the figure as a point estimate.</p>
+
+        <h2 id="provenance">Where numbers come from <a class="anchor" href="#provenance" aria-label="Link to this section">#</a></h2>
+        <p>The pages do not hold typed measurements. A script reads each figure from the results file and records the SHA-256 of that file. If a results file changes, the site fails to build until the numbers are read again. That is how I stop a page and its data from drifting apart. It does not make the data correct. It makes the page match the data.</p>
+        <p>Each figure names the results file it was read from. The audio dataset and its manifest are public on <a href="https://huggingface.co/datasets/RoamingPigs/trcs-tactical-audio">Hugging Face</a>, so the file checks can be repeated by anyone.</p>
+
+        <h2 id="review">Review status <a class="anchor" href="#review" aria-label="Link to this section">#</a></h2>
+        <p>Nothing here is peer reviewed. No one outside this project has reproduced a result. I run a checklist script before I publish. It catches formatting and consistency mistakes. It is not a review, and it did not catch most of the errors on the <a href="/corrections/">corrections page</a>.</p>
+        <p>I will not use words such as proven, verified, cleared or validated for my own results. They imply a checker, and there is none.</p>
+
+        <h2 id="naming">Naming <a class="anchor" href="#naming" aria-label="Link to this section">#</a></h2>
+        <p>Third-party models appear by size and kind, for example &ldquo;a 39M-parameter English-only model&rdquo;, not by product name. Hardware is named where the specification matters. I am the only author, and Echo is my own project.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <h2>RoamingPigs Research Notes</h2>
+      <p>Small experiments, published with their limits. Written by <a href="https://ciscocaceres.com/">Cisco Caceres</a>. Self-published and not peer reviewed.</p>
+    </div>
+    <div>
+      <h2>This site</h2>
+      <ul><li><a href="/">Records</a></li><li><a href="/datasets/trcs/">Dataset</a></li><li><a href="/method/">Method</a></li><li><a href="/cite/">Cite</a></li><li><a href="/about/">About</a></li><li><a href="/corrections/">Corrections</a></li></ul>
+    </div>
+    <div>
+      <h2>Elsewhere</h2>
+      <ul>
+        <li><a href="https://roamingpigs.ai/">Instruments (roamingpigs.ai)</a></li>
+        <li><a href="https://roamingpigs.com/">Field Manual (roamingpigs.com)</a></li>
+        <li><a href="https://ciscocaceres.com/research/">Papers (ciscocaceres.com)</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Records</h2>
+      <ul>
+        <li><a href="https://huggingface.co/datasets/RoamingPigs/trcs-tactical-audio">Dataset on Hugging Face</a></li>
+        <li><a href="https://github.com/RoamingPigs">GitHub</a></li>
+        <li><a href="https://orcid.org/0009-0005-7810-5077">ORCID 0009-0005-7810-5077</a></li>
+      </ul>
+    </div>
+    <p class="footer-note">&copy; 2026 Cisco Caceres. Data licences are stated on each dataset page. No cookies, no analytics, nothing loaded from other domains. Last build 11 October 2026.</p>
+  </div>
+</footer>
+<script src="/js/site.js?v=2d4f8d10" defer></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!doctype html>
+<!-- nav-canonical-exempt: independent RoamingPigs property on a personal Cloudflare account, not an Abundera site; it has its own header and footer. -->
+<!-- footer-canonical-exempt: same reason as the nav exemption above. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>TRCS Dataset Card: Synthetic Radio-Channel Speech Benchmark</title>
+  <meta name="description" content="1,050 synthetic audio files with a SHA-256 for each, built to test speech models on silence, noise and telephone codecs. Contents, checks and known limits.">
+  <link rel="canonical" href="https://roamingpigs.org/datasets/trcs/">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <meta name="theme-color" content="#f6f3ec">
+  <meta name="color-scheme" content="light">
+  <meta name="author" content="Cisco Caceres">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="RoamingPigs Research Notes">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="TRCS Dataset Card: Synthetic Radio-Channel Speech Benchmark">
+  <meta property="og:description" content="1,050 synthetic audio files with a SHA-256 for each, built to test speech models on silence, noise and telephone codecs. Contents, checks and known limits.">
+  <meta property="og:url" content="https://roamingpigs.org/datasets/trcs/">
+  <meta property="og:image" content="https://roamingpigs.org/og/dataset.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="TRCS dataset card: 1,050 synthetic audio files, each with a SHA-256">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TRCS Dataset Card: Synthetic Radio-Channel Speech Benchmark">
+  <meta name="twitter:description" content="1,050 synthetic audio files with a SHA-256 for each, built to test speech models on silence, noise and telephone codecs. Contents, checks and known limits.">
+  <meta name="twitter:image" content="https://roamingpigs.org/og/dataset.png">
+  <meta name="twitter:image:alt" content="TRCS dataset card: 1,050 synthetic audio files, each with a SHA-256">
+  <meta property="article:modified_time" content="2026-10-11">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://roamingpigs.org/#website","url":"https://roamingpigs.org/","name":"RoamingPigs Research Notes","inLanguage":"en","publisher":{"@id":"https://roamingpigs.org/#org"},"author":{"@id":"https://roamingpigs.org/#author"}},{"@type":"Organization","@id":"https://roamingpigs.org/#org","name":"RoamingPigs","url":"https://roamingpigs.org/","logo":"https://roamingpigs.org/icon-512.png","description":"An independent project publishing small AI systems experiments with their limits.","founder":{"@id":"https://roamingpigs.org/#author"},"sameAs":["https://roamingpigs.ai/","https://roamingpigs.com/","https://github.com/RoamingPigs","https://huggingface.co/RoamingPigs"]},{"@type":"Person","@id":"https://roamingpigs.org/#author","name":"Cisco Caceres","url":"https://ciscocaceres.com/","sameAs":["https://orcid.org/0009-0005-7810-5077","https://github.com/RoamingPigs","https://huggingface.co/RoamingPigs"]},{"@type":"WebPage","@id":"https://roamingpigs.org/datasets/trcs/#page","url":"https://roamingpigs.org/datasets/trcs/","name":"TRCS Dataset Card: Synthetic Radio-Channel Speech Benchmark","description":"1,050 synthetic audio files with a SHA-256 for each, built to test speech models on silence, noise and telephone codecs. Contents, checks and known limits.","inLanguage":"en","isPartOf":{"@id":"https://roamingpigs.org/#website"},"author":{"@id":"https://roamingpigs.org/#author"},"dateModified":"2026-10-11"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Research Notes","item":"https://roamingpigs.org/"},{"@type":"ListItem","position":2,"name":"TRCS dataset","item":"https://roamingpigs.org/datasets/trcs/"}]},{"@type":"Dataset","@id":"https://roamingpigs.org/datasets/trcs/#dataset","name":"TRCS: a synthetic radio-channel benchmark for speech recognition","description":"1,050 synthetic 16 kHz audio files in 33 conditions, with a SHA-256 for every file. Tests speech models on silence, noise and narrowband telephone codecs.","url":"https://roamingpigs.org/datasets/trcs/","sameAs":"https://huggingface.co/datasets/RoamingPigs/trcs-tactical-audio","creator":{"@id":"https://roamingpigs.org/#author"},"dateModified":"2026-10-10","license":"https://creativecommons.org/licenses/by/4.0/","isAccessibleForFree":true,"keywords":["speech recognition","hallucination","telephone codecs","benchmark","synthetic speech"],"measurementTechnique":"Synthetic speech and noise passed through software codecs and mixed at fixed signal-to-noise ratios.","distribution":[{"@type":"DataDownload","encodingFormat":"audio/wav","contentUrl":"https://huggingface.co/datasets/RoamingPigs/trcs-tactical-audio"}]}]}</script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preload" href="/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/site.css?v=df2b542f">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<svg class="defs" width="0" height="0" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="g-measured" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5" fill="currentColor"/></symbol>
+    <symbol id="g-modelled" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M8 2.5a5.5 5.5 0 0 1 0 11z" fill="currentColor"/></symbol>
+    <symbol id="g-simulated" viewBox="0 0 16 16"><path d="M8 1.8 14.2 8 8 14.2 1.8 8z" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/></symbol>
+    <symbol id="g-proposed" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-dasharray="2.6 2.2"/></symbol>
+  </defs>
+</svg>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/favicon.svg" alt="" width="28" height="28">RoamingPigs <span>Research Notes</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+<li><a href="/">Records</a></li><li><a href="/datasets/trcs/" aria-current="page">Dataset</a></li><li><a href="/method/">Method</a></li><li><a href="/cite/">Cite</a></li><li><a href="/about/">About</a></li>        <li><a class="sister" href="https://roamingpigs.ai/">Instruments <span aria-hidden="true">&nearr;</span><span class="sr-only"> (roamingpigs.ai)</span></a></li>
+      </ul>
+    </nav>
+    <details class="nav-toggle">
+      <summary>Menu</summary>
+      <nav class="site-nav-mobile" aria-label="Main (mobile)">
+        <ul>
+<li><a href="/">Records</a></li><li><a href="/datasets/trcs/" aria-current="page">Dataset</a></li><li><a href="/method/">Method</a></li><li><a href="/cite/">Cite</a></li><li><a href="/about/">About</a></li>          <li><a class="sister" href="https://roamingpigs.ai/">Instruments (roamingpigs.ai) &nearr;</a></li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main id="main">
+<article class="doc">
+  <div class="wrap">
+    <nav class="breadcrumb crumbs" aria-label="Breadcrumb"><a href="/">Research Notes</a> / TRCS dataset</nav>
+    <div class="doc-grid">
+      <nav class="toc" aria-label="On this page">
+        <ol>
+          <li><a href="#what">What it is</a></li>
+          <li><a href="#contents">Contents</a></li>
+          <li><a href="#verify">Verify it</a></li>
+          <li><a href="#limits">Known limits</a></li>
+          <li><a href="#use">Use and licence</a></li>
+        </ol>
+      </nav>
+      <div>
+        <p class="eyebrow">Dataset card</p>
+        <h1>TRCS: a synthetic radio-channel benchmark for speech recognition</h1>
+        <p class="lede">1,050 audio files that push synthetic speech and non-speech sounds through telephone codecs and noise, with a SHA-256 for every file. It exists to test one failure: speech models writing words that were never spoken.</p>
+        <p class="status-line"><span>Self-published, not peer reviewed</span><span aria-hidden="true">&middot;</span><span>Manifest generated <span class="mono">2026-10-10T21:33:12Z</span></span></p>
+
+        <div class="prose">
+        <h2 id="what">What it is <a class="anchor" href="#what" aria-label="Link to this section">#</a></h2>
+        <p>TRCS stands for Tactical Radio Channel Simulator. It has two parts. One tests what a model does when there is nothing to transcribe. The other tests how accuracy falls as audio passes through narrowband telephone codecs and added noise.</p>
+        <p>The speech is synthetic. The calls are scripted and rendered with a text-to-speech engine, then degraded in software. The channel effects are simulated. Nothing here was captured from a real radio.</p>
+
+        <h2 id="contents">Contents <a class="anchor" href="#contents" aria-label="Link to this section">#</a></h2>
+        </div>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Data table, scrolls sideways on small screens">
+          <table>
+            <caption>Both splits are 16 kHz mono 16-bit WAV. Counts are read from the manifest.</caption>
+            <thead><tr><th>Split</th><th class="n">Files</th><th>What is in it</th></tr></thead>
+            <tbody>
+              <tr><td class="mono">hallucination</td><td class="n">90</td><td>9 conditions &times; 10 seeds, 2.5 s each. Eight non-speech conditions (digital silence, quiet room, radio squelch burst, white, pink, brown, engine and babble noise) plus one speech control.</td></tr>
+              <tr><td class="mono">telephone_grid</td><td class="n">960</td><td>40 scripted radio calls &times; 6 audio paths (uncompressed, G.711 &mu;-law, G.711 A-law, AMR-NB, GSM full-rate, Opus narrowband) &times; 4 noise levels (clean, 20, 10 and 0 dB).</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="prose">
+        <p class="small tight">Total 2.27 hours and 261 MB, 33 conditions.</p>
+
+        <h2 id="verify">Verify it <a class="anchor" href="#verify" aria-label="Link to this section">#</a></h2>
+        <p>The manifest lists a SHA-256 for each file. This checks all of them against what you downloaded. I ran the same check on my copy on 11 October 2026 and found 0 mismatches.</p>
+        </div>
+        <div class="codeblock">
+          <button class="copy" type="button" data-copy="verify" hidden>Copy</button>
+<pre id="verify" tabindex="0"><code><span class="c"># 1. download the dataset</span>
+python3 -m pip install huggingface_hub
+python3 -c "from huggingface_hub import snapshot_download; \
+snapshot_download('RoamingPigs/trcs-tactical-audio', repo_type='dataset', local_dir='trcs')"
+
+<span class="c"># 2. re-hash every file against the manifest</span>
+python3 - &lt;&lt;'PY'
+import hashlib, json, pathlib
+root = pathlib.Path("trcs")
+m = json.loads((root / "provenance_manifest.json").read_text())
+bad = [f["filename"] for f in m["files"]
+       if hashlib.sha256((root / f["relative_path"]).read_bytes()).hexdigest() != f["sha256"]]
+print(len(m["files"]), "files,", len(bad), "mismatches")
+PY</code></pre>
+        </div>
+        <div class="callout"><p><strong>What a matching hash proves.</strong> The file is the one I listed. It does not prove the audio is realistic or that a model's score on it means anything outside this benchmark. There is no combined root digest yet, only one digest per file.</p></div>
+
+        <div class="prose">
+        <h2 id="limits">Known limits <a class="anchor" href="#limits" aria-label="Link to this section">#</a></h2>
+        <ul>
+          <li><strong>Synthetic speech.</strong> Real radio speech is faster, more varied and often clipped. Results here may not carry over.</li>
+          <li><strong>Simulated channels.</strong> The codecs are standard, but the noise and squelch effects are my own models of them.</li>
+          <li><strong>The published results used a different configuration.</strong> The speech-model run scored 5 utterances at five noise levels including &minus;6 dB. The released files hold 40 utterances at four levels and no &minus;6 dB. The scored audio is not a subset of these files.</li>
+          <li><strong>Duplicate files.</strong> 18 files are byte-identical copies of another file (digital silence and speech control clips do not vary by seed). That leaves 1,032 distinct digests.</li>
+          <li><strong>One author.</strong> Nobody else has re-run the benchmark.</li>
+        </ul>
+
+        <h2 id="use">Use and licence <a class="anchor" href="#use" aria-label="Link to this section">#</a></h2>
+        <p>Code is Apache-2.0. Audio fixtures are CC BY 4.0, as stated in the manifest. Please cite the dataset, with its manifest date, if you use it. <a href="/cite/">How to cite</a>.</p>
+        <p><a href="https://huggingface.co/datasets/RoamingPigs/trcs-tactical-audio">Dataset on Hugging Face</a> &middot; <a href="/#radio-audio">Results from it</a> &middot; <a href="https://ciscocaceres.com/downloads/tactical-radio-channel-simulator/">Paper</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <h2>RoamingPigs Research Notes</h2>
+      <p>Small experiments, published with their limits. Written by <a href="https://ciscocaceres.com/">Cisco Caceres</a>. Self-published and not peer reviewed.</p>
+    </div>
+    <div>
+      <h2>This site</h2>
+      <ul><li><a href="/">Records</a></li><li><a href="/datasets/trcs/">Dataset</a></li><li><a href="/method/">Method</a></li><li><a href="/cite/">Cite</a></li><li><a href="/about/">About</a></li><li><a href="/corrections/">Corrections</a></li></ul>
+    </div>
+    <div>
+      <h2>Elsewhere</h2>
+      <ul>
+        <li><a href="https://roamingpigs.ai/">Instruments (roamingpigs.ai)</a></li>
+        <li><a href="https://roamingpigs.com/">Field Manual (roamingpigs.com)</a></li>
+        <li><a href="https://ciscocaceres.com/research/">Papers (ciscocaceres.com)</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Records</h2>
+      <ul>
+        <li><a href="https://huggingface.co/datasets/RoamingPigs/trcs-tactical-audio">Dataset on Hugging Face</a></li>
+        <li><a href="https://github.com/RoamingPigs">GitHub</a></li>
+        <li><a href="https://orcid.org/0009-0005-7810-5077">ORCID 0009-0005-7810-5077</a></li>
+      </ul>
+    </div>
+    <p class="footer-note">&copy; 2026 Cisco Caceres. Data licences are stated on each dataset page. No cookies, no analytics, nothing loaded from other domains. Last build 11 October 2026.</p>
+  </div>
+</footer>
+<script src="/js/site.js?v=2d4f8d10" defer></script>
+</body>
+</html>

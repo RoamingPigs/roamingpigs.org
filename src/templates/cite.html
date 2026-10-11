@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% from "macros.html" import chip %}
+{% block main %}
+<article class="doc">
+  <div class="wrap">
+    <nav class="breadcrumb crumbs" aria-label="Breadcrumb"><a href="/">Research Notes</a> / Cite</nav>
+    <div class="doc-grid">
+      <nav class="toc" aria-label="On this page">
+        <ol>
+          <li><a href="#dataset">The dataset</a></li>
+          <li><a href="#site">These notes</a></li>
+          <li><a href="#numbers">A single number</a></li>
+        </ol>
+      </nav>
+      <div>
+        <p class="eyebrow">Cite</p>
+        <h1>How to cite this work</h1>
+        <p class="lede">These records have no DOI. A DOI exists only after a deposit, and I have not made one. When I do, it will appear here and not before.</p>
+
+        <h2 id="dataset">The dataset <a class="anchor" href="#dataset" aria-label="Link to this section">#</a></h2>
+        <div class="codeblock">
+          <button class="copy" type="button" data-copy="bib-data" hidden>Copy</button>
+<pre id="bib-data" tabindex="0"><code>@misc{caceres2026trcs,
+  author       = {Caceres, Cisco},
+  title        = {% raw %}{{TRCS}{% endraw %}: a synthetic radio-channel benchmark for speech recognition},
+  year         = {2026},
+  howpublished = {Dataset, Hugging Face},
+  url          = {https://huggingface.co/datasets/RoamingPigs/trcs-tactical-audio},
+  note         = {Self-published, not peer reviewed. Manifest generated {{ c.trcs.generated_at }}.}
+}</code></pre>
+        </div>
+
+        <h2 id="site">These notes <a class="anchor" href="#site" aria-label="Link to this section">#</a></h2>
+        <div class="codeblock">
+          <button class="copy" type="button" data-copy="bib-site" hidden>Copy</button>
+<pre id="bib-site" tabindex="0"><code>@misc{caceres2026notes,
+  author       = {Caceres, Cisco},
+  title        = {% raw %}{{RoamingPigs}{% endraw %} Research Notes},
+  year         = {2026},
+  howpublished = {Website},
+  url          = {https://roamingpigs.org/},
+  note         = {Self-published, not peer reviewed. Cite the record and its run date.}
+}</code></pre>
+        </div>
+
+        <div class="prose">
+        <h2 id="numbers">A single number <a class="anchor" href="#numbers" aria-label="Link to this section">#</a></h2>
+        <p>Cite the record and its run date, not only the page. For example: &ldquo;Caceres, RoamingPigs Research Notes, record <em>radio-audio</em>, run {{ v.e2_date }}, https://roamingpigs.org/#radio-audio&rdquo;. Say which evidence class applies. A simulated figure and a measured one are not the same kind of claim.</p>
+        <p>The <a href="/corrections/">corrections log</a> lists every change to a published figure.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+{% endblock %}

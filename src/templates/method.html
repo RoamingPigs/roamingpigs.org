@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% from "macros.html" import chip %}
+{% block main %}
+<article class="doc">
+  <div class="wrap">
+    <nav class="breadcrumb crumbs" aria-label="Breadcrumb"><a href="/">Research Notes</a> / Method</nav>
+    <div class="doc-grid">
+      <nav class="toc" aria-label="On this page">
+        <ol>
+          <li><a href="#classes">Evidence classes</a></li>
+          <li><a href="#every-record">What every record shows</a></li>
+          <li><a href="#provenance">Where numbers come from</a></li>
+          <li><a href="#review">Review status</a></li>
+          <li><a href="#naming">Naming</a></li>
+        </ol>
+      </nav>
+      <div>
+        <p class="eyebrow">Method</p>
+        <h1>How a number gets onto this site</h1>
+        <p class="lede">Most of what I run is small, quick and done by me alone. That is fine for finding out what is worth testing properly. It is not fine to present as settled. These rules keep the two apart.</p>
+
+        <div class="prose">
+        <h2 id="classes">Evidence classes <a class="anchor" href="#classes" aria-label="Link to this section">#</a></h2>
+        <p>Every record carries one or more of four marks. The mark says what kind of thing the number is before you read the number.</p>
+        </div>
+        <div class="def-grid">
+          <div class="def">{{ chip('measured') }}<p>Something I ran and recorded: a model scored on audio, a wall meter read during a run. It describes that run. It does not describe other models, other days or other machines.</p></div>
+          <div class="def">{{ chip('modelled') }}<p>A formula or a calibrated estimate. The inputs may be measured, but the output is a calculation. When a model and a meter disagree, the meter wins and I say so.</p></div>
+          <div class="def">{{ chip('simulated') }}<p>Data a script generated from settings I chose. Useful for showing how a method behaves under known conditions. It cannot show how real systems behave, and a simulation can never confirm its own settings.</p></div>
+          <div class="def">{{ chip('proposed') }}<p>A question and a plan, with nothing run. I list these so you can tell a result from an intention.</p></div>
+        </div>
+
+        <div class="prose">
+        <h2 id="every-record">What every record shows <a class="anchor" href="#every-record" aria-label="Link to this section">#</a></h2>
+        <ul>
+          <li>The date and time of the run, in UTC.</li>
+          <li>The sample: how many models, items, seeds or runs.</li>
+          <li>The method in one line, and the results file the numbers came from.</li>
+          <li>A short statement of what the result does not show.</li>
+          <li>A link to the full paper, where one exists.</li>
+        </ul>
+        <p>If I cannot fill in one of these, the number does not go on the page. I do not publish a figure without a date, a sample and a method. Where a result has no confidence interval, the page says so and treats the figure as a point estimate.</p>
+
+        <h2 id="provenance">Where numbers come from <a class="anchor" href="#provenance" aria-label="Link to this section">#</a></h2>
+        <p>The pages do not hold typed measurements. A script reads each figure from the results file and records the SHA-256 of that file. If a results file changes, the site fails to build until the numbers are read again. That is how I stop a page and its data from drifting apart. It does not make the data correct. It makes the page match the data.</p>
+        <p>Each figure names the results file it was read from. The audio dataset and its manifest are public on <a href="https://huggingface.co/datasets/RoamingPigs/trcs-tactical-audio">Hugging Face</a>, so the file checks can be repeated by anyone.</p>
+
+        <h2 id="review">Review status <a class="anchor" href="#review" aria-label="Link to this section">#</a></h2>
+        <p>Nothing here is peer reviewed. No one outside this project has reproduced a result. I run a checklist script before I publish. It catches formatting and consistency mistakes. It is not a review, and it did not catch most of the errors on the <a href="/corrections/">corrections page</a>.</p>
+        <p>I will not use words such as proven, verified, cleared or validated for my own results. They imply a checker, and there is none.</p>
+
+        <h2 id="naming">Naming <a class="anchor" href="#naming" aria-label="Link to this section">#</a></h2>
+        <p>Third-party models appear by size and kind, for example &ldquo;a 39M-parameter English-only model&rdquo;, not by product name. Hardware is named where the specification matters. I am the only author, and Echo is my own project.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+{% endblock %}

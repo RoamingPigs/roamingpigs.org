@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://roamingpigs.org/</loc>
-    <lastmod>2026-10-11T02:44:28Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
+  <url><loc>https://roamingpigs.org/</loc><lastmod>2026-10-11</lastmod></url>
+  <url><loc>https://roamingpigs.org/datasets/trcs/</loc><lastmod>2026-10-11</lastmod></url>
+  <url><loc>https://roamingpigs.org/method/</loc><lastmod>2026-10-11</lastmod></url>
+  <url><loc>https://roamingpigs.org/corrections/</loc><lastmod>2026-10-11</lastmod></url>
+  <url><loc>https://roamingpigs.org/cite/</loc><lastmod>2026-10-11</lastmod></url>
+  <url><loc>https://roamingpigs.org/about/</loc><lastmod>2026-10-11</lastmod></url>
 </urlset>

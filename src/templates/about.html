@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% from "macros.html" import chip %}
+{% block main %}
+<article class="doc">
+  <div class="wrap">
+    <nav class="breadcrumb crumbs" aria-label="Breadcrumb"><a href="/">Research Notes</a> / About</nav>
+    <div class="doc-grid">
+      <nav class="toc" aria-label="On this page">
+        <ol>
+          <li><a href="#who">Who writes this</a></li>
+          <li><a href="#disclosures">Disclosures</a></li>
+          <li><a href="#sites">The three sites</a></li>
+        </ol>
+      </nav>
+      <div>
+        <p class="eyebrow">About</p>
+        <h1>One person, small experiments, public limits</h1>
+        <div class="prose">
+        <h2 id="who">Who writes this <a class="anchor" href="#who" aria-label="Link to this section">#</a></h2>
+        <p>I am <a href="https://ciscocaceres.com/">Cisco Caceres</a>. I build and run AI and network systems for a living and have for a long time. These notes are the experiments I run to find out whether an idea holds up. My longer background is on <a href="https://ciscocaceres.com/career/">ciscocaceres.com</a>.</p>
+        <p>RoamingPigs is a project name, not an institution. This is one person&rsquo;s work. My ORCID iD is <a href="https://orcid.org/0009-0005-7810-5077">0009-0005-7810-5077</a>.</p>
+
+        <h2 id="disclosures">Disclosures <a class="anchor" href="#disclosures" aria-label="Link to this section">#</a></h2>
+        <ul>
+          <li>Everything here is self-published and not peer reviewed. Every run is mine, on my machines.</li>
+          <li>Echo, the multi-agent coordination layer in one record, is my own project. I take paid AI systems work through <a href="https://ciscocaceres.com/services/">ciscocaceres.com</a>.</li>
+          <li>I name models by size and kind, not by product.</li>
+          <li>This site sets no cookies, runs no analytics and loads nothing from other domains.</li>
+        </ul>
+
+        <h2 id="sites">The three sites <a class="anchor" href="#sites" aria-label="Link to this section">#</a></h2>
+        <p>Each site has one job, and none repeats another.</p>
+        <ul>
+          <li><strong>roamingpigs.org</strong> (this site) holds the records: figures, datasets, corrections.</li>
+          <li><strong><a href="https://roamingpigs.ai/">roamingpigs.ai</a></strong> holds the instruments: calculators and explorers that read the same data.</li>
+          <li><strong><a href="https://roamingpigs.com/">roamingpigs.com</a></strong> is the Field Manual, the independent technical publication.</li>
+          <li><strong><a href="https://ciscocaceres.com/research/">ciscocaceres.com</a></strong> holds the full papers and my consulting work.</li>
+        </ul>
+        <p>To reach me, use the <a href="https://ciscocaceres.com/contact/">contact page</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+{% endblock %}

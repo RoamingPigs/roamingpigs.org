@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% from "macros.html" import chip %}
+{% block main %}
+<article class="doc">
+  <div class="wrap">
+    <nav class="breadcrumb crumbs" aria-label="Breadcrumb"><a href="/">Research Notes</a> / Corrections</nav>
+    <div class="doc-grid">
+      <nav class="toc" aria-label="On this page">
+        <ol>
+          <li><a href="#log">Log</a></li>
+          <li><a href="#policy">How corrections work</a></li>
+        </ol>
+      </nav>
+      <div>
+        <p class="eyebrow">Corrections</p>
+        <h1>What I got wrong, and when I fixed it</h1>
+        <p class="lede">A record that cannot be corrected cannot be trusted. Each entry says what was published, what was wrong and what replaced it.</p>
+
+        <h2 id="log" class="log-h">Log</h2>
+        <ol class="timeline">
+          <li>
+            <time datetime="2026-10-11">11 October 2026</time>
+            <h3>The first version of this site was withdrawn and rebuilt</h3>
+            <p>The first version went live on {{ v.first_pub }}. {% if v.first_pub == site.modified_human %}Later that day{% else %}On {{ site.modified_human }}{% endif %} I checked every figure and identifier on it against the results files and removed what I could not trace.</p>
+            <ul>
+              <li><strong>Identifiers.</strong> A DOI and an organisation registry link were shown for work that had never been deposited. Neither existed. They are gone, and these records carry no DOI.</li>
+              <li><strong>&ldquo;Merkle root&rdquo;.</strong> The digest shown was the SHA-256 of a single audio file, not a root over the dataset. There is no combined digest yet, only one per file.</li>
+              <li><strong>Word error rates by codec.</strong> Five values with confidence intervals appeared in no results file. They are replaced by the means in the E2 ledger, as point estimates.</li>
+              <li><strong>Agent coordination panel.</strong> The &ldquo;12,400 holds&rdquo; and &ldquo;0.00% collisions&rdquo; figures had no source, and an 84.7% consistency figure was another experiment&rsquo;s routing accuracy. The record now shows the 16-attempt diagnostic.</li>
+              <li><strong>Error correlation.</strong> A value of 0.42 matched no statistic. The simulated correlation is {{ v.rho }}, and the record now says it is a simulation.</li>
+              <li><strong>Energy per token.</strong> A figure of 1.66 J came from dividing an assumed power by an assumed speed. Wall-meter runs read {{ v.j_min }} to {{ v.j_max }}.</li>
+              <li><strong>Dataset description.</strong> The files are 16 kHz with {{ c.trcs.conditions }} conditions, not 8 kHz with 30.</li>
+              <li><strong>Labels.</strong> &ldquo;Proven&rdquo;, &ldquo;empirically verified&rdquo;, &ldquo;gate cleared&rdquo;, &ldquo;6/6 pass&rdquo; and an RFC-style header implied a reviewer and a standards body. There is neither. They are removed.</li>
+            </ul>
+          </li>
+          <li>
+            <time datetime="2026-10-10">10 October 2026</time>
+            <h3>Write-up of the silence experiment disagreed with its results file</h3>
+            <p>The prose summary of the first experiment said an energy gate removed 90 to 100% of invented words. The results file shows {{ c.e1.gate_suppression_pct_min }} to {{ c.e1.gate_suppression_pct_max }}%, and no effect on noise or squelch. The results file is right. This site uses it.</p>
+          </li>
+        </ol>
+
+        <div class="prose">
+        <h2 id="policy">How corrections work <a class="anchor" href="#policy" aria-label="Link to this section">#</a></h2>
+        <p>I fix errors in place and log them here with the date. I do not change a figure silently. If a correction changes a conclusion, the record&rsquo;s evidence mark changes too.</p>
+        <p>To report an error, use the <a href="https://ciscocaceres.com/contact/">contact page</a> and name the record.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+{% endblock %}
