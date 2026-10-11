@@ -9,6 +9,8 @@ Durable backlog. Update at every milestone and pause.
 - [x] 2026-10-11: Rebuilt as "Research Notes". Withdrew the first version, which carried a placeholder DOI, a ROR link that does not exist, a "Merkle root" that was one file's hash, codec error rates with no source, an agent-swarm panel with no source, and "proven / verified / cleared" labels. Every figure now comes from `data/canon.json`, derived from the ledgers, with an evidence class, date, sample and limits. Corrections are public at `/corrections/`.
 - [x] Gates green on 7 pages x 3 viewports: axe WCAG 2.2 AA, no overflow, no console or CSP errors; SEO audit 9 of 9; copy audit clean; pre-deploy clean.
 
+- [x] 2026-10-11: Published the five results files at `/results/` (scrubbed: model names to size and kind, local paths, hosts and IPs removed, every number checked unchanged), with SHA-256 digests, `index.json`, CORS, Dataset JSON-LD and a script that reproduces the headline figure. Live hashes verified against the index.
+
 ## Open
 
 - [ ] **Deposit TRCS for a real DOI** (Zenodo, or Hugging Face "Generate DOI"). Then add it to `/cite/`, the Dataset JSON-LD and the dataset page. Needs the operator's account.
@@ -20,3 +22,8 @@ Durable backlog. Update at every milestone and pause.
 - [ ] Core Web Vitals field data once there is traffic (PageSpeed API, `seo-audit.py --with-psi`).
 - [ ] **Live SEO audit `well-known` dimension** fails only on two Abundera-specific files (`abundera-capabilities.json`, an `llms.txt` redirect) that do not apply to this property. Add `"seo": {"skip": ["well-known"]}` for this site in `claude-code/config/cf-sites.json`. `gpc.json` is published.
 - [ ] **Cloudflare Web Analytics auto-injection.** Cloudflare tries to inject its beacon on production. The site CSP blocks it (nothing loads, the privacy statement holds) but it logs a console error that costs a Lighthouse best-practices point. Either turn off automatic setup for this hostname, or accept the beacon in the CSP and change the "no analytics" line. Operator's call.
+- [ ] **Publish the experiment scripts** (research-brand goal). They live in the private ciscocaceres.com repo (`scripts/research/`). Needs a scrub for paths and hosts, and a home (GitHub `RoamingPigs`). Until then the results can be checked, not re-run.
+- [ ] **Real model identities for reproduction.** The published files label models by size and kind, per the naming rule, so an outsider cannot re-run the exact models. Revisit with the operator if outside reproduction becomes the priority.
+- [ ] **Flagship experiment.** One question for one audience, with a sample large enough to support a claim (the current speech pilot has five utterances), published with data and an instrument on roamingpigs.ai.
+- [ ] **Outside-reproduction invitation.** Needs the scripts and model identities above first.
+- [ ] Confirm the CC BY 4.0 licence on the results files (applied to match the audio fixtures).
