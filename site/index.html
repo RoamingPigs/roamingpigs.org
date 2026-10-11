@@ -34,7 +34,7 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preload" href="/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/site.css?v=df2b542f">
+  <link rel="stylesheet" href="/css/site.css?v=6e6fa96d">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -52,14 +52,14 @@
     <a class="brand" href="/"><img src="/favicon.svg" alt="" width="28" height="28">RoamingPigs <span>Research Notes</span></a>
     <nav class="site-nav" aria-label="Main">
       <ul>
-<li><a href="/" aria-current="page">Records</a></li><li><a href="/datasets/trcs/">Dataset</a></li><li><a href="/method/">Method</a></li><li><a href="/cite/">Cite</a></li><li><a href="/about/">About</a></li>        <li><a class="sister" href="https://roamingpigs.ai/">Instruments <span aria-hidden="true">&nearr;</span><span class="sr-only"> (roamingpigs.ai)</span></a></li>
+<li><a href="/" aria-current="page">Records</a></li><li><a href="/results/">Results</a></li><li><a href="/datasets/trcs/">TRCS audio</a></li><li><a href="/method/">Method</a></li><li><a href="/cite/">Cite</a></li><li><a href="/about/">About</a></li>        <li><a class="sister" href="https://roamingpigs.ai/">Instruments <span aria-hidden="true">&nearr;</span><span class="sr-only"> (roamingpigs.ai)</span></a></li>
       </ul>
     </nav>
     <details class="nav-toggle">
       <summary>Menu</summary>
       <nav class="site-nav-mobile" aria-label="Main (mobile)">
         <ul>
-<li><a href="/" aria-current="page">Records</a></li><li><a href="/datasets/trcs/">Dataset</a></li><li><a href="/method/">Method</a></li><li><a href="/cite/">Cite</a></li><li><a href="/about/">About</a></li>          <li><a class="sister" href="https://roamingpigs.ai/">Instruments (roamingpigs.ai) &nearr;</a></li>
+<li><a href="/" aria-current="page">Records</a></li><li><a href="/results/">Results</a></li><li><a href="/datasets/trcs/">TRCS audio</a></li><li><a href="/method/">Method</a></li><li><a href="/cite/">Cite</a></li><li><a href="/about/">About</a></li>          <li><a class="sister" href="https://roamingpigs.ai/">Instruments (roamingpigs.ai) &nearr;</a></li>
         </ul>
       </nav>
     </details>
@@ -119,11 +119,12 @@
             <div><dt>Run</dt><dd class="mono">2026-10-10 18:34 UTC</dd></div>
             <div><dt>Sample</dt><dd>6 models (39M to 809M parameters) &times; 5 utterances &times; 6 audio paths &times; 5 noise levels = <span class="mono">900</span> transcripts</dd></div>
             <div><dt>Method</dt><dd>Word error rate against the script, greedy decoding, no resampling</dd></div>
-            <div><dt>Source</dt><dd class="mono">e2-telephone-grid-ledger.json</dd></div>
+            <div><dt>Source</dt><dd><a class="mono" href="/results/e2-telephone-grid-ledger.json">e2-telephone-grid-ledger.json</a></dd></div>
           </dl>
         </div>
         <ul class="record-links">
           <li><a href="/datasets/trcs/">The dataset</a></li>
+          <li><a href="/results/">All results files</a></li>
           <li><a href="https://roamingpigs.ai/codec-grid/">Explore every transcript</a></li>
           <li><a href="https://ciscocaceres.com/downloads/tactical-radio-channel-simulator/">Read the paper</a></li>
         </ul>
@@ -150,7 +151,7 @@
             <div><dt>Run</dt><dd class="mono">2026-10-10 17:48 UTC</dd></div>
             <div><dt>Sample</dt><dd>6 models &times; 8 conditions &times; 3 seeds, 2.5 s each</dd></div>
             <div><dt>Method</dt><dd>Count clips where the transcript contains any word. Gate: 20 ms frames, &minus;42 dBFS threshold</dd></div>
-            <div><dt>Source</dt><dd class="mono">e1-hallucination-ledger.json</dd></div>
+            <div><dt>Source</dt><dd><a class="mono" href="/results/e1-hallucination-ledger.json">e1-hallucination-ledger.json</a></dd></div>
           </dl>
         </div>
         <ul class="record-links">
@@ -180,7 +181,7 @@
             <div><dt>Run</dt><dd class="mono">2026-10-10 23:26 UTC</dd></div>
             <div><dt>Sample</dt><dd>Two runs, one per model, 384 generated tokens each</dd></div>
             <div><dt>Method</dt><dd>Smart-plug wall power averaged over the run, divided by tokens per second. Weights at Q4_K_M</dd></div>
-            <div><dt>Source</dt><dd class="mono">sovereign-apu-inference-ledger.json</dd></div>
+            <div><dt>Source</dt><dd><a class="mono" href="/results/sovereign-apu-inference-ledger.json">sovereign-apu-inference-ledger.json</a></dd></div>
           </dl>
         </div>
         <ul class="record-links">
@@ -219,7 +220,7 @@
             <div><dt>Run</dt><dd class="mono">2026-10-10 21:51 UTC</dd></div>
             <div><dt>Sample</dt><dd>504 task slots, 1,344 simulated candidates on the calibration split, seed 42</dd></div>
             <div><dt>Method</dt><dd>Pearson correlation of the two verifiers' binary error indicators</dd></div>
-            <div><dt>Source</dt><dd class="mono">vec-scr-evaluation-ledger.json</dd></div>
+            <div><dt>Source</dt><dd><a class="mono" href="/results/vec-scr-evaluation-ledger.json">vec-scr-evaluation-ledger.json</a></dd></div>
           </dl>
         </div>
         <ul class="record-links">
@@ -248,7 +249,7 @@
             <div><dt>Run</dt><dd class="mono">2026-10-10 17:40 UTC</dd></div>
             <div><dt>Sample</dt><dd>8 tasks &times; 3 arms, 16 attempts per arm (48 in all)</dd></div>
             <div><dt>Method</dt><dd>An attempt is accepted when all hidden acceptance checks pass</dd></div>
-            <div><dt>Source</dt><dd class="mono">e3-mast-coding-ledger.json</dd></div>
+            <div><dt>Source</dt><dd><a class="mono" href="/results/e3-mast-coding-ledger.json">e3-mast-coding-ledger.json</a></dd></div>
           </dl>
         </div>
         <ul class="record-links">
@@ -299,7 +300,7 @@
     </div>
     <div>
       <h2>This site</h2>
-      <ul><li><a href="/">Records</a></li><li><a href="/datasets/trcs/">Dataset</a></li><li><a href="/method/">Method</a></li><li><a href="/cite/">Cite</a></li><li><a href="/about/">About</a></li><li><a href="/corrections/">Corrections</a></li></ul>
+      <ul><li><a href="/">Records</a></li><li><a href="/results/">Results</a></li><li><a href="/datasets/trcs/">TRCS audio</a></li><li><a href="/method/">Method</a></li><li><a href="/cite/">Cite</a></li><li><a href="/about/">About</a></li><li><a href="/corrections/">Corrections</a></li></ul>
     </div>
     <div>
       <h2>Elsewhere</h2>

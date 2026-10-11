@@ -1,0 +1,4307 @@
+{
+ "experiment_id": "E1",
+ "date_utc": "2026-10-10 17:48:31Z",
+ "protocol_reference": "docs/research/EXPERIMENT-QUEUE-2026-10.md",
+ "sample_rate": 16000,
+ "clip_duration_sec": 2.5,
+ "conditions_evaluated": [
+  "digital_silence",
+  "ambient_silence",
+  "squelch_burst",
+  "noise_white",
+  "noise_pink",
+  "noise_brown",
+  "noise_engine",
+  "noise_babble",
+  "speech_control"
+ ],
+ "seeds": [
+  100,
+  101,
+  102
+ ],
+ "models": [
+  {
+   "model_name": "39M English-only",
+   "ungated_metrics": {
+    "total_non_speech_clips": 24,
+    "hallucinated_clips": 24,
+    "hallucination_clip_rate": 1.0,
+    "total_non_speech_duration_sec": 60.0,
+    "total_inserted_words": 24,
+    "words_per_minute_hallucinated": 24.0,
+    "by_condition": {
+     "digital_silence": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "ambient_silence": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "squelch_burst": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_white": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_pink": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_brown": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_engine": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_babble": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     }
+    }
+   },
+   "gated_metrics": {
+    "total_non_speech_clips": 24,
+    "hallucinated_clips": 18,
+    "hallucination_clip_rate": 0.75,
+    "total_non_speech_duration_sec": 60.0,
+    "total_inserted_words": 18,
+    "words_per_minute_hallucinated": 18.0,
+    "by_condition": {
+     "digital_silence": {
+      "clips": 3,
+      "hallucinated_clips": 0,
+      "hallucination_clip_rate": 0.0,
+      "words_per_minute": 0.0,
+      "total_words": 0
+     },
+     "ambient_silence": {
+      "clips": 3,
+      "hallucinated_clips": 0,
+      "hallucination_clip_rate": 0.0,
+      "words_per_minute": 0.0,
+      "total_words": 0
+     },
+     "squelch_burst": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_white": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_pink": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_brown": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_engine": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_babble": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     }
+    }
+   },
+   "gating_suppression_pct": 25.0,
+   "top_hallucinated_vocabulary": {
+    "you": 24
+   },
+   "records_ungated": [
+    {
+     "clip_id": "digital_silence_seed100",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 2.7162693940044846,
+     "gated": false
+    },
+    {
+     "clip_id": "digital_silence_seed101",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 1.129356691002613,
+     "gated": false
+    },
+    {
+     "clip_id": "digital_silence_seed102",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.4837850859912578,
+     "gated": false
+    },
+    {
+     "clip_id": "ambient_silence_seed100",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.23103066900512204,
+     "gated": false
+    },
+    {
+     "clip_id": "ambient_silence_seed101",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.47157265599526,
+     "gated": false
+    },
+    {
+     "clip_id": "ambient_silence_seed102",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 1.1516421400010586,
+     "gated": false
+    },
+    {
+     "clip_id": "squelch_burst_seed100",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 1.2674427259917138,
+     "gated": false
+    },
+    {
+     "clip_id": "squelch_burst_seed101",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 1.0935752730001695,
+     "gated": false
+    },
+    {
+     "clip_id": "squelch_burst_seed102",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "You",
+     "tokens_generated": 1,
+     "wall_sec": 2.4698795909935143,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_white_seed100",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 2.770929796999553,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_white_seed101",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 1.7947776790097123,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_white_seed102",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 1.4849842140101828,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_pink_seed100",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 1.8091492759995162,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_pink_seed101",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 2.7569045499985805,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_pink_seed102",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 1.8772268949978752,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_brown_seed100",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 1.0970504080032697,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_brown_seed101",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 1.1937185269925976,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_brown_seed102",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 1.6202890290005598,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_engine_seed100",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.5385234389977995,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_engine_seed101",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 1.687439750006888,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_engine_seed102",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.928145087993471,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_babble_seed100",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.07690399000421166,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_babble_seed101",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.07971595399430953,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_babble_seed102",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "You",
+     "tokens_generated": 1,
+     "wall_sec": 0.07852233300218359,
+     "gated": false
+    },
+    {
+     "clip_id": "speech_control_seed100",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.08064934900903609,
+     "gated": false
+    },
+    {
+     "clip_id": "speech_control_seed101",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.07979804399656132,
+     "gated": false
+    },
+    {
+     "clip_id": "speech_control_seed102",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.18510796000191476,
+     "gated": false
+    }
+   ],
+   "records_gated": [
+    {
+     "clip_id": "digital_silence_seed100",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "digital_silence_seed101",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "digital_silence_seed102",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "ambient_silence_seed100",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "ambient_silence_seed101",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "ambient_silence_seed102",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "squelch_burst_seed100",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.2605889410042437,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "squelch_burst_seed101",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 2.232243140009814,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "squelch_burst_seed102",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "You",
+     "tokens_generated": 1,
+     "wall_sec": 3.1633062239998253,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_white_seed100",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 2.343828918004874,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_white_seed101",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.40940903399314266,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_white_seed102",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.8685125360061647,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_pink_seed100",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 1.988611029999447,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_pink_seed101",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 2.280083192003076,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_pink_seed102",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 1.4147352040017722,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_brown_seed100",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 2.1946803750033723,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_brown_seed101",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 2.280849800998112,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_brown_seed102",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 1.4511649849882815,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_engine_seed100",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 1.8097505469922908,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_engine_seed101",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 1.3631799399881857,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_engine_seed102",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.6561704159976216,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_babble_seed100",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "You",
+     "tokens_generated": 1,
+     "wall_sec": 0.08280875299533363,
+     "gated": true,
+     "vad_active_ratio": 0.9558232931726908
+    },
+    {
+     "clip_id": "noise_babble_seed101",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.07511300400074106,
+     "gated": true,
+     "vad_active_ratio": 0.9879518072289156
+    },
+    {
+     "clip_id": "noise_babble_seed102",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "You",
+     "tokens_generated": 1,
+     "wall_sec": 0.08388813700003084,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "speech_control_seed100",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.082851341998321,
+     "gated": true,
+     "vad_active_ratio": 0.9959839357429718
+    },
+    {
+     "clip_id": "speech_control_seed101",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.0792520379909547,
+     "gated": true,
+     "vad_active_ratio": 0.9959839357429718
+    },
+    {
+     "clip_id": "speech_control_seed102",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.07963298700633459,
+     "gated": true,
+     "vad_active_ratio": 0.9959839357429718
+    }
+   ]
+  },
+  {
+   "model_name": "74M English-only",
+   "ungated_metrics": {
+    "total_non_speech_clips": 24,
+    "hallucinated_clips": 24,
+    "hallucination_clip_rate": 1.0,
+    "total_non_speech_duration_sec": 60.0,
+    "total_inserted_words": 24,
+    "words_per_minute_hallucinated": 24.0,
+    "by_condition": {
+     "digital_silence": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "ambient_silence": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "squelch_burst": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_white": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_pink": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_brown": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_engine": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_babble": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     }
+    }
+   },
+   "gated_metrics": {
+    "total_non_speech_clips": 24,
+    "hallucinated_clips": 18,
+    "hallucination_clip_rate": 0.75,
+    "total_non_speech_duration_sec": 60.0,
+    "total_inserted_words": 18,
+    "words_per_minute_hallucinated": 18.0,
+    "by_condition": {
+     "digital_silence": {
+      "clips": 3,
+      "hallucinated_clips": 0,
+      "hallucination_clip_rate": 0.0,
+      "words_per_minute": 0.0,
+      "total_words": 0
+     },
+     "ambient_silence": {
+      "clips": 3,
+      "hallucinated_clips": 0,
+      "hallucination_clip_rate": 0.0,
+      "words_per_minute": 0.0,
+      "total_words": 0
+     },
+     "squelch_burst": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_white": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_pink": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_brown": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_engine": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_babble": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     }
+    }
+   },
+   "gating_suppression_pct": 25.0,
+   "top_hallucinated_vocabulary": {
+    "you": 24
+   },
+   "records_ungated": [
+    {
+     "clip_id": "digital_silence_seed100",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.1645108130032895,
+     "gated": false
+    },
+    {
+     "clip_id": "digital_silence_seed101",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.13080671099305619,
+     "gated": false
+    },
+    {
+     "clip_id": "digital_silence_seed102",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.1309438400057843,
+     "gated": false
+    },
+    {
+     "clip_id": "ambient_silence_seed100",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.13208037400909234,
+     "gated": false
+    },
+    {
+     "clip_id": "ambient_silence_seed101",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.12988299799326342,
+     "gated": false
+    },
+    {
+     "clip_id": "ambient_silence_seed102",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.13237474999914411,
+     "gated": false
+    },
+    {
+     "clip_id": "squelch_burst_seed100",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.12915341400366742,
+     "gated": false
+    },
+    {
+     "clip_id": "squelch_burst_seed101",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.12928234299761243,
+     "gated": false
+    },
+    {
+     "clip_id": "squelch_burst_seed102",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.13077423399954569,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_white_seed100",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.12902533999294974,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_white_seed101",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.12960444198688492,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_white_seed102",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.12911110899585765,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_pink_seed100",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.13205451899557374,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_pink_seed101",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.13139765099913348,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_pink_seed102",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.127467312006047,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_brown_seed100",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.1272622630058322,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_brown_seed101",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.12899356300476938,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_brown_seed102",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.12736320799740497,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_engine_seed100",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.12702462400193326,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_engine_seed101",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.12769996200222522,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_engine_seed102",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.12705221500073094,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_babble_seed100",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.1277608539967332,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_babble_seed101",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.12969662100658752,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_babble_seed102",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "You",
+     "tokens_generated": 1,
+     "wall_sec": 0.1297139980015345,
+     "gated": false
+    },
+    {
+     "clip_id": "speech_control_seed100",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.12969449299271218,
+     "gated": false
+    },
+    {
+     "clip_id": "speech_control_seed101",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.12638307199813426,
+     "gated": false
+    },
+    {
+     "clip_id": "speech_control_seed102",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.1291561889956938,
+     "gated": false
+    }
+   ],
+   "records_gated": [
+    {
+     "clip_id": "digital_silence_seed100",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "digital_silence_seed101",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "digital_silence_seed102",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "ambient_silence_seed100",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "ambient_silence_seed101",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "ambient_silence_seed102",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "squelch_burst_seed100",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.12877893800032325,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "squelch_burst_seed101",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.12909786400268786,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "squelch_burst_seed102",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.1289474780060118,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_white_seed100",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.12984798100660555,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_white_seed101",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.12993718800134957,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_white_seed102",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.13036694799666293,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_pink_seed100",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.13131620301282965,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_pink_seed101",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.1285290130035719,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_pink_seed102",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.12728955800412223,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_brown_seed100",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.12658903200645,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_brown_seed101",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.13003181999374647,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_brown_seed102",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.1284527809912106,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_engine_seed100",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.12706045201048255,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_engine_seed101",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.12714182600029744,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_engine_seed102",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.12797645101090893,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_babble_seed100",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "You",
+     "tokens_generated": 1,
+     "wall_sec": 0.14130182600638364,
+     "gated": true,
+     "vad_active_ratio": 0.9558232931726908
+    },
+    {
+     "clip_id": "noise_babble_seed101",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.13096686999779195,
+     "gated": true,
+     "vad_active_ratio": 0.9879518072289156
+    },
+    {
+     "clip_id": "noise_babble_seed102",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "You",
+     "tokens_generated": 1,
+     "wall_sec": 0.12743268501071725,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "speech_control_seed100",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "BEEP BEEP BEEP BEEP BEEP BEEP",
+     "tokens_generated": 12,
+     "wall_sec": 0.3933642920019338,
+     "gated": true,
+     "vad_active_ratio": 0.9959839357429718
+    },
+    {
+     "clip_id": "speech_control_seed101",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "BEEP BEEP BEEP BEEP BEEP BEEP",
+     "tokens_generated": 12,
+     "wall_sec": 0.282525123009691,
+     "gated": true,
+     "vad_active_ratio": 0.9959839357429718
+    },
+    {
+     "clip_id": "speech_control_seed102",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "BEEP BEEP BEEP BEEP BEEP BEEP",
+     "tokens_generated": 12,
+     "wall_sec": 0.29836280600284226,
+     "gated": true,
+     "vad_active_ratio": 0.9959839357429718
+    }
+   ]
+  },
+  {
+   "model_name": "166M English-only (distilled)",
+   "ungated_metrics": {
+    "total_non_speech_clips": 24,
+    "hallucinated_clips": 24,
+    "hallucination_clip_rate": 1.0,
+    "total_non_speech_duration_sec": 60.0,
+    "total_inserted_words": 41,
+    "words_per_minute_hallucinated": 41.0,
+    "by_condition": {
+     "digital_silence": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 48.0,
+      "total_words": 6
+     },
+     "ambient_silence": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 40.0,
+      "total_words": 5
+     },
+     "squelch_burst": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_white": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_pink": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_brown": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 48.0,
+      "total_words": 6
+     },
+     "noise_engine": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_babble": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 96.0,
+      "total_words": 12
+     }
+    }
+   },
+   "gated_metrics": {
+    "total_non_speech_clips": 24,
+    "hallucinated_clips": 18,
+    "hallucination_clip_rate": 0.75,
+    "total_non_speech_duration_sec": 60.0,
+    "total_inserted_words": 33,
+    "words_per_minute_hallucinated": 33.0,
+    "by_condition": {
+     "digital_silence": {
+      "clips": 3,
+      "hallucinated_clips": 0,
+      "hallucination_clip_rate": 0.0,
+      "words_per_minute": 0.0,
+      "total_words": 0
+     },
+     "ambient_silence": {
+      "clips": 3,
+      "hallucinated_clips": 0,
+      "hallucination_clip_rate": 0.0,
+      "words_per_minute": 0.0,
+      "total_words": 0
+     },
+     "squelch_burst": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_white": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_pink": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_brown": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 48.0,
+      "total_words": 6
+     },
+     "noise_engine": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_babble": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 120.0,
+      "total_words": 15
+     }
+    }
+   },
+   "gating_suppression_pct": 19.51,
+   "top_hallucinated_vocabulary": {
+    "you": 11,
+    "know": 6,
+    "uh": 5,
+    "huh": 5,
+    "yeah": 4,
+    "i'm": 3,
+    "i": 2,
+    "oh": 2,
+    "think": 1,
+    "that": 1
+   },
+   "records_ungated": [
+    {
+     "clip_id": "digital_silence_seed100",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you know.",
+     "tokens_generated": 3,
+     "wall_sec": 0.3462426750047598,
+     "gated": false
+    },
+    {
+     "clip_id": "digital_silence_seed101",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you know.",
+     "tokens_generated": 3,
+     "wall_sec": 0.3373608739930205,
+     "gated": false
+    },
+    {
+     "clip_id": "digital_silence_seed102",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you know.",
+     "tokens_generated": 3,
+     "wall_sec": 0.34104407399718184,
+     "gated": false
+    },
+    {
+     "clip_id": "ambient_silence_seed100",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.307745067999349,
+     "gated": false
+    },
+    {
+     "clip_id": "ambient_silence_seed101",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.3121089869964635,
+     "gated": false
+    },
+    {
+     "clip_id": "ambient_silence_seed102",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "I think that",
+     "tokens_generated": 3,
+     "wall_sec": 0.3351088439958403,
+     "gated": false
+    },
+    {
+     "clip_id": "squelch_burst_seed100",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Oh",
+     "tokens_generated": 1,
+     "wall_sec": 0.3095620839885669,
+     "gated": false
+    },
+    {
+     "clip_id": "squelch_burst_seed101",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Oh",
+     "tokens_generated": 1,
+     "wall_sec": 0.31369134900160134,
+     "gated": false
+    },
+    {
+     "clip_id": "squelch_burst_seed102",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Yeah.",
+     "tokens_generated": 2,
+     "wall_sec": 0.3271654730051523,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_white_seed100",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "I'm",
+     "tokens_generated": 2,
+     "wall_sec": 0.32322508400829975,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_white_seed101",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "I'm",
+     "tokens_generated": 2,
+     "wall_sec": 0.4055319059989415,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_white_seed102",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "I'm",
+     "tokens_generated": 2,
+     "wall_sec": 0.32080369800678454,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_pink_seed100",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Yeah.",
+     "tokens_generated": 2,
+     "wall_sec": 0.32559104599931743,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_pink_seed101",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Yeah.",
+     "tokens_generated": 2,
+     "wall_sec": 0.321357442997396,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_pink_seed102",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Yeah.",
+     "tokens_generated": 2,
+     "wall_sec": 0.3220063139888225,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_brown_seed100",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you know.",
+     "tokens_generated": 3,
+     "wall_sec": 0.3312991550046718,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_brown_seed101",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you know.",
+     "tokens_generated": 3,
+     "wall_sec": 0.3250380120007321,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_brown_seed102",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you know.",
+     "tokens_generated": 3,
+     "wall_sec": 0.3307586289884057,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_engine_seed100",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.3015046109940158,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_engine_seed101",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.30809967999812216,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_engine_seed102",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.304140196996741,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_babble_seed100",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "I",
+     "tokens_generated": 1,
+     "wall_sec": 0.3057850659970427,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_babble_seed101",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "So,",
+     "tokens_generated": 2,
+     "wall_sec": 0.31923846299469005,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_babble_seed102",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Uh huh, uh huh, uh huh, uh huh, uh huh.",
+     "tokens_generated": 15,
+     "wall_sec": 0.49856643700331915,
+     "gated": false
+    },
+    {
+     "clip_id": "speech_control_seed100",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "Uh huh, uh huh, uh huh, uh huh.",
+     "tokens_generated": 12,
+     "wall_sec": 0.4581999090005411,
+     "gated": false
+    },
+    {
+     "clip_id": "speech_control_seed101",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "Uh huh, uh huh, uh huh, uh huh.",
+     "tokens_generated": 12,
+     "wall_sec": 0.4618230169871822,
+     "gated": false
+    },
+    {
+     "clip_id": "speech_control_seed102",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "Uh huh, uh huh, uh huh, uh huh.",
+     "tokens_generated": 12,
+     "wall_sec": 0.45298810899839737,
+     "gated": false
+    }
+   ],
+   "records_gated": [
+    {
+     "clip_id": "digital_silence_seed100",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "digital_silence_seed101",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "digital_silence_seed102",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "ambient_silence_seed100",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "ambient_silence_seed101",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "ambient_silence_seed102",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "squelch_burst_seed100",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Oh",
+     "tokens_generated": 1,
+     "wall_sec": 0.3098404340125853,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "squelch_burst_seed101",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Oh",
+     "tokens_generated": 1,
+     "wall_sec": 0.30779900700144935,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "squelch_burst_seed102",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Yeah.",
+     "tokens_generated": 2,
+     "wall_sec": 0.3237414799950784,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_white_seed100",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "I'm",
+     "tokens_generated": 2,
+     "wall_sec": 0.323573984001996,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_white_seed101",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "I'm",
+     "tokens_generated": 2,
+     "wall_sec": 0.3446636290027527,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_white_seed102",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "I'm",
+     "tokens_generated": 2,
+     "wall_sec": 0.32222648299648426,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_pink_seed100",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Yeah.",
+     "tokens_generated": 2,
+     "wall_sec": 0.32518415999948047,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_pink_seed101",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Yeah.",
+     "tokens_generated": 2,
+     "wall_sec": 0.32115828499081545,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_pink_seed102",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Yeah.",
+     "tokens_generated": 2,
+     "wall_sec": 0.3235440440039383,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_brown_seed100",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you know.",
+     "tokens_generated": 3,
+     "wall_sec": 0.3294362120068399,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_brown_seed101",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you know.",
+     "tokens_generated": 3,
+     "wall_sec": 0.32847161500831135,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_brown_seed102",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you know.",
+     "tokens_generated": 3,
+     "wall_sec": 0.3257512229902204,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_engine_seed100",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.3031593530031387,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_engine_seed101",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.30397137699765153,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_engine_seed102",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.39512462700076867,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_babble_seed100",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "I hope you can.",
+     "tokens_generated": 5,
+     "wall_sec": 0.3658089770033257,
+     "gated": true,
+     "vad_active_ratio": 0.9558232931726908
+    },
+    {
+     "clip_id": "noise_babble_seed101",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "I",
+     "tokens_generated": 1,
+     "wall_sec": 0.30666623800061643,
+     "gated": true,
+     "vad_active_ratio": 0.9879518072289156
+    },
+    {
+     "clip_id": "noise_babble_seed102",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Uh huh, uh huh, uh huh, uh huh, uh huh.",
+     "tokens_generated": 15,
+     "wall_sec": 0.5106088310130872,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "speech_control_seed100",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "Uh huh, uh huh, uh huh, uh huh.",
+     "tokens_generated": 12,
+     "wall_sec": 0.46500316201127134,
+     "gated": true,
+     "vad_active_ratio": 0.9959839357429718
+    },
+    {
+     "clip_id": "speech_control_seed101",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "Uh huh, uh huh, uh huh, uh huh.",
+     "tokens_generated": 12,
+     "wall_sec": 0.44564358399657067,
+     "gated": true,
+     "vad_active_ratio": 0.9959839357429718
+    },
+    {
+     "clip_id": "speech_control_seed102",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "Uh huh, uh huh, uh huh, uh huh.",
+     "tokens_generated": 12,
+     "wall_sec": 0.45072148500184994,
+     "gated": true,
+     "vad_active_ratio": 0.9959839357429718
+    }
+   ]
+  },
+  {
+   "model_name": "244M English-only",
+   "ungated_metrics": {
+    "total_non_speech_clips": 24,
+    "hallucinated_clips": 24,
+    "hallucination_clip_rate": 1.0,
+    "total_non_speech_duration_sec": 60.0,
+    "total_inserted_words": 24,
+    "words_per_minute_hallucinated": 24.0,
+    "by_condition": {
+     "digital_silence": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "ambient_silence": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "squelch_burst": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_white": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_pink": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_brown": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_engine": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_babble": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     }
+    }
+   },
+   "gated_metrics": {
+    "total_non_speech_clips": 24,
+    "hallucinated_clips": 18,
+    "hallucination_clip_rate": 0.75,
+    "total_non_speech_duration_sec": 60.0,
+    "total_inserted_words": 18,
+    "words_per_minute_hallucinated": 18.0,
+    "by_condition": {
+     "digital_silence": {
+      "clips": 3,
+      "hallucinated_clips": 0,
+      "hallucination_clip_rate": 0.0,
+      "words_per_minute": 0.0,
+      "total_words": 0
+     },
+     "ambient_silence": {
+      "clips": 3,
+      "hallucinated_clips": 0,
+      "hallucination_clip_rate": 0.0,
+      "words_per_minute": 0.0,
+      "total_words": 0
+     },
+     "squelch_burst": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_white": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_pink": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_brown": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_engine": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_babble": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     }
+    }
+   },
+   "gating_suppression_pct": 25.0,
+   "top_hallucinated_vocabulary": {
+    "you": 21,
+    "so": 2
+   },
+   "records_ungated": [
+    {
+     "clip_id": "digital_silence_seed100",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.42603308698744513,
+     "gated": false
+    },
+    {
+     "clip_id": "digital_silence_seed101",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.3746037310047541,
+     "gated": false
+    },
+    {
+     "clip_id": "digital_silence_seed102",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.38104990898864344,
+     "gated": false
+    },
+    {
+     "clip_id": "ambient_silence_seed100",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.3753678319917526,
+     "gated": false
+    },
+    {
+     "clip_id": "ambient_silence_seed101",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.48497278499417007,
+     "gated": false
+    },
+    {
+     "clip_id": "ambient_silence_seed102",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.3846600239921827,
+     "gated": false
+    },
+    {
+     "clip_id": "squelch_burst_seed100",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.3754297020059312,
+     "gated": false
+    },
+    {
+     "clip_id": "squelch_burst_seed101",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.3792903300054604,
+     "gated": false
+    },
+    {
+     "clip_id": "squelch_burst_seed102",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.3810731770063285,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_white_seed100",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.37531245600257535,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_white_seed101",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "So",
+     "tokens_generated": 1,
+     "wall_sec": 0.3675010290025966,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_white_seed102",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "So",
+     "tokens_generated": 1,
+     "wall_sec": 0.37091381099889986,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_pink_seed100",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.37380585899518337,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_pink_seed101",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.3762404759909259,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_pink_seed102",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.37316818098770455,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_brown_seed100",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.3802821940043941,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_brown_seed101",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.3749005380086601,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_brown_seed102",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.37659074099792633,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_engine_seed100",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.3735259910026798,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_engine_seed101",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.38100177800515667,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_engine_seed102",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.38371330199879594,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_babble_seed100",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.3838334920001216,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_babble_seed101",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.3812195200007409,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_babble_seed102",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "...",
+     "tokens_generated": 1,
+     "wall_sec": 0.3835327540000435,
+     "gated": false
+    },
+    {
+     "clip_id": "speech_control_seed100",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "Hehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehe",
+     "tokens_generated": 32,
+     "wall_sec": 1.1726239199924748,
+     "gated": false
+    },
+    {
+     "clip_id": "speech_control_seed101",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "Hehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehe",
+     "tokens_generated": 32,
+     "wall_sec": 1.1533780089957872,
+     "gated": false
+    },
+    {
+     "clip_id": "speech_control_seed102",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "Hehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehe",
+     "tokens_generated": 32,
+     "wall_sec": 1.1587744089920307,
+     "gated": false
+    }
+   ],
+   "records_gated": [
+    {
+     "clip_id": "digital_silence_seed100",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "digital_silence_seed101",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "digital_silence_seed102",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "ambient_silence_seed100",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "ambient_silence_seed101",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "ambient_silence_seed102",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "squelch_burst_seed100",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.3713865409954451,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "squelch_burst_seed101",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.37657176500943024,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "squelch_burst_seed102",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.370870148006361,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_white_seed100",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.37535865399695467,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_white_seed101",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "So",
+     "tokens_generated": 1,
+     "wall_sec": 0.3756173419969855,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_white_seed102",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "So",
+     "tokens_generated": 1,
+     "wall_sec": 0.37421287198958453,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_pink_seed100",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.37218568299431354,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_pink_seed101",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.44691572700685356,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_pink_seed102",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.3769992469897261,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_brown_seed100",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.3714163850090699,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_brown_seed101",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.37288999700103886,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_brown_seed102",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.3728684020024957,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_engine_seed100",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.38532861399289686,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_engine_seed101",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.3867708089965163,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_engine_seed102",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.3811210869898787,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_babble_seed100",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Hehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehe",
+     "tokens_generated": 32,
+     "wall_sec": 1.2742483090114547,
+     "gated": true,
+     "vad_active_ratio": 0.9558232931726908
+    },
+    {
+     "clip_id": "noise_babble_seed101",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 0.3831268929934595,
+     "gated": true,
+     "vad_active_ratio": 0.9879518072289156
+    },
+    {
+     "clip_id": "noise_babble_seed102",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "...",
+     "tokens_generated": 1,
+     "wall_sec": 0.38753119099419564,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "speech_control_seed100",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "Hehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehe",
+     "tokens_generated": 32,
+     "wall_sec": 1.1554616079956759,
+     "gated": true,
+     "vad_active_ratio": 0.9959839357429718
+    },
+    {
+     "clip_id": "speech_control_seed101",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "Hehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehe",
+     "tokens_generated": 32,
+     "wall_sec": 1.2163722069963114,
+     "gated": true,
+     "vad_active_ratio": 0.9959839357429718
+    },
+    {
+     "clip_id": "speech_control_seed102",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "Hehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehehe",
+     "tokens_generated": 32,
+     "wall_sec": 1.1724080850108294,
+     "gated": true,
+     "vad_active_ratio": 0.9959839357429718
+    }
+   ]
+  },
+  {
+   "model_name": "756M multilingual (distilled)",
+   "ungated_metrics": {
+    "total_non_speech_clips": 24,
+    "hallucinated_clips": 24,
+    "hallucination_clip_rate": 1.0,
+    "total_non_speech_duration_sec": 60.0,
+    "total_inserted_words": 55,
+    "words_per_minute_hallucinated": 55.0,
+    "by_condition": {
+     "digital_silence": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 48.0,
+      "total_words": 6
+     },
+     "ambient_silence": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 48.0,
+      "total_words": 6
+     },
+     "squelch_burst": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 32.0,
+      "total_words": 4
+     },
+     "noise_white": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 64.0,
+      "total_words": 8
+     },
+     "noise_pink": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 48.0,
+      "total_words": 6
+     },
+     "noise_brown": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 48.0,
+      "total_words": 6
+     },
+     "noise_engine": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_babble": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 128.0,
+      "total_words": 16
+     }
+    }
+   },
+   "gated_metrics": {
+    "total_non_speech_clips": 24,
+    "hallucinated_clips": 18,
+    "hallucination_clip_rate": 0.75,
+    "total_non_speech_duration_sec": 60.0,
+    "total_inserted_words": 44,
+    "words_per_minute_hallucinated": 44.0,
+    "by_condition": {
+     "digital_silence": {
+      "clips": 3,
+      "hallucinated_clips": 0,
+      "hallucination_clip_rate": 0.0,
+      "words_per_minute": 0.0,
+      "total_words": 0
+     },
+     "ambient_silence": {
+      "clips": 3,
+      "hallucinated_clips": 0,
+      "hallucination_clip_rate": 0.0,
+      "words_per_minute": 0.0,
+      "total_words": 0
+     },
+     "squelch_burst": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 32.0,
+      "total_words": 4
+     },
+     "noise_white": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 64.0,
+      "total_words": 8
+     },
+     "noise_pink": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 48.0,
+      "total_words": 6
+     },
+     "noise_brown": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 48.0,
+      "total_words": 6
+     },
+     "noise_engine": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_babble": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 136.0,
+      "total_words": 17
+     }
+    }
+   },
+   "gating_suppression_pct": 20.0,
+   "top_hallucinated_vocabulary": {
+    "you": 14,
+    "thank": 11,
+    "yes": 6,
+    "so": 4,
+    "know": 3,
+    "i'm": 3,
+    "the": 3,
+    "and": 2,
+    "gonnae": 1,
+    "i": 1
+   },
+   "records_ungated": [
+    {
+     "clip_id": "digital_silence_seed100",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "You know,",
+     "tokens_generated": 3,
+     "wall_sec": 2.0585205370007316,
+     "gated": false
+    },
+    {
+     "clip_id": "digital_silence_seed101",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "You know,",
+     "tokens_generated": 3,
+     "wall_sec": 2.102623487007804,
+     "gated": false
+    },
+    {
+     "clip_id": "digital_silence_seed102",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "You know,",
+     "tokens_generated": 3,
+     "wall_sec": 2.0734601489966735,
+     "gated": false
+    },
+    {
+     "clip_id": "ambient_silence_seed100",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Thank you.",
+     "tokens_generated": 3,
+     "wall_sec": 2.0736085130047286,
+     "gated": false
+    },
+    {
+     "clip_id": "ambient_silence_seed101",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Thank you.",
+     "tokens_generated": 3,
+     "wall_sec": 2.157903717001318,
+     "gated": false
+    },
+    {
+     "clip_id": "ambient_silence_seed102",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Thank you.",
+     "tokens_generated": 3,
+     "wall_sec": 2.057218100002501,
+     "gated": false
+    },
+    {
+     "clip_id": "squelch_burst_seed100",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "I'm gonnae",
+     "tokens_generated": 4,
+     "wall_sec": 2.0820754149899585,
+     "gated": false
+    },
+    {
+     "clip_id": "squelch_burst_seed101",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "I'm",
+     "tokens_generated": 2,
+     "wall_sec": 2.129195688990876,
+     "gated": false
+    },
+    {
+     "clip_id": "squelch_burst_seed102",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "I",
+     "tokens_generated": 1,
+     "wall_sec": 2.1558525640139123,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_white_seed100",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Thank you.",
+     "tokens_generated": 3,
+     "wall_sec": 2.1109109390090453,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_white_seed101",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Thank you.",
+     "tokens_generated": 3,
+     "wall_sec": 2.1522293480084045,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_white_seed102",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "I'm going to be",
+     "tokens_generated": 5,
+     "wall_sec": 2.114602310000919,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_pink_seed100",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Thank you.",
+     "tokens_generated": 3,
+     "wall_sec": 2.0400662850006483,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_pink_seed101",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Thank you.",
+     "tokens_generated": 3,
+     "wall_sec": 2.157114341011038,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_pink_seed102",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Thank you.",
+     "tokens_generated": 3,
+     "wall_sec": 2.058247470005881,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_brown_seed100",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Thank you.",
+     "tokens_generated": 3,
+     "wall_sec": 2.039544218001538,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_brown_seed101",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Thank you.",
+     "tokens_generated": 3,
+     "wall_sec": 2.0647274969960563,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_brown_seed102",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Thank you.",
+     "tokens_generated": 3,
+     "wall_sec": 2.0419749509892426,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_engine_seed100",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "The",
+     "tokens_generated": 1,
+     "wall_sec": 2.09533623700554,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_engine_seed101",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "The",
+     "tokens_generated": 1,
+     "wall_sec": 2.082320878995233,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_engine_seed102",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "The",
+     "tokens_generated": 1,
+     "wall_sec": 2.0343212419975316,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_babble_seed100",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "and so-s-h-s-h-s-h-s-h-h-h-h-h-h-h-h",
+     "tokens_generated": 32,
+     "wall_sec": 2.5736366110068047,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_babble_seed101",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "go, no, so, soon, so, so, so,",
+     "tokens_generated": 14,
+     "wall_sec": 2.2295882949983934,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_babble_seed102",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "and, yes, yes, yes, yes, yes, yes.",
+     "tokens_generated": 14,
+     "wall_sec": 2.380650124003296,
+     "gated": false
+    },
+    {
+     "clip_id": "speech_control_seed100",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "uh...",
+     "tokens_generated": 2,
+     "wall_sec": 2.2700110180012416,
+     "gated": false
+    },
+    {
+     "clip_id": "speech_control_seed101",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "uh...",
+     "tokens_generated": 2,
+     "wall_sec": 2.2431763369968394,
+     "gated": false
+    },
+    {
+     "clip_id": "speech_control_seed102",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "uh...",
+     "tokens_generated": 2,
+     "wall_sec": 2.1179956720006885,
+     "gated": false
+    }
+   ],
+   "records_gated": [
+    {
+     "clip_id": "digital_silence_seed100",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "digital_silence_seed101",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "digital_silence_seed102",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "ambient_silence_seed100",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "ambient_silence_seed101",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "ambient_silence_seed102",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "squelch_burst_seed100",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "I'm gonnae",
+     "tokens_generated": 4,
+     "wall_sec": 2.171442278995528,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "squelch_burst_seed101",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "I'm",
+     "tokens_generated": 2,
+     "wall_sec": 2.0901440019952133,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "squelch_burst_seed102",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "I",
+     "tokens_generated": 1,
+     "wall_sec": 2.0817918660031864,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_white_seed100",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Thank you.",
+     "tokens_generated": 3,
+     "wall_sec": 2.1099072900105966,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_white_seed101",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Thank you.",
+     "tokens_generated": 3,
+     "wall_sec": 2.1094666089920793,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_white_seed102",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "I'm going to be",
+     "tokens_generated": 5,
+     "wall_sec": 2.1571618470043177,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_pink_seed100",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Thank you.",
+     "tokens_generated": 3,
+     "wall_sec": 2.046254624990979,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_pink_seed101",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Thank you.",
+     "tokens_generated": 3,
+     "wall_sec": 2.097994510011631,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_pink_seed102",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Thank you.",
+     "tokens_generated": 3,
+     "wall_sec": 2.094245063010021,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_brown_seed100",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Thank you.",
+     "tokens_generated": 3,
+     "wall_sec": 2.076250194993918,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_brown_seed101",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Thank you.",
+     "tokens_generated": 3,
+     "wall_sec": 2.1162395580031443,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_brown_seed102",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Thank you.",
+     "tokens_generated": 3,
+     "wall_sec": 2.0708819089923054,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_engine_seed100",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "The",
+     "tokens_generated": 1,
+     "wall_sec": 2.108394168986706,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_engine_seed101",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "The",
+     "tokens_generated": 1,
+     "wall_sec": 2.170087600010447,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_engine_seed102",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "The",
+     "tokens_generated": 1,
+     "wall_sec": 2.0836495730036404,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_babble_seed100",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "and so much,",
+     "tokens_generated": 4,
+     "wall_sec": 2.1030894630093826,
+     "gated": true,
+     "vad_active_ratio": 0.9558232931726908
+    },
+    {
+     "clip_id": "noise_babble_seed101",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "and so, soon, soon, so, so, so,",
+     "tokens_generated": 13,
+     "wall_sec": 2.2276479919964913,
+     "gated": true,
+     "vad_active_ratio": 0.9879518072289156
+    },
+    {
+     "clip_id": "noise_babble_seed102",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "and, yes, yes, yes, yes, yes, yes.",
+     "tokens_generated": 14,
+     "wall_sec": 2.3649669860024005,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "speech_control_seed100",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "uh...",
+     "tokens_generated": 2,
+     "wall_sec": 2.1912783879961353,
+     "gated": true,
+     "vad_active_ratio": 0.9959839357429718
+    },
+    {
+     "clip_id": "speech_control_seed101",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "uh...",
+     "tokens_generated": 2,
+     "wall_sec": 2.1985434899979737,
+     "gated": true,
+     "vad_active_ratio": 0.9959839357429718
+    },
+    {
+     "clip_id": "speech_control_seed102",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": "uh...",
+     "tokens_generated": 2,
+     "wall_sec": 2.034174979009549,
+     "gated": true,
+     "vad_active_ratio": 0.9959839357429718
+    }
+   ]
+  },
+  {
+   "model_name": "809M multilingual",
+   "ungated_metrics": {
+    "total_non_speech_clips": 24,
+    "hallucinated_clips": 24,
+    "hallucination_clip_rate": 1.0,
+    "total_non_speech_duration_sec": 60.0,
+    "total_inserted_words": 48,
+    "words_per_minute_hallucinated": 48.0,
+    "by_condition": {
+     "digital_silence": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "ambient_silence": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 48.0,
+      "total_words": 6
+     },
+     "squelch_burst": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 48.0,
+      "total_words": 6
+     },
+     "noise_white": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_pink": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_brown": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 32.0,
+      "total_words": 4
+     },
+     "noise_engine": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_babble": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 160.0,
+      "total_words": 20
+     }
+    }
+   },
+   "gated_metrics": {
+    "total_non_speech_clips": 24,
+    "hallucinated_clips": 18,
+    "hallucination_clip_rate": 0.75,
+    "total_non_speech_duration_sec": 60.0,
+    "total_inserted_words": 38,
+    "words_per_minute_hallucinated": 38.0,
+    "by_condition": {
+     "digital_silence": {
+      "clips": 3,
+      "hallucinated_clips": 0,
+      "hallucination_clip_rate": 0.0,
+      "words_per_minute": 0.0,
+      "total_words": 0
+     },
+     "ambient_silence": {
+      "clips": 3,
+      "hallucinated_clips": 0,
+      "hallucination_clip_rate": 0.0,
+      "words_per_minute": 0.0,
+      "total_words": 0
+     },
+     "squelch_burst": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 48.0,
+      "total_words": 6
+     },
+     "noise_white": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_pink": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_brown": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 32.0,
+      "total_words": 4
+     },
+     "noise_engine": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 24.0,
+      "total_words": 3
+     },
+     "noise_babble": {
+      "clips": 3,
+      "hallucinated_clips": 3,
+      "hallucination_clip_rate": 1.0,
+      "words_per_minute": 152.0,
+      "total_words": 19
+     }
+    }
+   },
+   "gating_suppression_pct": 20.83,
+   "top_hallucinated_vocabulary": {
+    "yes": 16,
+    "you": 14,
+    "thank": 6,
+    "so": 3
+   },
+   "records_ungated": [
+    {
+     "clip_id": "digital_silence_seed100",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 4.1858412500005215,
+     "gated": false
+    },
+    {
+     "clip_id": "digital_silence_seed101",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 4.227320029007387,
+     "gated": false
+    },
+    {
+     "clip_id": "digital_silence_seed102",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 4.164515580996522,
+     "gated": false
+    },
+    {
+     "clip_id": "ambient_silence_seed100",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Thank you.",
+     "tokens_generated": 3,
+     "wall_sec": 4.2139668359886855,
+     "gated": false
+    },
+    {
+     "clip_id": "ambient_silence_seed101",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Thank you.",
+     "tokens_generated": 3,
+     "wall_sec": 4.122199327000999,
+     "gated": false
+    },
+    {
+     "clip_id": "ambient_silence_seed102",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Thank you.",
+     "tokens_generated": 3,
+     "wall_sec": 4.196503137995023,
+     "gated": false
+    },
+    {
+     "clip_id": "squelch_burst_seed100",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "... ...",
+     "tokens_generated": 2,
+     "wall_sec": 4.054054781008745,
+     "gated": false
+    },
+    {
+     "clip_id": "squelch_burst_seed101",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "... ...",
+     "tokens_generated": 2,
+     "wall_sec": 4.215109532000497,
+     "gated": false
+    },
+    {
+     "clip_id": "squelch_burst_seed102",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "... ...",
+     "tokens_generated": 2,
+     "wall_sec": 4.189199982996797,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_white_seed100",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 4.101227569000912,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_white_seed101",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 4.0782040290068835,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_white_seed102",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": ".",
+     "tokens_generated": 1,
+     "wall_sec": 4.090323001990328,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_pink_seed100",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "So",
+     "tokens_generated": 1,
+     "wall_sec": 4.132653843989829,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_pink_seed101",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "So",
+     "tokens_generated": 1,
+     "wall_sec": 4.109181955995155,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_pink_seed102",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "So",
+     "tokens_generated": 1,
+     "wall_sec": 4.074906787005602,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_brown_seed100",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "...",
+     "tokens_generated": 1,
+     "wall_sec": 4.247816835006233,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_brown_seed101",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Thank you.",
+     "tokens_generated": 3,
+     "wall_sec": 4.226416385004995,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_brown_seed102",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "...",
+     "tokens_generated": 1,
+     "wall_sec": 4.170044443002553,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_engine_seed100",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 4.487338645005366,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_engine_seed101",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 4.311305196009926,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_engine_seed102",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 4.159052044997225,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_babble_seed100",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Thank you.",
+     "tokens_generated": 3,
+     "wall_sec": 4.296885122996173,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_babble_seed101",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Thank you.",
+     "tokens_generated": 3,
+     "wall_sec": 4.101717659999849,
+     "gated": false
+    },
+    {
+     "clip_id": "noise_babble_seed102",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes,",
+     "tokens_generated": 32,
+     "wall_sec": 4.724523440992925,
+     "gated": false
+    },
+    {
+     "clip_id": "speech_control_seed100",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": ".",
+     "tokens_generated": 1,
+     "wall_sec": 4.550601982002263,
+     "gated": false
+    },
+    {
+     "clip_id": "speech_control_seed101",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": ".",
+     "tokens_generated": 1,
+     "wall_sec": 4.434641889005434,
+     "gated": false
+    },
+    {
+     "clip_id": "speech_control_seed102",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": ".",
+     "tokens_generated": 1,
+     "wall_sec": 4.421378908999031,
+     "gated": false
+    }
+   ],
+   "records_gated": [
+    {
+     "clip_id": "digital_silence_seed100",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "digital_silence_seed101",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "digital_silence_seed102",
+     "condition": "digital_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "ambient_silence_seed100",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "ambient_silence_seed101",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "ambient_silence_seed102",
+     "condition": "ambient_silence",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "",
+     "tokens_generated": 0,
+     "wall_sec": 0.001,
+     "gated": true,
+     "vad_active_ratio": 0.0
+    },
+    {
+     "clip_id": "squelch_burst_seed100",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "... ...",
+     "tokens_generated": 2,
+     "wall_sec": 4.165559628003393,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "squelch_burst_seed101",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "... ...",
+     "tokens_generated": 2,
+     "wall_sec": 4.098198635998415,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "squelch_burst_seed102",
+     "condition": "squelch_burst",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "... ...",
+     "tokens_generated": 2,
+     "wall_sec": 4.177724244989804,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_white_seed100",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 4.146387804998085,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_white_seed101",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 4.07571267199819,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_white_seed102",
+     "condition": "noise_white",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": ".",
+     "tokens_generated": 1,
+     "wall_sec": 4.019959836994531,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_pink_seed100",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "So",
+     "tokens_generated": 1,
+     "wall_sec": 4.167170037995675,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_pink_seed101",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "So",
+     "tokens_generated": 1,
+     "wall_sec": 4.108121101002325,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_pink_seed102",
+     "condition": "noise_pink",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "So",
+     "tokens_generated": 1,
+     "wall_sec": 4.291397545006475,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_brown_seed100",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "...",
+     "tokens_generated": 1,
+     "wall_sec": 4.0955827300058445,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_brown_seed101",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Thank you.",
+     "tokens_generated": 3,
+     "wall_sec": 4.171550746003049,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_brown_seed102",
+     "condition": "noise_brown",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "...",
+     "tokens_generated": 1,
+     "wall_sec": 4.218253978004213,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_engine_seed100",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 4.428819398992346,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_engine_seed101",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 4.395844444996328,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_engine_seed102",
+     "condition": "noise_engine",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "you",
+     "tokens_generated": 1,
+     "wall_sec": 4.183583229998476,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "noise_babble_seed100",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": ".",
+     "tokens_generated": 1,
+     "wall_sec": 4.105709883006057,
+     "gated": true,
+     "vad_active_ratio": 0.9558232931726908
+    },
+    {
+     "clip_id": "noise_babble_seed101",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Thank you.",
+     "tokens_generated": 3,
+     "wall_sec": 4.125372409005649,
+     "gated": true,
+     "vad_active_ratio": 0.9879518072289156
+    },
+    {
+     "clip_id": "noise_babble_seed102",
+     "condition": "noise_babble",
+     "is_speech": false,
+     "duration_sec": 2.5,
+     "transcript": "Yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes, yes,",
+     "tokens_generated": 32,
+     "wall_sec": 4.761402705000364,
+     "gated": true,
+     "vad_active_ratio": 1.0
+    },
+    {
+     "clip_id": "speech_control_seed100",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": ".",
+     "tokens_generated": 1,
+     "wall_sec": 4.462770967002143,
+     "gated": true,
+     "vad_active_ratio": 0.9959839357429718
+    },
+    {
+     "clip_id": "speech_control_seed101",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": ".",
+     "tokens_generated": 1,
+     "wall_sec": 4.310140647998196,
+     "gated": true,
+     "vad_active_ratio": 0.9959839357429718
+    },
+    {
+     "clip_id": "speech_control_seed102",
+     "condition": "speech_control",
+     "is_speech": true,
+     "duration_sec": 2.5,
+     "transcript": ".",
+     "tokens_generated": 1,
+     "wall_sec": 4.562315820003278,
+     "gated": true,
+     "vad_active_ratio": 0.9959839357429718
+    }
+   ]
+  }
+ ]
+}

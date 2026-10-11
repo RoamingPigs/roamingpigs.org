@@ -1,0 +1,1181 @@
+{
+ "experiment_id": "E3",
+ "date_utc": "2026-10-10 17:40:21Z",
+ "protocol_reference": "docs/research/EXPERIMENT-QUEUE-2026-10.md",
+ "inter_annotator_agreement": {
+  "observed_agreement": 0.8958,
+  "expected_agreement": 0.2105,
+  "kappa": 0.8681
+ },
+ "summary_by_condition": {
+  "single": {
+   "attempts": 16,
+   "accepted_pairs": 8,
+   "acceptance_rate_pct": 50.0,
+   "merge_conflicts": 0,
+   "total_tokens": 29265,
+   "tokens_per_attempt": 1829.1,
+   "tokens_per_accepted_pair": 3658.1,
+   "elapsed_wall_sec": 63.49,
+   "failure_mode_counts": {
+    "PASS": 8,
+    "FM-3.3": 6,
+    "FM-1.1": 2
+   },
+   "category_counts": {
+    "PASS": 8,
+    "FM-3": 6,
+    "FM-1": 2
+   }
+  },
+  "plain": {
+   "attempts": 16,
+   "accepted_pairs": 0,
+   "acceptance_rate_pct": 0.0,
+   "merge_conflicts": 4,
+   "total_tokens": 224805,
+   "tokens_per_attempt": 14050.3,
+   "tokens_per_accepted_pair": "undefined",
+   "elapsed_wall_sec": 198.15,
+   "failure_mode_counts": {
+    "FM-2.3": 4,
+    "FM-3.4": 9,
+    "FM-3.3": 3
+   },
+   "category_counts": {
+    "FM-2": 4,
+    "FM-3": 12
+   }
+  },
+  "echo": {
+   "attempts": 16,
+   "accepted_pairs": 0,
+   "acceptance_rate_pct": 0.0,
+   "merge_conflicts": 9,
+   "total_tokens": 178501,
+   "tokens_per_attempt": 11156.3,
+   "tokens_per_accepted_pair": "undefined",
+   "elapsed_wall_sec": 212.95,
+   "failure_mode_counts": {
+    "FM-2.3": 9,
+    "FM-3.4": 4,
+    "FM-3.3": 3
+   },
+   "category_counts": {
+    "FM-2": 9,
+    "FM-3": 7
+   }
+  }
+ },
+ "taxonomy_reference": {
+  "FM-1": "Specification & System Design Issues",
+  "FM-2": "Inter-Agent Misalignment & Coordination",
+  "FM-3": "Task Verification & Termination Failures"
+ },
+ "attempts": [
+  {
+   "attempt_id": "v2_single_parcel_20261006",
+   "task_id": "parcel",
+   "seed": 20261006,
+   "condition": "single",
+   "status": "artifact-complete",
+   "accepted_pair": true,
+   "feature_a_accepted": true,
+   "feature_b_accepted": true,
+   "aggregate_tokens": 1994,
+   "wall_seconds": 4.325,
+   "coder1": {
+    "primary_mode": "PASS",
+    "secondary_mode": null,
+    "category": "PASS"
+   },
+   "coder2": {
+    "primary_mode": "PASS",
+    "secondary_mode": null,
+    "category": "PASS"
+   },
+   "adjudicated_mode": "PASS"
+  },
+  {
+   "attempt_id": "v2_single_parcel_20261007",
+   "task_id": "parcel",
+   "seed": 20261007,
+   "condition": "single",
+   "status": "artifact-complete",
+   "accepted_pair": true,
+   "feature_a_accepted": true,
+   "feature_b_accepted": true,
+   "aggregate_tokens": 2011,
+   "wall_seconds": 4.363,
+   "coder1": {
+    "primary_mode": "PASS",
+    "secondary_mode": null,
+    "category": "PASS"
+   },
+   "coder2": {
+    "primary_mode": "PASS",
+    "secondary_mode": null,
+    "category": "PASS"
+   },
+   "adjudicated_mode": "PASS"
+  },
+  {
+   "attempt_id": "v2_single_tariff_20261006",
+   "task_id": "tariff",
+   "seed": 20261006,
+   "condition": "single",
+   "status": "artifact-complete",
+   "accepted_pair": true,
+   "feature_a_accepted": true,
+   "feature_b_accepted": true,
+   "aggregate_tokens": 2021,
+   "wall_seconds": 4.384,
+   "coder1": {
+    "primary_mode": "PASS",
+    "secondary_mode": null,
+    "category": "PASS"
+   },
+   "coder2": {
+    "primary_mode": "PASS",
+    "secondary_mode": null,
+    "category": "PASS"
+   },
+   "adjudicated_mode": "PASS"
+  },
+  {
+   "attempt_id": "v2_single_tariff_20261007",
+   "task_id": "tariff",
+   "seed": 20261007,
+   "condition": "single",
+   "status": "artifact-complete",
+   "accepted_pair": false,
+   "feature_a_accepted": true,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 1548,
+   "wall_seconds": 3.357,
+   "coder1": {
+    "primary_mode": "FM-3.3",
+    "secondary_mode": "FM-3.2",
+    "category": "FM-3"
+   },
+   "coder2": {
+    "primary_mode": "FM-3.3",
+    "secondary_mode": "FM-1.1",
+    "category": "FM-3"
+   },
+   "adjudicated_mode": "FM-3.3"
+  },
+  {
+   "attempt_id": "v2_single_timeslot_20261006",
+   "task_id": "timeslot",
+   "seed": 20261006,
+   "condition": "single",
+   "status": "artifact-complete",
+   "accepted_pair": true,
+   "feature_a_accepted": true,
+   "feature_b_accepted": true,
+   "aggregate_tokens": 1893,
+   "wall_seconds": 4.106,
+   "coder1": {
+    "primary_mode": "PASS",
+    "secondary_mode": null,
+    "category": "PASS"
+   },
+   "coder2": {
+    "primary_mode": "PASS",
+    "secondary_mode": null,
+    "category": "PASS"
+   },
+   "adjudicated_mode": "PASS"
+  },
+  {
+   "attempt_id": "v2_single_timeslot_20261007",
+   "task_id": "timeslot",
+   "seed": 20261007,
+   "condition": "single",
+   "status": "artifact-complete",
+   "accepted_pair": false,
+   "feature_a_accepted": true,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 1843,
+   "wall_seconds": 3.999,
+   "coder1": {
+    "primary_mode": "FM-3.3",
+    "secondary_mode": "FM-3.2",
+    "category": "FM-3"
+   },
+   "coder2": {
+    "primary_mode": "FM-3.3",
+    "secondary_mode": "FM-1.1",
+    "category": "FM-3"
+   },
+   "adjudicated_mode": "FM-3.3"
+  },
+  {
+   "attempt_id": "v2_single_citation_20261006",
+   "task_id": "citation",
+   "seed": 20261006,
+   "condition": "single",
+   "status": "artifact-complete",
+   "accepted_pair": true,
+   "feature_a_accepted": true,
+   "feature_b_accepted": true,
+   "aggregate_tokens": 1728,
+   "wall_seconds": 3.748,
+   "coder1": {
+    "primary_mode": "PASS",
+    "secondary_mode": null,
+    "category": "PASS"
+   },
+   "coder2": {
+    "primary_mode": "PASS",
+    "secondary_mode": null,
+    "category": "PASS"
+   },
+   "adjudicated_mode": "PASS"
+  },
+  {
+   "attempt_id": "v2_single_citation_20261007",
+   "task_id": "citation",
+   "seed": 20261007,
+   "condition": "single",
+   "status": "artifact-complete",
+   "accepted_pair": true,
+   "feature_a_accepted": true,
+   "feature_b_accepted": true,
+   "aggregate_tokens": 1865,
+   "wall_seconds": 4.045,
+   "coder1": {
+    "primary_mode": "PASS",
+    "secondary_mode": null,
+    "category": "PASS"
+   },
+   "coder2": {
+    "primary_mode": "PASS",
+    "secondary_mode": null,
+    "category": "PASS"
+   },
+   "adjudicated_mode": "PASS"
+  },
+  {
+   "attempt_id": "v2_single_telemetry_20261006",
+   "task_id": "telemetry",
+   "seed": 20261006,
+   "condition": "single",
+   "status": "artifact-complete",
+   "accepted_pair": true,
+   "feature_a_accepted": true,
+   "feature_b_accepted": true,
+   "aggregate_tokens": 1919,
+   "wall_seconds": 4.163,
+   "coder1": {
+    "primary_mode": "PASS",
+    "secondary_mode": null,
+    "category": "PASS"
+   },
+   "coder2": {
+    "primary_mode": "PASS",
+    "secondary_mode": null,
+    "category": "PASS"
+   },
+   "adjudicated_mode": "PASS"
+  },
+  {
+   "attempt_id": "v2_single_telemetry_20261007",
+   "task_id": "telemetry",
+   "seed": 20261007,
+   "condition": "single",
+   "status": "failed-ValueError",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 1865,
+   "wall_seconds": 4.045,
+   "coder1": {
+    "primary_mode": "FM-1.1",
+    "secondary_mode": "FM-3.3",
+    "category": "FM-1"
+   },
+   "coder2": {
+    "primary_mode": "FM-1.1",
+    "secondary_mode": "FM-3.3",
+    "category": "FM-1"
+   },
+   "adjudicated_mode": "FM-1.1"
+  },
+  {
+   "attempt_id": "v2_single_routing_20261006",
+   "task_id": "routing",
+   "seed": 20261006,
+   "condition": "single",
+   "status": "artifact-complete",
+   "accepted_pair": false,
+   "feature_a_accepted": true,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 1691,
+   "wall_seconds": 3.668,
+   "coder1": {
+    "primary_mode": "FM-3.3",
+    "secondary_mode": "FM-3.2",
+    "category": "FM-3"
+   },
+   "coder2": {
+    "primary_mode": "FM-3.3",
+    "secondary_mode": "FM-1.1",
+    "category": "FM-3"
+   },
+   "adjudicated_mode": "FM-3.3"
+  },
+  {
+   "attempt_id": "v2_single_routing_20261007",
+   "task_id": "routing",
+   "seed": 20261007,
+   "condition": "single",
+   "status": "failed-ValueError",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 1907,
+   "wall_seconds": 4.136,
+   "coder1": {
+    "primary_mode": "FM-1.1",
+    "secondary_mode": "FM-3.3",
+    "category": "FM-1"
+   },
+   "coder2": {
+    "primary_mode": "FM-1.1",
+    "secondary_mode": "FM-3.3",
+    "category": "FM-1"
+   },
+   "adjudicated_mode": "FM-1.1"
+  },
+  {
+   "attempt_id": "v2_single_version_20261006",
+   "task_id": "version",
+   "seed": 20261006,
+   "condition": "single",
+   "status": "artifact-complete",
+   "accepted_pair": true,
+   "feature_a_accepted": true,
+   "feature_b_accepted": true,
+   "aggregate_tokens": 2013,
+   "wall_seconds": 4.367,
+   "coder1": {
+    "primary_mode": "PASS",
+    "secondary_mode": null,
+    "category": "PASS"
+   },
+   "coder2": {
+    "primary_mode": "PASS",
+    "secondary_mode": null,
+    "category": "PASS"
+   },
+   "adjudicated_mode": "PASS"
+  },
+  {
+   "attempt_id": "v2_single_version_20261007",
+   "task_id": "version",
+   "seed": 20261007,
+   "condition": "single",
+   "status": "artifact-complete",
+   "accepted_pair": false,
+   "feature_a_accepted": true,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 1529,
+   "wall_seconds": 3.317,
+   "coder1": {
+    "primary_mode": "FM-3.3",
+    "secondary_mode": "FM-3.2",
+    "category": "FM-3"
+   },
+   "coder2": {
+    "primary_mode": "FM-3.3",
+    "secondary_mode": "FM-1.1",
+    "category": "FM-3"
+   },
+   "adjudicated_mode": "FM-3.3"
+  },
+  {
+   "attempt_id": "v2_single_allocation_20261006",
+   "task_id": "allocation",
+   "seed": 20261006,
+   "condition": "single",
+   "status": "artifact-complete",
+   "accepted_pair": false,
+   "feature_a_accepted": true,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 1534,
+   "wall_seconds": 3.327,
+   "coder1": {
+    "primary_mode": "FM-3.3",
+    "secondary_mode": "FM-3.2",
+    "category": "FM-3"
+   },
+   "coder2": {
+    "primary_mode": "FM-3.3",
+    "secondary_mode": "FM-1.1",
+    "category": "FM-3"
+   },
+   "adjudicated_mode": "FM-3.3"
+  },
+  {
+   "attempt_id": "v2_single_allocation_20261007",
+   "task_id": "allocation",
+   "seed": 20261007,
+   "condition": "single",
+   "status": "artifact-complete",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": true,
+   "aggregate_tokens": 1904,
+   "wall_seconds": 4.135,
+   "coder1": {
+    "primary_mode": "FM-3.3",
+    "secondary_mode": "FM-3.2",
+    "category": "FM-3"
+   },
+   "coder2": {
+    "primary_mode": "FM-3.3",
+    "secondary_mode": "FM-1.1",
+    "category": "FM-3"
+   },
+   "adjudicated_mode": "FM-3.3"
+  },
+  {
+   "attempt_id": "v2_plain_parcel_20261006",
+   "task_id": "parcel",
+   "seed": 20261006,
+   "condition": "plain",
+   "status": "merge-conflict",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 13947,
+   "wall_seconds": 12.293,
+   "coder1": {
+    "primary_mode": "FM-2.3",
+    "secondary_mode": "FM-1.2",
+    "category": "FM-2"
+   },
+   "coder2": {
+    "primary_mode": "FM-2.3",
+    "secondary_mode": "FM-2.4",
+    "category": "FM-2"
+   },
+   "adjudicated_mode": "FM-2.3"
+  },
+  {
+   "attempt_id": "v2_plain_parcel_20261007",
+   "task_id": "parcel",
+   "seed": 20261007,
+   "condition": "plain",
+   "status": "failed-RuntimeError",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 14404,
+   "wall_seconds": 12.696,
+   "coder1": {
+    "primary_mode": "FM-3.4",
+    "secondary_mode": "FM-1.3",
+    "category": "FM-3"
+   },
+   "coder2": {
+    "primary_mode": "FM-3.4",
+    "secondary_mode": "FM-1.3",
+    "category": "FM-3"
+   },
+   "adjudicated_mode": "FM-3.4"
+  },
+  {
+   "attempt_id": "v2_plain_tariff_20261006",
+   "task_id": "tariff",
+   "seed": 20261006,
+   "condition": "plain",
+   "status": "merge-conflict",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 14046,
+   "wall_seconds": 12.381,
+   "coder1": {
+    "primary_mode": "FM-2.3",
+    "secondary_mode": "FM-1.2",
+    "category": "FM-2"
+   },
+   "coder2": {
+    "primary_mode": "FM-2.3",
+    "secondary_mode": "FM-2.4",
+    "category": "FM-2"
+   },
+   "adjudicated_mode": "FM-2.3"
+  },
+  {
+   "attempt_id": "v2_plain_tariff_20261007",
+   "task_id": "tariff",
+   "seed": 20261007,
+   "condition": "plain",
+   "status": "failed-RuntimeError",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 13268,
+   "wall_seconds": 11.695,
+   "coder1": {
+    "primary_mode": "FM-3.4",
+    "secondary_mode": "FM-1.3",
+    "category": "FM-3"
+   },
+   "coder2": {
+    "primary_mode": "FM-3.4",
+    "secondary_mode": "FM-1.3",
+    "category": "FM-3"
+   },
+   "adjudicated_mode": "FM-3.4"
+  },
+  {
+   "attempt_id": "v2_plain_timeslot_20261006",
+   "task_id": "timeslot",
+   "seed": 20261006,
+   "condition": "plain",
+   "status": "artifact-complete",
+   "accepted_pair": false,
+   "feature_a_accepted": true,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 12017,
+   "wall_seconds": 10.592,
+   "coder1": {
+    "primary_mode": "FM-3.3",
+    "secondary_mode": "FM-3.2",
+    "category": "FM-3"
+   },
+   "coder2": {
+    "primary_mode": "FM-3.3",
+    "secondary_mode": "FM-1.1",
+    "category": "FM-3"
+   },
+   "adjudicated_mode": "FM-3.3"
+  },
+  {
+   "attempt_id": "v2_plain_timeslot_20261007",
+   "task_id": "timeslot",
+   "seed": 20261007,
+   "condition": "plain",
+   "status": "failed-RuntimeError",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 14359,
+   "wall_seconds": 12.657,
+   "coder1": {
+    "primary_mode": "FM-3.4",
+    "secondary_mode": "FM-1.3",
+    "category": "FM-3"
+   },
+   "coder2": {
+    "primary_mode": "FM-3.4",
+    "secondary_mode": "FM-1.3",
+    "category": "FM-3"
+   },
+   "adjudicated_mode": "FM-3.4"
+  },
+  {
+   "attempt_id": "v2_plain_citation_20261006",
+   "task_id": "citation",
+   "seed": 20261006,
+   "condition": "plain",
+   "status": "merge-conflict",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 15334,
+   "wall_seconds": 13.516,
+   "coder1": {
+    "primary_mode": "FM-2.3",
+    "secondary_mode": "FM-1.2",
+    "category": "FM-2"
+   },
+   "coder2": {
+    "primary_mode": "FM-2.3",
+    "secondary_mode": "FM-2.4",
+    "category": "FM-2"
+   },
+   "adjudicated_mode": "FM-2.3"
+  },
+  {
+   "attempt_id": "v2_plain_citation_20261007",
+   "task_id": "citation",
+   "seed": 20261007,
+   "condition": "plain",
+   "status": "failed-RuntimeError",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 15083,
+   "wall_seconds": 13.295,
+   "coder1": {
+    "primary_mode": "FM-3.4",
+    "secondary_mode": "FM-1.3",
+    "category": "FM-3"
+   },
+   "coder2": {
+    "primary_mode": "FM-3.4",
+    "secondary_mode": "FM-1.3",
+    "category": "FM-3"
+   },
+   "adjudicated_mode": "FM-3.4"
+  },
+  {
+   "attempt_id": "v2_plain_telemetry_20261006",
+   "task_id": "telemetry",
+   "seed": 20261006,
+   "condition": "plain",
+   "status": "failed-RuntimeError",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 14830,
+   "wall_seconds": 13.072,
+   "coder1": {
+    "primary_mode": "FM-3.4",
+    "secondary_mode": "FM-1.3",
+    "category": "FM-3"
+   },
+   "coder2": {
+    "primary_mode": "FM-2.4",
+    "secondary_mode": "FM-3.4",
+    "category": "FM-2"
+   },
+   "adjudicated_mode": "FM-3.4"
+  },
+  {
+   "attempt_id": "v2_plain_telemetry_20261007",
+   "task_id": "telemetry",
+   "seed": 20261007,
+   "condition": "plain",
+   "status": "failed-RuntimeError",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 14904,
+   "wall_seconds": 13.137,
+   "coder1": {
+    "primary_mode": "FM-3.4",
+    "secondary_mode": "FM-1.3",
+    "category": "FM-3"
+   },
+   "coder2": {
+    "primary_mode": "FM-2.4",
+    "secondary_mode": "FM-3.4",
+    "category": "FM-2"
+   },
+   "adjudicated_mode": "FM-3.4"
+  },
+  {
+   "attempt_id": "v2_plain_routing_20261006",
+   "task_id": "routing",
+   "seed": 20261006,
+   "condition": "plain",
+   "status": "merge-conflict",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 13229,
+   "wall_seconds": 11.661,
+   "coder1": {
+    "primary_mode": "FM-2.3",
+    "secondary_mode": "FM-1.2",
+    "category": "FM-2"
+   },
+   "coder2": {
+    "primary_mode": "FM-2.3",
+    "secondary_mode": "FM-2.4",
+    "category": "FM-2"
+   },
+   "adjudicated_mode": "FM-2.3"
+  },
+  {
+   "attempt_id": "v2_plain_routing_20261007",
+   "task_id": "routing",
+   "seed": 20261007,
+   "condition": "plain",
+   "status": "failed-RuntimeError",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 13515,
+   "wall_seconds": 11.913,
+   "coder1": {
+    "primary_mode": "FM-3.4",
+    "secondary_mode": "FM-1.3",
+    "category": "FM-3"
+   },
+   "coder2": {
+    "primary_mode": "FM-2.4",
+    "secondary_mode": "FM-3.4",
+    "category": "FM-2"
+   },
+   "adjudicated_mode": "FM-3.4"
+  },
+  {
+   "attempt_id": "v2_plain_version_20261006",
+   "task_id": "version",
+   "seed": 20261006,
+   "condition": "plain",
+   "status": "artifact-complete",
+   "accepted_pair": false,
+   "feature_a_accepted": true,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 12768,
+   "wall_seconds": 11.254,
+   "coder1": {
+    "primary_mode": "FM-3.3",
+    "secondary_mode": "FM-3.2",
+    "category": "FM-3"
+   },
+   "coder2": {
+    "primary_mode": "FM-3.3",
+    "secondary_mode": "FM-1.1",
+    "category": "FM-3"
+   },
+   "adjudicated_mode": "FM-3.3"
+  },
+  {
+   "attempt_id": "v2_plain_version_20261007",
+   "task_id": "version",
+   "seed": 20261007,
+   "condition": "plain",
+   "status": "failed-RuntimeError",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 12978,
+   "wall_seconds": 11.44,
+   "coder1": {
+    "primary_mode": "FM-3.4",
+    "secondary_mode": "FM-1.3",
+    "category": "FM-3"
+   },
+   "coder2": {
+    "primary_mode": "FM-3.4",
+    "secondary_mode": "FM-1.3",
+    "category": "FM-3"
+   },
+   "adjudicated_mode": "FM-3.4"
+  },
+  {
+   "attempt_id": "v2_plain_allocation_20261006",
+   "task_id": "allocation",
+   "seed": 20261006,
+   "condition": "plain",
+   "status": "artifact-complete",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": true,
+   "aggregate_tokens": 15373,
+   "wall_seconds": 13.55,
+   "coder1": {
+    "primary_mode": "FM-3.3",
+    "secondary_mode": "FM-3.2",
+    "category": "FM-3"
+   },
+   "coder2": {
+    "primary_mode": "FM-3.3",
+    "secondary_mode": "FM-1.1",
+    "category": "FM-3"
+   },
+   "adjudicated_mode": "FM-3.3"
+  },
+  {
+   "attempt_id": "v2_plain_allocation_20261007",
+   "task_id": "allocation",
+   "seed": 20261007,
+   "condition": "plain",
+   "status": "failed-RuntimeError",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 14750,
+   "wall_seconds": 13.001,
+   "coder1": {
+    "primary_mode": "FM-3.4",
+    "secondary_mode": "FM-1.3",
+    "category": "FM-3"
+   },
+   "coder2": {
+    "primary_mode": "FM-3.4",
+    "secondary_mode": "FM-1.3",
+    "category": "FM-3"
+   },
+   "adjudicated_mode": "FM-3.4"
+  },
+  {
+   "attempt_id": "v2_echo_parcel_20261006",
+   "task_id": "parcel",
+   "seed": 20261006,
+   "condition": "echo",
+   "status": "merge-conflict",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 10160,
+   "wall_seconds": 12.121,
+   "coder1": {
+    "primary_mode": "FM-2.3",
+    "secondary_mode": "FM-1.2",
+    "category": "FM-2"
+   },
+   "coder2": {
+    "primary_mode": "FM-2.3",
+    "secondary_mode": "FM-2.4",
+    "category": "FM-2"
+   },
+   "adjudicated_mode": "FM-2.3"
+  },
+  {
+   "attempt_id": "v2_echo_parcel_20261007",
+   "task_id": "parcel",
+   "seed": 20261007,
+   "condition": "echo",
+   "status": "merge-conflict",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 12667,
+   "wall_seconds": 15.112,
+   "coder1": {
+    "primary_mode": "FM-2.3",
+    "secondary_mode": "FM-1.2",
+    "category": "FM-2"
+   },
+   "coder2": {
+    "primary_mode": "FM-2.3",
+    "secondary_mode": "FM-2.4",
+    "category": "FM-2"
+   },
+   "adjudicated_mode": "FM-2.3"
+  },
+  {
+   "attempt_id": "v2_echo_tariff_20261006",
+   "task_id": "tariff",
+   "seed": 20261006,
+   "condition": "echo",
+   "status": "merge-conflict",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 10764,
+   "wall_seconds": 12.842,
+   "coder1": {
+    "primary_mode": "FM-2.3",
+    "secondary_mode": "FM-1.2",
+    "category": "FM-2"
+   },
+   "coder2": {
+    "primary_mode": "FM-2.3",
+    "secondary_mode": "FM-2.4",
+    "category": "FM-2"
+   },
+   "adjudicated_mode": "FM-2.3"
+  },
+  {
+   "attempt_id": "v2_echo_tariff_20261007",
+   "task_id": "tariff",
+   "seed": 20261007,
+   "condition": "echo",
+   "status": "failed-RuntimeError",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 9577,
+   "wall_seconds": 11.426,
+   "coder1": {
+    "primary_mode": "FM-3.4",
+    "secondary_mode": "FM-1.3",
+    "category": "FM-3"
+   },
+   "coder2": {
+    "primary_mode": "FM-3.4",
+    "secondary_mode": "FM-1.3",
+    "category": "FM-3"
+   },
+   "adjudicated_mode": "FM-3.4"
+  },
+  {
+   "attempt_id": "v2_echo_timeslot_20261006",
+   "task_id": "timeslot",
+   "seed": 20261006,
+   "condition": "echo",
+   "status": "merge-conflict",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 9694,
+   "wall_seconds": 11.565,
+   "coder1": {
+    "primary_mode": "FM-2.3",
+    "secondary_mode": "FM-1.2",
+    "category": "FM-2"
+   },
+   "coder2": {
+    "primary_mode": "FM-2.3",
+    "secondary_mode": "FM-2.4",
+    "category": "FM-2"
+   },
+   "adjudicated_mode": "FM-2.3"
+  },
+  {
+   "attempt_id": "v2_echo_timeslot_20261007",
+   "task_id": "timeslot",
+   "seed": 20261007,
+   "condition": "echo",
+   "status": "merge-conflict",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 11643,
+   "wall_seconds": 13.89,
+   "coder1": {
+    "primary_mode": "FM-2.3",
+    "secondary_mode": "FM-1.2",
+    "category": "FM-2"
+   },
+   "coder2": {
+    "primary_mode": "FM-2.3",
+    "secondary_mode": "FM-2.4",
+    "category": "FM-2"
+   },
+   "adjudicated_mode": "FM-2.3"
+  },
+  {
+   "attempt_id": "v2_echo_citation_20261006",
+   "task_id": "citation",
+   "seed": 20261006,
+   "condition": "echo",
+   "status": "merge-conflict",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 10254,
+   "wall_seconds": 12.233,
+   "coder1": {
+    "primary_mode": "FM-2.3",
+    "secondary_mode": "FM-1.2",
+    "category": "FM-2"
+   },
+   "coder2": {
+    "primary_mode": "FM-2.3",
+    "secondary_mode": "FM-2.4",
+    "category": "FM-2"
+   },
+   "adjudicated_mode": "FM-2.3"
+  },
+  {
+   "attempt_id": "v2_echo_citation_20261007",
+   "task_id": "citation",
+   "seed": 20261007,
+   "condition": "echo",
+   "status": "failed-RuntimeError",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 10488,
+   "wall_seconds": 12.512,
+   "coder1": {
+    "primary_mode": "FM-3.4",
+    "secondary_mode": "FM-1.3",
+    "category": "FM-3"
+   },
+   "coder2": {
+    "primary_mode": "FM-3.4",
+    "secondary_mode": "FM-1.3",
+    "category": "FM-3"
+   },
+   "adjudicated_mode": "FM-3.4"
+  },
+  {
+   "attempt_id": "v2_echo_telemetry_20261006",
+   "task_id": "telemetry",
+   "seed": 20261006,
+   "condition": "echo",
+   "status": "merge-conflict",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 12685,
+   "wall_seconds": 15.134,
+   "coder1": {
+    "primary_mode": "FM-2.3",
+    "secondary_mode": "FM-1.2",
+    "category": "FM-2"
+   },
+   "coder2": {
+    "primary_mode": "FM-2.3",
+    "secondary_mode": "FM-2.4",
+    "category": "FM-2"
+   },
+   "adjudicated_mode": "FM-2.3"
+  },
+  {
+   "attempt_id": "v2_echo_telemetry_20261007",
+   "task_id": "telemetry",
+   "seed": 20261007,
+   "condition": "echo",
+   "status": "failed-RuntimeError",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 11565,
+   "wall_seconds": 13.797,
+   "coder1": {
+    "primary_mode": "FM-3.4",
+    "secondary_mode": "FM-1.3",
+    "category": "FM-3"
+   },
+   "coder2": {
+    "primary_mode": "FM-2.4",
+    "secondary_mode": "FM-3.4",
+    "category": "FM-2"
+   },
+   "adjudicated_mode": "FM-3.4"
+  },
+  {
+   "attempt_id": "v2_echo_routing_20261006",
+   "task_id": "routing",
+   "seed": 20261006,
+   "condition": "echo",
+   "status": "merge-conflict",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 10014,
+   "wall_seconds": 11.947,
+   "coder1": {
+    "primary_mode": "FM-2.3",
+    "secondary_mode": "FM-1.2",
+    "category": "FM-2"
+   },
+   "coder2": {
+    "primary_mode": "FM-2.3",
+    "secondary_mode": "FM-2.4",
+    "category": "FM-2"
+   },
+   "adjudicated_mode": "FM-2.3"
+  },
+  {
+   "attempt_id": "v2_echo_routing_20261007",
+   "task_id": "routing",
+   "seed": 20261007,
+   "condition": "echo",
+   "status": "failed-RuntimeError",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 11823,
+   "wall_seconds": 14.105,
+   "coder1": {
+    "primary_mode": "FM-3.4",
+    "secondary_mode": "FM-1.3",
+    "category": "FM-3"
+   },
+   "coder2": {
+    "primary_mode": "FM-2.4",
+    "secondary_mode": "FM-3.4",
+    "category": "FM-2"
+   },
+   "adjudicated_mode": "FM-3.4"
+  },
+  {
+   "attempt_id": "v2_echo_version_20261006",
+   "task_id": "version",
+   "seed": 20261006,
+   "condition": "echo",
+   "status": "artifact-complete",
+   "accepted_pair": false,
+   "feature_a_accepted": true,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 11787,
+   "wall_seconds": 14.062,
+   "coder1": {
+    "primary_mode": "FM-3.3",
+    "secondary_mode": "FM-3.2",
+    "category": "FM-3"
+   },
+   "coder2": {
+    "primary_mode": "FM-3.3",
+    "secondary_mode": "FM-1.1",
+    "category": "FM-3"
+   },
+   "adjudicated_mode": "FM-3.3"
+  },
+  {
+   "attempt_id": "v2_echo_version_20261007",
+   "task_id": "version",
+   "seed": 20261007,
+   "condition": "echo",
+   "status": "merge-conflict",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": false,
+   "aggregate_tokens": 11598,
+   "wall_seconds": 13.837,
+   "coder1": {
+    "primary_mode": "FM-2.3",
+    "secondary_mode": "FM-1.2",
+    "category": "FM-2"
+   },
+   "coder2": {
+    "primary_mode": "FM-2.3",
+    "secondary_mode": "FM-2.4",
+    "category": "FM-2"
+   },
+   "adjudicated_mode": "FM-2.3"
+  },
+  {
+   "attempt_id": "v2_echo_allocation_20261006",
+   "task_id": "allocation",
+   "seed": 20261006,
+   "condition": "echo",
+   "status": "artifact-complete",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": true,
+   "aggregate_tokens": 11149,
+   "wall_seconds": 13.301,
+   "coder1": {
+    "primary_mode": "FM-3.3",
+    "secondary_mode": "FM-3.2",
+    "category": "FM-3"
+   },
+   "coder2": {
+    "primary_mode": "FM-3.3",
+    "secondary_mode": "FM-1.1",
+    "category": "FM-3"
+   },
+   "adjudicated_mode": "FM-3.3"
+  },
+  {
+   "attempt_id": "v2_echo_allocation_20261007",
+   "task_id": "allocation",
+   "seed": 20261007,
+   "condition": "echo",
+   "status": "artifact-complete",
+   "accepted_pair": false,
+   "feature_a_accepted": false,
+   "feature_b_accepted": true,
+   "aggregate_tokens": 12633,
+   "wall_seconds": 15.07,
+   "coder1": {
+    "primary_mode": "FM-3.3",
+    "secondary_mode": "FM-3.2",
+    "category": "FM-3"
+   },
+   "coder2": {
+    "primary_mode": "FM-3.3",
+    "secondary_mode": "FM-1.1",
+    "category": "FM-3"
+   },
+   "adjudicated_mode": "FM-3.3"
+  }
+ ]
+}

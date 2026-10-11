@@ -1,0 +1,199 @@
+<!doctype html>
+<!-- nav-canonical-exempt: independent RoamingPigs property on a personal Cloudflare account, not an Abundera site; it has its own header and footer. -->
+<!-- footer-canonical-exempt: same reason as the nav exemption above. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Results Files: The Raw Numbers Behind Every Record</title>
+  <meta name="description" content="The five JSON results files behind the RoamingPigs records, with SHA-256 digests, a licence and a short script to reproduce a headline figure.">
+  <link rel="canonical" href="https://roamingpigs.org/results/">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <meta name="theme-color" content="#f6f3ec">
+  <meta name="color-scheme" content="light">
+  <meta name="author" content="Cisco Caceres">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="RoamingPigs Research Notes">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Results Files: The Raw Numbers Behind Every Record">
+  <meta property="og:description" content="The five JSON results files behind the RoamingPigs records, with SHA-256 digests, a licence and a short script to reproduce a headline figure.">
+  <meta property="og:url" content="https://roamingpigs.org/results/">
+  <meta property="og:image" content="https://roamingpigs.org/og/results.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Results Files: The Raw Numbers Behind Every Record">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Results Files: The Raw Numbers Behind Every Record">
+  <meta name="twitter:description" content="The five JSON results files behind the RoamingPigs records, with SHA-256 digests, a licence and a short script to reproduce a headline figure.">
+  <meta name="twitter:image" content="https://roamingpigs.org/og/results.png">
+  <meta name="twitter:image:alt" content="Results Files: The Raw Numbers Behind Every Record">
+  <meta property="article:modified_time" content="2026-10-11">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://roamingpigs.org/#website","url":"https://roamingpigs.org/","name":"RoamingPigs Research Notes","inLanguage":"en","publisher":{"@id":"https://roamingpigs.org/#org"},"author":{"@id":"https://roamingpigs.org/#author"}},{"@type":"Organization","@id":"https://roamingpigs.org/#org","name":"RoamingPigs","url":"https://roamingpigs.org/","logo":"https://roamingpigs.org/icon-512.png","description":"An independent project publishing small AI systems experiments with their limits.","founder":{"@id":"https://roamingpigs.org/#author"},"sameAs":["https://roamingpigs.ai/","https://roamingpigs.com/","https://github.com/RoamingPigs","https://huggingface.co/RoamingPigs"]},{"@type":"Person","@id":"https://roamingpigs.org/#author","name":"Cisco Caceres","url":"https://ciscocaceres.com/","sameAs":["https://orcid.org/0009-0005-7810-5077","https://github.com/RoamingPigs","https://huggingface.co/RoamingPigs"]},{"@type":"WebPage","@id":"https://roamingpigs.org/results/#page","url":"https://roamingpigs.org/results/","name":"Results Files: The Raw Numbers Behind Every Record","description":"The five JSON results files behind the RoamingPigs records, with SHA-256 digests, a licence and a short script to reproduce a headline figure.","inLanguage":"en","isPartOf":{"@id":"https://roamingpigs.org/#website"},"author":{"@id":"https://roamingpigs.org/#author"},"dateModified":"2026-10-11"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Research Notes","item":"https://roamingpigs.org/"},{"@type":"ListItem","position":2,"name":"Results files","item":"https://roamingpigs.org/results/"}]},{"@type":"Dataset","@id":"https://roamingpigs.org/results/#dataset","name":"RoamingPigs research results files","description":"Raw JSON results of the experiments reported on RoamingPigs Research Notes: speech-model transcripts, hallucination counts, agent diagnostics, wall-meter energy runs and a verifier simulation.","url":"https://roamingpigs.org/results/","creator":{"@id":"https://roamingpigs.org/#author"},"license":"https://creativecommons.org/licenses/by/4.0/","isAccessibleForFree":true,"dateModified":"2026-10-11","distribution":[{"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://roamingpigs.org/results/e1-hallucination-ledger.json","sha256":"759cf097edea2ec04becfebbbe2a024d1b356069fe961f19eeaa73c4376252d8","contentSize":"108847 B"},{"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://roamingpigs.org/results/e2-telephone-grid-ledger.json","sha256":"49390df45c82d52fa4278a61a935dee2d0b3a001a614fd3092205a6443943a16","contentSize":"880890 B"},{"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://roamingpigs.org/results/e3-mast-coding-ledger.json","sha256":"4f7b2ae0f69237e36f4422bc2453a59d95a83cec225bb3b8f4b210f08b627f7c","contentSize":"28032 B"},{"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://roamingpigs.org/results/sovereign-apu-inference-ledger.json","sha256":"fa05c73f72adeb028ce7d0d0108df21f7b1c9da456d0a80d62ba92f74fe7eade","contentSize":"28715 B"},{"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://roamingpigs.org/results/vec-scr-evaluation-ledger.json","sha256":"180120350f19b243d6ab3da83498ee1022c70eeae744703f87458896db940d8c","contentSize":"27245 B"}]}]}</script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preload" href="/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/site.css?v=6e6fa96d">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<svg class="defs" width="0" height="0" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="g-measured" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5" fill="currentColor"/></symbol>
+    <symbol id="g-modelled" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M8 2.5a5.5 5.5 0 0 1 0 11z" fill="currentColor"/></symbol>
+    <symbol id="g-simulated" viewBox="0 0 16 16"><path d="M8 1.8 14.2 8 8 14.2 1.8 8z" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/></symbol>
+    <symbol id="g-proposed" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-dasharray="2.6 2.2"/></symbol>
+  </defs>
+</svg>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/favicon.svg" alt="" width="28" height="28">RoamingPigs <span>Research Notes</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+<li><a href="/">Records</a></li><li><a href="/results/" aria-current="page">Results</a></li><li><a href="/datasets/trcs/">TRCS audio</a></li><li><a href="/method/">Method</a></li><li><a href="/cite/">Cite</a></li><li><a href="/about/">About</a></li>        <li><a class="sister" href="https://roamingpigs.ai/">Instruments <span aria-hidden="true">&nearr;</span><span class="sr-only"> (roamingpigs.ai)</span></a></li>
+      </ul>
+    </nav>
+    <details class="nav-toggle">
+      <summary>Menu</summary>
+      <nav class="site-nav-mobile" aria-label="Main (mobile)">
+        <ul>
+<li><a href="/">Records</a></li><li><a href="/results/" aria-current="page">Results</a></li><li><a href="/datasets/trcs/">TRCS audio</a></li><li><a href="/method/">Method</a></li><li><a href="/cite/">Cite</a></li><li><a href="/about/">About</a></li>          <li><a class="sister" href="https://roamingpigs.ai/">Instruments (roamingpigs.ai) &nearr;</a></li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main id="main">
+<article class="doc">
+  <div class="wrap">
+    <nav class="breadcrumb crumbs" aria-label="Breadcrumb"><a href="/">Research Notes</a> / Results files</nav>
+    <div class="doc-grid">
+      <nav class="toc" aria-label="On this page">
+        <ol>
+          <li><a href="#files">The files</a></li>
+          <li><a href="#check">Check a figure</a></li>
+          <li><a href="#scrub">What was removed</a></li>
+          <li><a href="#missing">What is not here yet</a></li>
+        </ol>
+      </nav>
+      <div>
+        <p class="eyebrow">Results files</p>
+        <h1>The numbers behind every record</h1>
+        <p class="lede">Each figure on this site is read from one of these files. They are the raw results of the runs, one JSON file each, with a SHA-256 you can check.</p>
+        <p class="status-line"><span>Licence CC BY 4.0</span><span aria-hidden="true">&middot;</span><span>Self-published, not peer reviewed</span></p>
+
+        <h2 id="files">The files <a class="anchor" href="#files" aria-label="Link to this section">#</a></h2>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Results files, scrolls sideways on small screens">
+          <table>
+            <caption>Sizes and digests are of the files as published. <a href="/results/index.json">index.json</a> lists the same data for scripts.</caption>
+            <thead><tr><th>File</th><th>What it holds</th><th>Run (UTC)</th><th class="n">Size</th><th>SHA-256</th></tr></thead>
+            <tbody>
+<tr>
+                <td><a class="mono" href="/results/e1-hallucination-ledger.json">e1-hallucination-ledger.json</a><br><a class="small" href="/#silence-hallucination">Record</a></td>
+                <td>E1: words written for silence, noise and squelch, with and without an energy gate</td>
+                <td class="mono">2026-10-10 17:48:31Z</td>
+                <td class="n">109 KB</td>
+                <td class="mono small hash">759cf097edea2ec04becfebbbe2a024d1b356069fe961f19eeaa73c4376252d8</td>
+              </tr>
+<tr>
+                <td><a class="mono" href="/results/e2-telephone-grid-ledger.json">e2-telephone-grid-ledger.json</a><br><a class="small" href="/#radio-audio">Record</a></td>
+                <td>E2: six speech models through six audio paths and five noise levels, every transcript</td>
+                <td class="mono">2026-10-10 18:34:02Z</td>
+                <td class="n">881 KB</td>
+                <td class="mono small hash">49390df45c82d52fa4278a61a935dee2d0b3a001a614fd3092205a6443943a16</td>
+              </tr>
+<tr>
+                <td><a class="mono" href="/results/e3-mast-coding-ledger.json">e3-mast-coding-ledger.json</a><br><a class="small" href="/#agent-coordination">Record</a></td>
+                <td>E3: 48 development attempts coded for failure modes, single agent against two coordination setups</td>
+                <td class="mono">2026-10-10 17:40:21Z</td>
+                <td class="n">28 KB</td>
+                <td class="mono small hash">4f7b2ae0f69237e36f4422bc2453a59d95a83cec225bb3b8f4b210f08b627f7c</td>
+              </tr>
+<tr>
+                <td><a class="mono" href="/results/sovereign-apu-inference-ledger.json">sovereign-apu-inference-ledger.json</a><br><a class="small" href="/#inference-energy">Record</a></td>
+                <td>Energy: wall-meter runs and calibrated model rows on one unified-memory machine</td>
+                <td class="mono">2026-10-10 23:26:56Z</td>
+                <td class="n">29 KB</td>
+                <td class="mono small hash">fa05c73f72adeb028ce7d0d0108df21f7b1c9da456d0a80d62ba92f74fe7eade</td>
+              </tr>
+<tr>
+                <td><a class="mono" href="/results/vec-scr-evaluation-ledger.json">vec-scr-evaluation-ledger.json</a><br><a class="small" href="/#verifier-simulation">Record</a></td>
+                <td>Verifier simulation: error covariance and budget sweeps on a seeded synthetic pool</td>
+                <td class="mono">2026-10-10 21:51:06Z</td>
+                <td class="n">27 KB</td>
+                <td class="mono small hash">180120350f19b243d6ab3da83498ee1022c70eeae744703f87458896db940d8c</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="prose">
+        <h2 id="check">Check a figure <a class="anchor" href="#check" aria-label="Link to this section">#</a></h2>
+        <p>The first record says mean word error was 59% with no added noise and 129% at 0 dB. This reads the same figures from the published E2 file. It needs only Python.</p>
+        </div>
+        <div class="codeblock">
+          <button class="copy" type="button" data-copy="check-e2" hidden>Copy</button>
+<pre id="check-e2" tabindex="0"><code><span class="c"># mean word error across all models, by noise level</span>
+curl -sO https://roamingpigs.org/results/e2-telephone-grid-ledger.json
+python3 - &lt;&lt;'PY'
+import json, statistics
+d = json.load(open("e2-telephone-grid-ledger.json"))
+for k in ["clean", "snr_20", "snr_10", "snr_0", "snr_-6"]:
+    print(k, round(statistics.fmean(m["by_snr"][k]["wer"] for m in d["models"]) * 100, 1))
+PY</code></pre>
+        </div>
+        <p class="small">Expected output: clean 58.9, snr_20 60.1, snr_10 80.4, snr_0 129.4, snr_-6 157.7.</p>
+        <div class="prose">
+        <p>Energy per token is the same kind of check: in the energy file, divide <code>wall_power_mean_watts</code> by <code>tokens_per_sec</code> for each entry in <code>live_multi_model_sweep</code>.</p>
+
+        <h2 id="scrub">What was removed <a class="anchor" href="#scrub" aria-label="Link to this section">#</a></h2>
+        <p>Product names of models are replaced by size and kind, for example &ldquo;39M English-only&rdquo;. Local file paths, machine addresses and host names are removed. The export checks that no number changed: the sorted list of every number in each file is identical before and after. It also fails if a product name or a path is left in.</p>
+
+        <h2 id="missing">What is not here yet <a class="anchor" href="#missing" aria-label="Link to this section">#</a></h2>
+        <ul>
+          <li><strong>The scripts that produced the results.</strong> They are not published. Until they are, you can check the arithmetic on these files but not re-run the experiments.</li>
+          <li><strong>Model identities.</strong> Because names are replaced by size and kind, you cannot yet re-run the exact models. This limits independent reproduction, and I know it.</li>
+          <li><strong>The audio.</strong> It is on <a href="/datasets/trcs/">the dataset page</a>. Note that the speech-model run scored a different set of utterances from the released files.</li>
+        </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <h2>RoamingPigs Research Notes</h2>
+      <p>Small experiments, published with their limits. Written by <a href="https://ciscocaceres.com/">Cisco Caceres</a>. Self-published and not peer reviewed.</p>
+    </div>
+    <div>
+      <h2>This site</h2>
+      <ul><li><a href="/">Records</a></li><li><a href="/results/">Results</a></li><li><a href="/datasets/trcs/">TRCS audio</a></li><li><a href="/method/">Method</a></li><li><a href="/cite/">Cite</a></li><li><a href="/about/">About</a></li><li><a href="/corrections/">Corrections</a></li></ul>
+    </div>
+    <div>
+      <h2>Elsewhere</h2>
+      <ul>
+        <li><a href="https://roamingpigs.ai/">Instruments (roamingpigs.ai)</a></li>
+        <li><a href="https://roamingpigs.com/">Field Manual (roamingpigs.com)</a></li>
+        <li><a href="https://ciscocaceres.com/research/">Papers (ciscocaceres.com)</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Records</h2>
+      <ul>
+        <li><a href="https://huggingface.co/datasets/RoamingPigs/trcs-tactical-audio">Dataset on Hugging Face</a></li>
+        <li><a href="https://github.com/RoamingPigs">GitHub</a></li>
+        <li><a href="https://orcid.org/0009-0005-7810-5077">ORCID 0009-0005-7810-5077</a></li>
+      </ul>
+    </div>
+    <p class="footer-note">&copy; 2026 Cisco Caceres. Data licences are stated on each dataset page. No cookies, no analytics, nothing loaded from other domains. Last build 11 October 2026.</p>
+  </div>
+</footer>
+<script src="/js/site.js?v=2d4f8d10" defer></script>
+</body>
+</html>

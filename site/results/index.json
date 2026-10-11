@@ -1,0 +1,50 @@
+{
+ "_note": "Scrubbed copies of the research ledgers. Models are labelled by size and kind; local paths, hosts and IPs are removed. The scrub changes no number (checked at export).",
+ "files": [
+  {
+   "file": "e1-hallucination-ledger.json",
+   "description": "E1: words written for silence, noise and squelch, with and without an energy gate",
+   "record": "#silence-hallucination",
+   "bytes": 108847,
+   "sha256": "759cf097edea2ec04becfebbbe2a024d1b356069fe961f19eeaa73c4376252d8",
+   "source_sha256": "a3d2ed6b551322020184d15548c8911cd655c1468873104df76b7749c51392c6",
+   "run_utc": "2026-10-10 17:48:31Z"
+  },
+  {
+   "file": "e2-telephone-grid-ledger.json",
+   "description": "E2: six speech models through six audio paths and five noise levels, every transcript",
+   "record": "#radio-audio",
+   "bytes": 880890,
+   "sha256": "49390df45c82d52fa4278a61a935dee2d0b3a001a614fd3092205a6443943a16",
+   "source_sha256": "279914aa1ab246eeb0222405f1a96c75df4ce5b0211d5311ae6bc134d1a3e961",
+   "run_utc": "2026-10-10 18:34:02Z"
+  },
+  {
+   "file": "e3-mast-coding-ledger.json",
+   "description": "E3: 48 development attempts coded for failure modes, single agent against two coordination setups",
+   "record": "#agent-coordination",
+   "bytes": 28032,
+   "sha256": "4f7b2ae0f69237e36f4422bc2453a59d95a83cec225bb3b8f4b210f08b627f7c",
+   "source_sha256": "f4e7960edbb9342e04ad4c994bb94b2292b22e6a69f6946b47d6d63e4d63569d",
+   "run_utc": "2026-10-10 17:40:21Z"
+  },
+  {
+   "file": "sovereign-apu-inference-ledger.json",
+   "description": "Energy: wall-meter runs and calibrated model rows on one unified-memory machine",
+   "record": "#inference-energy",
+   "bytes": 28715,
+   "sha256": "fa05c73f72adeb028ce7d0d0108df21f7b1c9da456d0a80d62ba92f74fe7eade",
+   "source_sha256": "ff28ea59d4ad9a517ebf786d83ccf8df905ca1f3b6e8e90b850e683e74d4f6c7",
+   "run_utc": "2026-10-10 23:26:56Z"
+  },
+  {
+   "file": "vec-scr-evaluation-ledger.json",
+   "description": "Verifier simulation: error covariance and budget sweeps on a seeded synthetic pool",
+   "record": "#verifier-simulation",
+   "bytes": 27245,
+   "sha256": "180120350f19b243d6ab3da83498ee1022c70eeae744703f87458896db940d8c",
+   "source_sha256": "c50fb6ccba60f7de8f72699976c9e798981ae58ed394d46588d8e5dfb6fae2bc",
+   "run_utc": "2026-10-10 21:51:06Z"
+  }
+ ]
+}

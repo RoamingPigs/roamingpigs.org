@@ -1,27 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://roamingpigs.org/about/</loc>
-    <lastmod>2026-10-11T21:38:38Z</lastmod>
-  </url>
-  <url>
-    <loc>https://roamingpigs.org/cite/</loc>
-    <lastmod>2026-10-11T21:38:38Z</lastmod>
-  </url>
-  <url>
-    <loc>https://roamingpigs.org/corrections/</loc>
-    <lastmod>2026-10-11T21:38:38Z</lastmod>
-  </url>
-  <url>
-    <loc>https://roamingpigs.org/datasets/trcs/</loc>
-    <lastmod>2026-10-11T21:38:38Z</lastmod>
-  </url>
-  <url>
-    <loc>https://roamingpigs.org/</loc>
-    <lastmod>2026-10-11T21:38:38Z</lastmod>
-  </url>
-  <url>
-    <loc>https://roamingpigs.org/method/</loc>
-    <lastmod>2026-10-11T21:41:34Z</lastmod>
-  </url>
+  <url><loc>https://roamingpigs.org/</loc><lastmod>2026-10-11</lastmod></url>
+  <url><loc>https://roamingpigs.org/datasets/trcs/</loc><lastmod>2026-10-11</lastmod></url>
+  <url><loc>https://roamingpigs.org/results/</loc><lastmod>2026-10-11</lastmod></url>
+  <url><loc>https://roamingpigs.org/method/</loc><lastmod>2026-10-11</lastmod></url>
+  <url><loc>https://roamingpigs.org/corrections/</loc><lastmod>2026-10-11</lastmod></url>
+  <url><loc>https://roamingpigs.org/cite/</loc><lastmod>2026-10-11</lastmod></url>
+  <url><loc>https://roamingpigs.org/about/</loc><lastmod>2026-10-11</lastmod></url>
 </urlset>

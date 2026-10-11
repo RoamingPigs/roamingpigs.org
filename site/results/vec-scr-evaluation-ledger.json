@@ -1,0 +1,1002 @@
+{
+ "date_utc": "2026-10-10 21:51:06Z",
+ "tasks_count": 504,
+ "median_single_cost": 0.000322,
+ "covariance_stats": {
+  "n_samples": 1344,
+  "n_positive": 225,
+  "n_negative": 1119,
+  "error_rate_A": 0.16964285714285715,
+  "error_rate_B": 0.125,
+  "false_accept_A": 0.2037533512064343,
+  "false_accept_B": 0.15013404825737264,
+  "false_reject_A": 0.0,
+  "false_reject_B": 0.0,
+  "error_covariance": 0.0933779761904761,
+  "error_correlation": 0.7522897975211191,
+  "cov_false_accept": 0.1070325621066298,
+  "cov_false_reject": 0.0
+ },
+ "sweep_results": {
+  "median_single_pass_cost_usd": 0.000322,
+  "multipliers_evaluated": [
+   1.0,
+   2.0,
+   4.0,
+   8.0,
+   16.0
+  ],
+  "sweeps": {
+   "1.0x": {
+    "budget_usd": 0.000322,
+    "multiplier": 1.0,
+    "by_split": {
+     "all": {
+      "FirstPass": {
+       "tasks": 504,
+       "success_count": 96,
+       "pass_rate_pct": 19.05,
+       "avg_cost_usd": 0.000232,
+       "avg_candidates_consumed": 1.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "FirstPublicPass": {
+       "tasks": 504,
+       "success_count": 96,
+       "pass_rate_pct": 19.05,
+       "avg_cost_usd": 0.000232,
+       "avg_candidates_consumed": 1.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 54.8
+      },
+      "IndependentBoN": {
+       "tasks": 504,
+       "success_count": 47,
+       "pass_rate_pct": 9.33,
+       "avg_cost_usd": 0.000152,
+       "avg_candidates_consumed": 0.51,
+       "avg_verifier_calls": 1.02,
+       "budget_exhausted_pct": 100.0
+      },
+      "VEC-SCR": {
+       "tasks": 504,
+       "success_count": 96,
+       "pass_rate_pct": 19.05,
+       "avg_cost_usd": 0.000278,
+       "avg_candidates_consumed": 1.0,
+       "avg_verifier_calls": 1.02,
+       "budget_exhausted_pct": 100.0
+      },
+      "OracleCeiling": {
+       "tasks": 504,
+       "success_count": 362,
+       "pass_rate_pct": 71.83,
+       "avg_cost_usd": 0.001852,
+       "avg_candidates_consumed": 8.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      }
+     },
+     "dev_source": {
+      "FirstPass": {
+       "tasks": 168,
+       "success_count": 35,
+       "pass_rate_pct": 20.83,
+       "avg_cost_usd": 0.000233,
+       "avg_candidates_consumed": 1.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "FirstPublicPass": {
+       "tasks": 168,
+       "success_count": 35,
+       "pass_rate_pct": 20.83,
+       "avg_cost_usd": 0.000233,
+       "avg_candidates_consumed": 1.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 48.8
+      },
+      "IndependentBoN": {
+       "tasks": 168,
+       "success_count": 15,
+       "pass_rate_pct": 8.93,
+       "avg_cost_usd": 0.000156,
+       "avg_candidates_consumed": 0.52,
+       "avg_verifier_calls": 1.04,
+       "budget_exhausted_pct": 100.0
+      },
+      "VEC-SCR": {
+       "tasks": 168,
+       "success_count": 35,
+       "pass_rate_pct": 20.83,
+       "avg_cost_usd": 0.00028,
+       "avg_candidates_consumed": 1.0,
+       "avg_verifier_calls": 1.04,
+       "budget_exhausted_pct": 100.0
+      },
+      "OracleCeiling": {
+       "tasks": 168,
+       "success_count": 124,
+       "pass_rate_pct": 73.81,
+       "avg_cost_usd": 0.00185,
+       "avg_candidates_consumed": 8.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      }
+     },
+     "calib_source": {
+      "FirstPass": {
+       "tasks": 168,
+       "success_count": 26,
+       "pass_rate_pct": 15.48,
+       "avg_cost_usd": 0.000232,
+       "avg_candidates_consumed": 1.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "FirstPublicPass": {
+       "tasks": 168,
+       "success_count": 26,
+       "pass_rate_pct": 15.48,
+       "avg_cost_usd": 0.000232,
+       "avg_candidates_consumed": 1.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 60.7
+      },
+      "IndependentBoN": {
+       "tasks": 168,
+       "success_count": 11,
+       "pass_rate_pct": 6.55,
+       "avg_cost_usd": 0.000142,
+       "avg_candidates_consumed": 0.48,
+       "avg_verifier_calls": 0.95,
+       "budget_exhausted_pct": 100.0
+      },
+      "VEC-SCR": {
+       "tasks": 168,
+       "success_count": 26,
+       "pass_rate_pct": 15.48,
+       "avg_cost_usd": 0.000274,
+       "avg_candidates_consumed": 1.0,
+       "avg_verifier_calls": 0.95,
+       "budget_exhausted_pct": 100.0
+      },
+      "OracleCeiling": {
+       "tasks": 168,
+       "success_count": 120,
+       "pass_rate_pct": 71.43,
+       "avg_cost_usd": 0.00185,
+       "avg_candidates_consumed": 8.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      }
+     },
+     "eval_target_shift": {
+      "FirstPass": {
+       "tasks": 168,
+       "success_count": 35,
+       "pass_rate_pct": 20.83,
+       "avg_cost_usd": 0.000231,
+       "avg_candidates_consumed": 1.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "FirstPublicPass": {
+       "tasks": 168,
+       "success_count": 35,
+       "pass_rate_pct": 20.83,
+       "avg_cost_usd": 0.000231,
+       "avg_candidates_consumed": 1.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 54.8
+      },
+      "IndependentBoN": {
+       "tasks": 168,
+       "success_count": 21,
+       "pass_rate_pct": 12.5,
+       "avg_cost_usd": 0.000159,
+       "avg_candidates_consumed": 0.53,
+       "avg_verifier_calls": 1.06,
+       "budget_exhausted_pct": 100.0
+      },
+      "VEC-SCR": {
+       "tasks": 168,
+       "success_count": 35,
+       "pass_rate_pct": 20.83,
+       "avg_cost_usd": 0.000278,
+       "avg_candidates_consumed": 1.0,
+       "avg_verifier_calls": 1.06,
+       "budget_exhausted_pct": 100.0
+      },
+      "OracleCeiling": {
+       "tasks": 168,
+       "success_count": 118,
+       "pass_rate_pct": 70.24,
+       "avg_cost_usd": 0.001857,
+       "avg_candidates_consumed": 8.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      }
+     }
+    }
+   },
+   "2.0x": {
+    "budget_usd": 0.000644,
+    "multiplier": 2.0,
+    "by_split": {
+     "all": {
+      "FirstPass": {
+       "tasks": 504,
+       "success_count": 96,
+       "pass_rate_pct": 19.05,
+       "avg_cost_usd": 0.000232,
+       "avg_candidates_consumed": 1.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "FirstPublicPass": {
+       "tasks": 504,
+       "success_count": 142,
+       "pass_rate_pct": 28.17,
+       "avg_cost_usd": 0.000366,
+       "avg_candidates_consumed": 1.58,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 30.6
+      },
+      "IndependentBoN": {
+       "tasks": 504,
+       "success_count": 135,
+       "pass_rate_pct": 26.79,
+       "avg_cost_usd": 0.000483,
+       "avg_candidates_consumed": 1.53,
+       "avg_verifier_calls": 3.05,
+       "budget_exhausted_pct": 100.0
+      },
+      "VEC-SCR": {
+       "tasks": 504,
+       "success_count": 146,
+       "pass_rate_pct": 28.97,
+       "avg_cost_usd": 0.0006,
+       "avg_candidates_consumed": 2.0,
+       "avg_verifier_calls": 3.05,
+       "budget_exhausted_pct": 100.0
+      },
+      "OracleCeiling": {
+       "tasks": 504,
+       "success_count": 362,
+       "pass_rate_pct": 71.83,
+       "avg_cost_usd": 0.001852,
+       "avg_candidates_consumed": 8.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      }
+     },
+     "dev_source": {
+      "FirstPass": {
+       "tasks": 168,
+       "success_count": 35,
+       "pass_rate_pct": 20.83,
+       "avg_cost_usd": 0.000233,
+       "avg_candidates_consumed": 1.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "FirstPublicPass": {
+       "tasks": 168,
+       "success_count": 49,
+       "pass_rate_pct": 29.17,
+       "avg_cost_usd": 0.000353,
+       "avg_candidates_consumed": 1.52,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 26.8
+      },
+      "IndependentBoN": {
+       "tasks": 168,
+       "success_count": 50,
+       "pass_rate_pct": 29.76,
+       "avg_cost_usd": 0.000491,
+       "avg_candidates_consumed": 1.55,
+       "avg_verifier_calls": 3.1,
+       "budget_exhausted_pct": 100.0
+      },
+      "VEC-SCR": {
+       "tasks": 168,
+       "success_count": 54,
+       "pass_rate_pct": 32.14,
+       "avg_cost_usd": 0.000604,
+       "avg_candidates_consumed": 2.0,
+       "avg_verifier_calls": 3.1,
+       "budget_exhausted_pct": 100.0
+      },
+      "OracleCeiling": {
+       "tasks": 168,
+       "success_count": 124,
+       "pass_rate_pct": 73.81,
+       "avg_cost_usd": 0.00185,
+       "avg_candidates_consumed": 8.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      }
+     },
+     "calib_source": {
+      "FirstPass": {
+       "tasks": 168,
+       "success_count": 26,
+       "pass_rate_pct": 15.48,
+       "avg_cost_usd": 0.000232,
+       "avg_candidates_consumed": 1.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "FirstPublicPass": {
+       "tasks": 168,
+       "success_count": 46,
+       "pass_rate_pct": 27.38,
+       "avg_cost_usd": 0.000377,
+       "avg_candidates_consumed": 1.64,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 31.5
+      },
+      "IndependentBoN": {
+       "tasks": 168,
+       "success_count": 43,
+       "pass_rate_pct": 25.6,
+       "avg_cost_usd": 0.000487,
+       "avg_candidates_consumed": 1.54,
+       "avg_verifier_calls": 3.08,
+       "budget_exhausted_pct": 100.0
+      },
+      "VEC-SCR": {
+       "tasks": 168,
+       "success_count": 46,
+       "pass_rate_pct": 27.38,
+       "avg_cost_usd": 0.000598,
+       "avg_candidates_consumed": 1.99,
+       "avg_verifier_calls": 3.08,
+       "budget_exhausted_pct": 100.0
+      },
+      "OracleCeiling": {
+       "tasks": 168,
+       "success_count": 120,
+       "pass_rate_pct": 71.43,
+       "avg_cost_usd": 0.00185,
+       "avg_candidates_consumed": 8.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      }
+     },
+     "eval_target_shift": {
+      "FirstPass": {
+       "tasks": 168,
+       "success_count": 35,
+       "pass_rate_pct": 20.83,
+       "avg_cost_usd": 0.000231,
+       "avg_candidates_consumed": 1.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "FirstPublicPass": {
+       "tasks": 168,
+       "success_count": 47,
+       "pass_rate_pct": 27.98,
+       "avg_cost_usd": 0.000369,
+       "avg_candidates_consumed": 1.6,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 33.3
+      },
+      "IndependentBoN": {
+       "tasks": 168,
+       "success_count": 42,
+       "pass_rate_pct": 25.0,
+       "avg_cost_usd": 0.000471,
+       "avg_candidates_consumed": 1.49,
+       "avg_verifier_calls": 2.98,
+       "budget_exhausted_pct": 100.0
+      },
+      "VEC-SCR": {
+       "tasks": 168,
+       "success_count": 46,
+       "pass_rate_pct": 27.38,
+       "avg_cost_usd": 0.000598,
+       "avg_candidates_consumed": 2.0,
+       "avg_verifier_calls": 2.98,
+       "budget_exhausted_pct": 100.0
+      },
+      "OracleCeiling": {
+       "tasks": 168,
+       "success_count": 118,
+       "pass_rate_pct": 70.24,
+       "avg_cost_usd": 0.001857,
+       "avg_candidates_consumed": 8.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      }
+     }
+    }
+   },
+   "4.0x": {
+    "budget_usd": 0.001288,
+    "multiplier": 4.0,
+    "by_split": {
+     "all": {
+      "FirstPass": {
+       "tasks": 504,
+       "success_count": 96,
+       "pass_rate_pct": 19.05,
+       "avg_cost_usd": 0.000232,
+       "avg_candidates_consumed": 1.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "FirstPublicPass": {
+       "tasks": 504,
+       "success_count": 185,
+       "pass_rate_pct": 36.71,
+       "avg_cost_usd": 0.000504,
+       "avg_candidates_consumed": 2.18,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 7.3
+      },
+      "IndependentBoN": {
+       "tasks": 504,
+       "success_count": 237,
+       "pass_rate_pct": 47.02,
+       "avg_cost_usd": 0.001123,
+       "avg_candidates_consumed": 3.51,
+       "avg_verifier_calls": 7.02,
+       "budget_exhausted_pct": 100.0
+      },
+      "VEC-SCR": {
+       "tasks": 504,
+       "success_count": 229,
+       "pass_rate_pct": 45.44,
+       "avg_cost_usd": 0.001229,
+       "avg_candidates_consumed": 3.95,
+       "avg_verifier_calls": 7.02,
+       "budget_exhausted_pct": 100.0
+      },
+      "OracleCeiling": {
+       "tasks": 504,
+       "success_count": 362,
+       "pass_rate_pct": 71.83,
+       "avg_cost_usd": 0.001852,
+       "avg_candidates_consumed": 8.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      }
+     },
+     "dev_source": {
+      "FirstPass": {
+       "tasks": 168,
+       "success_count": 35,
+       "pass_rate_pct": 20.83,
+       "avg_cost_usd": 0.000233,
+       "avg_candidates_consumed": 1.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "FirstPublicPass": {
+       "tasks": 168,
+       "success_count": 61,
+       "pass_rate_pct": 36.31,
+       "avg_cost_usd": 0.000479,
+       "avg_candidates_consumed": 2.06,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 8.3
+      },
+      "IndependentBoN": {
+       "tasks": 168,
+       "success_count": 82,
+       "pass_rate_pct": 48.81,
+       "avg_cost_usd": 0.001119,
+       "avg_candidates_consumed": 3.49,
+       "avg_verifier_calls": 6.99,
+       "budget_exhausted_pct": 100.0
+      },
+      "VEC-SCR": {
+       "tasks": 168,
+       "success_count": 77,
+       "pass_rate_pct": 45.83,
+       "avg_cost_usd": 0.001225,
+       "avg_candidates_consumed": 3.93,
+       "avg_verifier_calls": 6.99,
+       "budget_exhausted_pct": 100.0
+      },
+      "OracleCeiling": {
+       "tasks": 168,
+       "success_count": 124,
+       "pass_rate_pct": 73.81,
+       "avg_cost_usd": 0.00185,
+       "avg_candidates_consumed": 8.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      }
+     },
+     "calib_source": {
+      "FirstPass": {
+       "tasks": 168,
+       "success_count": 26,
+       "pass_rate_pct": 15.48,
+       "avg_cost_usd": 0.000232,
+       "avg_candidates_consumed": 1.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "FirstPublicPass": {
+       "tasks": 168,
+       "success_count": 61,
+       "pass_rate_pct": 36.31,
+       "avg_cost_usd": 0.000525,
+       "avg_candidates_consumed": 2.27,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 9.5
+      },
+      "IndependentBoN": {
+       "tasks": 168,
+       "success_count": 81,
+       "pass_rate_pct": 48.21,
+       "avg_cost_usd": 0.001126,
+       "avg_candidates_consumed": 3.52,
+       "avg_verifier_calls": 7.04,
+       "budget_exhausted_pct": 100.0
+      },
+      "VEC-SCR": {
+       "tasks": 168,
+       "success_count": 77,
+       "pass_rate_pct": 45.83,
+       "avg_cost_usd": 0.001231,
+       "avg_candidates_consumed": 3.96,
+       "avg_verifier_calls": 7.04,
+       "budget_exhausted_pct": 100.0
+      },
+      "OracleCeiling": {
+       "tasks": 168,
+       "success_count": 120,
+       "pass_rate_pct": 71.43,
+       "avg_cost_usd": 0.00185,
+       "avg_candidates_consumed": 8.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      }
+     },
+     "eval_target_shift": {
+      "FirstPass": {
+       "tasks": 168,
+       "success_count": 35,
+       "pass_rate_pct": 20.83,
+       "avg_cost_usd": 0.000231,
+       "avg_candidates_consumed": 1.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "FirstPublicPass": {
+       "tasks": 168,
+       "success_count": 63,
+       "pass_rate_pct": 37.5,
+       "avg_cost_usd": 0.000509,
+       "avg_candidates_consumed": 2.2,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 4.2
+      },
+      "IndependentBoN": {
+       "tasks": 168,
+       "success_count": 74,
+       "pass_rate_pct": 44.05,
+       "avg_cost_usd": 0.001123,
+       "avg_candidates_consumed": 3.51,
+       "avg_verifier_calls": 7.02,
+       "budget_exhausted_pct": 100.0
+      },
+      "VEC-SCR": {
+       "tasks": 168,
+       "success_count": 75,
+       "pass_rate_pct": 44.64,
+       "avg_cost_usd": 0.001232,
+       "avg_candidates_consumed": 3.96,
+       "avg_verifier_calls": 7.02,
+       "budget_exhausted_pct": 100.0
+      },
+      "OracleCeiling": {
+       "tasks": 168,
+       "success_count": 118,
+       "pass_rate_pct": 70.24,
+       "avg_cost_usd": 0.001857,
+       "avg_candidates_consumed": 8.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      }
+     }
+    }
+   },
+   "8.0x": {
+    "budget_usd": 0.002576,
+    "multiplier": 8.0,
+    "by_split": {
+     "all": {
+      "FirstPass": {
+       "tasks": 504,
+       "success_count": 96,
+       "pass_rate_pct": 19.05,
+       "avg_cost_usd": 0.000232,
+       "avg_candidates_consumed": 1.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "FirstPublicPass": {
+       "tasks": 504,
+       "success_count": 192,
+       "pass_rate_pct": 38.1,
+       "avg_cost_usd": 0.000536,
+       "avg_candidates_consumed": 2.32,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "IndependentBoN": {
+       "tasks": 504,
+       "success_count": 344,
+       "pass_rate_pct": 68.25,
+       "avg_cost_usd": 0.002417,
+       "avg_candidates_consumed": 7.53,
+       "avg_verifier_calls": 15.06,
+       "budget_exhausted_pct": 47.2
+      },
+      "VEC-SCR": {
+       "tasks": 504,
+       "success_count": 322,
+       "pass_rate_pct": 63.89,
+       "avg_cost_usd": 0.002505,
+       "avg_candidates_consumed": 7.9,
+       "avg_verifier_calls": 15.06,
+       "budget_exhausted_pct": 10.1
+      },
+      "OracleCeiling": {
+       "tasks": 504,
+       "success_count": 362,
+       "pass_rate_pct": 71.83,
+       "avg_cost_usd": 0.001852,
+       "avg_candidates_consumed": 8.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      }
+     },
+     "dev_source": {
+      "FirstPass": {
+       "tasks": 168,
+       "success_count": 35,
+       "pass_rate_pct": 20.83,
+       "avg_cost_usd": 0.000233,
+       "avg_candidates_consumed": 1.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "FirstPublicPass": {
+       "tasks": 168,
+       "success_count": 64,
+       "pass_rate_pct": 38.1,
+       "avg_cost_usd": 0.000518,
+       "avg_candidates_consumed": 2.23,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "IndependentBoN": {
+       "tasks": 168,
+       "success_count": 118,
+       "pass_rate_pct": 70.24,
+       "avg_cost_usd": 0.002423,
+       "avg_candidates_consumed": 7.55,
+       "avg_verifier_calls": 15.11,
+       "budget_exhausted_pct": 44.6
+      },
+      "VEC-SCR": {
+       "tasks": 168,
+       "success_count": 109,
+       "pass_rate_pct": 64.88,
+       "avg_cost_usd": 0.002507,
+       "avg_candidates_consumed": 7.9,
+       "avg_verifier_calls": 15.11,
+       "budget_exhausted_pct": 9.5
+      },
+      "OracleCeiling": {
+       "tasks": 168,
+       "success_count": 124,
+       "pass_rate_pct": 73.81,
+       "avg_cost_usd": 0.00185,
+       "avg_candidates_consumed": 8.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      }
+     },
+     "calib_source": {
+      "FirstPass": {
+       "tasks": 168,
+       "success_count": 26,
+       "pass_rate_pct": 15.48,
+       "avg_cost_usd": 0.000232,
+       "avg_candidates_consumed": 1.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "FirstPublicPass": {
+       "tasks": 168,
+       "success_count": 63,
+       "pass_rate_pct": 37.5,
+       "avg_cost_usd": 0.000566,
+       "avg_candidates_consumed": 2.45,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "IndependentBoN": {
+       "tasks": 168,
+       "success_count": 112,
+       "pass_rate_pct": 66.67,
+       "avg_cost_usd": 0.002407,
+       "avg_candidates_consumed": 7.51,
+       "avg_verifier_calls": 15.01,
+       "budget_exhausted_pct": 49.4
+      },
+      "VEC-SCR": {
+       "tasks": 168,
+       "success_count": 106,
+       "pass_rate_pct": 63.1,
+       "avg_cost_usd": 0.002503,
+       "avg_candidates_consumed": 7.91,
+       "avg_verifier_calls": 15.01,
+       "budget_exhausted_pct": 8.9
+      },
+      "OracleCeiling": {
+       "tasks": 168,
+       "success_count": 120,
+       "pass_rate_pct": 71.43,
+       "avg_cost_usd": 0.00185,
+       "avg_candidates_consumed": 8.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      }
+     },
+     "eval_target_shift": {
+      "FirstPass": {
+       "tasks": 168,
+       "success_count": 35,
+       "pass_rate_pct": 20.83,
+       "avg_cost_usd": 0.000231,
+       "avg_candidates_consumed": 1.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "FirstPublicPass": {
+       "tasks": 168,
+       "success_count": 65,
+       "pass_rate_pct": 38.69,
+       "avg_cost_usd": 0.000525,
+       "avg_candidates_consumed": 2.27,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "IndependentBoN": {
+       "tasks": 168,
+       "success_count": 114,
+       "pass_rate_pct": 67.86,
+       "avg_cost_usd": 0.00242,
+       "avg_candidates_consumed": 7.52,
+       "avg_verifier_calls": 15.05,
+       "budget_exhausted_pct": 47.6
+      },
+      "VEC-SCR": {
+       "tasks": 168,
+       "success_count": 107,
+       "pass_rate_pct": 63.69,
+       "avg_cost_usd": 0.002504,
+       "avg_candidates_consumed": 7.88,
+       "avg_verifier_calls": 15.05,
+       "budget_exhausted_pct": 11.9
+      },
+      "OracleCeiling": {
+       "tasks": 168,
+       "success_count": 118,
+       "pass_rate_pct": 70.24,
+       "avg_cost_usd": 0.001857,
+       "avg_candidates_consumed": 8.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      }
+     }
+    }
+   },
+   "16.0x": {
+    "budget_usd": 0.005152,
+    "multiplier": 16.0,
+    "by_split": {
+     "all": {
+      "FirstPass": {
+       "tasks": 504,
+       "success_count": 96,
+       "pass_rate_pct": 19.05,
+       "avg_cost_usd": 0.000232,
+       "avg_candidates_consumed": 1.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "FirstPublicPass": {
+       "tasks": 504,
+       "success_count": 192,
+       "pass_rate_pct": 38.1,
+       "avg_cost_usd": 0.000536,
+       "avg_candidates_consumed": 2.32,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "IndependentBoN": {
+       "tasks": 504,
+       "success_count": 353,
+       "pass_rate_pct": 70.04,
+       "avg_cost_usd": 0.002572,
+       "avg_candidates_consumed": 8.0,
+       "avg_verifier_calls": 16.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "VEC-SCR": {
+       "tasks": 504,
+       "success_count": 353,
+       "pass_rate_pct": 70.04,
+       "avg_cost_usd": 0.002572,
+       "avg_candidates_consumed": 8.0,
+       "avg_verifier_calls": 16.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "OracleCeiling": {
+       "tasks": 504,
+       "success_count": 362,
+       "pass_rate_pct": 71.83,
+       "avg_cost_usd": 0.001852,
+       "avg_candidates_consumed": 8.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      }
+     },
+     "dev_source": {
+      "FirstPass": {
+       "tasks": 168,
+       "success_count": 35,
+       "pass_rate_pct": 20.83,
+       "avg_cost_usd": 0.000233,
+       "avg_candidates_consumed": 1.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "FirstPublicPass": {
+       "tasks": 168,
+       "success_count": 64,
+       "pass_rate_pct": 38.1,
+       "avg_cost_usd": 0.000518,
+       "avg_candidates_consumed": 2.23,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "IndependentBoN": {
+       "tasks": 168,
+       "success_count": 121,
+       "pass_rate_pct": 72.02,
+       "avg_cost_usd": 0.00257,
+       "avg_candidates_consumed": 8.0,
+       "avg_verifier_calls": 16.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "VEC-SCR": {
+       "tasks": 168,
+       "success_count": 121,
+       "pass_rate_pct": 72.02,
+       "avg_cost_usd": 0.00257,
+       "avg_candidates_consumed": 8.0,
+       "avg_verifier_calls": 16.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "OracleCeiling": {
+       "tasks": 168,
+       "success_count": 124,
+       "pass_rate_pct": 73.81,
+       "avg_cost_usd": 0.00185,
+       "avg_candidates_consumed": 8.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      }
+     },
+     "calib_source": {
+      "FirstPass": {
+       "tasks": 168,
+       "success_count": 26,
+       "pass_rate_pct": 15.48,
+       "avg_cost_usd": 0.000232,
+       "avg_candidates_consumed": 1.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "FirstPublicPass": {
+       "tasks": 168,
+       "success_count": 63,
+       "pass_rate_pct": 37.5,
+       "avg_cost_usd": 0.000566,
+       "avg_candidates_consumed": 2.45,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "IndependentBoN": {
+       "tasks": 168,
+       "success_count": 117,
+       "pass_rate_pct": 69.64,
+       "avg_cost_usd": 0.00257,
+       "avg_candidates_consumed": 8.0,
+       "avg_verifier_calls": 16.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "VEC-SCR": {
+       "tasks": 168,
+       "success_count": 117,
+       "pass_rate_pct": 69.64,
+       "avg_cost_usd": 0.00257,
+       "avg_candidates_consumed": 8.0,
+       "avg_verifier_calls": 16.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "OracleCeiling": {
+       "tasks": 168,
+       "success_count": 120,
+       "pass_rate_pct": 71.43,
+       "avg_cost_usd": 0.00185,
+       "avg_candidates_consumed": 8.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      }
+     },
+     "eval_target_shift": {
+      "FirstPass": {
+       "tasks": 168,
+       "success_count": 35,
+       "pass_rate_pct": 20.83,
+       "avg_cost_usd": 0.000231,
+       "avg_candidates_consumed": 1.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "FirstPublicPass": {
+       "tasks": 168,
+       "success_count": 65,
+       "pass_rate_pct": 38.69,
+       "avg_cost_usd": 0.000525,
+       "avg_candidates_consumed": 2.27,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "IndependentBoN": {
+       "tasks": 168,
+       "success_count": 115,
+       "pass_rate_pct": 68.45,
+       "avg_cost_usd": 0.002577,
+       "avg_candidates_consumed": 8.0,
+       "avg_verifier_calls": 16.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "VEC-SCR": {
+       "tasks": 168,
+       "success_count": 115,
+       "pass_rate_pct": 68.45,
+       "avg_cost_usd": 0.002577,
+       "avg_candidates_consumed": 8.0,
+       "avg_verifier_calls": 16.0,
+       "budget_exhausted_pct": 0.0
+      },
+      "OracleCeiling": {
+       "tasks": 168,
+       "success_count": 118,
+       "pass_rate_pct": 70.24,
+       "avg_cost_usd": 0.001857,
+       "avg_candidates_consumed": 8.0,
+       "avg_verifier_calls": 0.0,
+       "budget_exhausted_pct": 0.0
+      }
+     }
+    }
+   }
+  }
+ }
+}

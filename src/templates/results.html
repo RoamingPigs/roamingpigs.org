@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% from "macros.html" import chip %}
+{% block main %}
+<article class="doc">
+  <div class="wrap">
+    <nav class="breadcrumb crumbs" aria-label="Breadcrumb"><a href="/">Research Notes</a> / Results files</nav>
+    <div class="doc-grid">
+      <nav class="toc" aria-label="On this page">
+        <ol>
+          <li><a href="#files">The files</a></li>
+          <li><a href="#check">Check a figure</a></li>
+          <li><a href="#scrub">What was removed</a></li>
+          <li><a href="#missing">What is not here yet</a></li>
+        </ol>
+      </nav>
+      <div>
+        <p class="eyebrow">Results files</p>
+        <h1>The numbers behind every record</h1>
+        <p class="lede">Each figure on this site is read from one of these files. They are the raw results of the runs, one JSON file each, with a SHA-256 you can check.</p>
+        <p class="status-line"><span>Licence CC BY 4.0</span><span aria-hidden="true">&middot;</span><span>Self-published, not peer reviewed</span></p>
+
+        <h2 id="files">The files <a class="anchor" href="#files" aria-label="Link to this section">#</a></h2>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Results files, scrolls sideways on small screens">
+          <table>
+            <caption>Sizes and digests are of the files as published. <a href="/results/index.json">index.json</a> lists the same data for scripts.</caption>
+            <thead><tr><th>File</th><th>What it holds</th><th>Run (UTC)</th><th class="n">Size</th><th>SHA-256</th></tr></thead>
+            <tbody>
+              {% for f in results.files %}<tr>
+                <td><a class="mono" href="/results/{{ f.file }}">{{ f.file }}</a><br><a class="small" href="/{{ f.record }}">Record</a></td>
+                <td>{{ f.description }}</td>
+                <td class="mono">{{ f.run_utc }}</td>
+                <td class="n">{{ f.kb }} KB</td>
+                <td class="mono small hash">{{ f.sha256 }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="prose">
+        <h2 id="check">Check a figure <a class="anchor" href="#check" aria-label="Link to this section">#</a></h2>
+        <p>The first record says mean word error was {{ v.wer_clean }}% with no added noise and {{ v.wer_0 }}% at 0 dB. This reads the same figures from the published E2 file. It needs only Python.</p>
+        </div>
+        <div class="codeblock">
+          <button class="copy" type="button" data-copy="check-e2" hidden>Copy</button>
+<pre id="check-e2" tabindex="0"><code><span class="c"># mean word error across all models, by noise level</span>
+curl -sO https://roamingpigs.org/results/e2-telephone-grid-ledger.json
+python3 - &lt;&lt;'PY'
+import json, statistics
+d = json.load(open("e2-telephone-grid-ledger.json"))
+for k in ["clean", "snr_20", "snr_10", "snr_0", "snr_-6"]:
+    print(k, round(statistics.fmean(m["by_snr"][k]["wer"] for m in d["models"]) * 100, 1))
+PY</code></pre>
+        </div>
+        <p class="small">Expected output: {% for k, val in v.snr_list %}{{ k }} {{ val }}{% if not loop.last %}, {% endif %}{% endfor %}.</p>
+        <div class="prose">
+        <p>Energy per token is the same kind of check: in the energy file, divide <code>wall_power_mean_watts</code> by <code>tokens_per_sec</code> for each entry in <code>live_multi_model_sweep</code>.</p>
+
+        <h2 id="scrub">What was removed <a class="anchor" href="#scrub" aria-label="Link to this section">#</a></h2>
+        <p>Product names of models are replaced by size and kind, for example &ldquo;39M English-only&rdquo;. Local file paths, machine addresses and host names are removed. The export checks that no number changed: the sorted list of every number in each file is identical before and after. It also fails if a product name or a path is left in.</p>
+
+        <h2 id="missing">What is not here yet <a class="anchor" href="#missing" aria-label="Link to this section">#</a></h2>
+        <ul>
+          <li><strong>The scripts that produced the results.</strong> They are not published. Until they are, you can check the arithmetic on these files but not re-run the experiments.</li>
+          <li><strong>Model identities.</strong> Because names are replaced by size and kind, you cannot yet re-run the exact models. This limits independent reproduction, and I know it.</li>
+          <li><strong>The audio.</strong> It is on <a href="/datasets/trcs/">the dataset page</a>. Note that the speech-model run scored a different set of utterances from the released files.</li>
+        </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+{% endblock %}

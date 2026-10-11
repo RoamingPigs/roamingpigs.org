@@ -33,7 +33,8 @@ FIRST_PUB = "11 October 2026"
 
 NAV = [
     {"path": "/", "label": "Records"},
-    {"path": "/datasets/trcs/", "label": "Dataset"},
+    {"path": "/results/", "label": "Results"},
+    {"path": "/datasets/trcs/", "label": "TRCS audio"},
     {"path": "/method/", "label": "Method"},
     {"path": "/cite/", "label": "Cite"},
     {"path": "/about/", "label": "About"},
@@ -53,6 +54,15 @@ PAGES = [
         "description": "1,050 synthetic audio files with a SHA-256 for each, built to test speech models on silence, noise and telephone codecs. Contents, checks and known limits.",
         "breadcrumb": [("Research Notes", "/"), ("TRCS dataset", "/datasets/trcs/")],
         "dataset": True,
+    },
+    {
+        "path": "/results/",
+        "template": "results.html",
+        "title": "Results Files: The Raw Numbers Behind Every Record",
+        "description": "The five JSON results files behind the RoamingPigs records, with SHA-256 digests, a licence and a short script to reproduce a headline figure.",
+        "breadcrumb": [("Research Notes", "/"), ("Results files", "/results/")],
+        "og_image": "og/results.png",
+        "results": True,
     },
     {
         "path": "/method/",
@@ -131,6 +141,7 @@ def derive(c: dict) -> dict:
         "eb": f'{vec["error_rate_b"]:.3f}',
         "echo_date": utc_label(echo["date_utc"]),
         "echo_tokens_x": f'{echo["tokens_per_attempt"]["echo"] / echo["tokens_per_attempt"]["single"]:.1f}',
+        "snr_list": [(k, f'{e2["mean_wer_by_snr"][k] * 100:.1f}') for k in ("clean", "snr_20", "snr_10", "snr_0", "snr_-6")],
         "first_pub": FIRST_PUB,
         "verify_date": MODIFIED_HUMAN,
         "verify_bad": c["trcs"]["rehash_mismatches"],
@@ -195,6 +206,24 @@ def dataset_ld(c: dict) -> dict:
     }
 
 
+def results_ld(results: dict) -> dict:
+    return {
+        "@type": "Dataset",
+        "@id": BASE + "results/#dataset",
+        "name": "RoamingPigs research results files",
+        "description": "Raw JSON results of the experiments reported on RoamingPigs Research Notes: speech-model transcripts, hallucination counts, agent diagnostics, wall-meter energy runs and a verifier simulation.",
+        "url": BASE + "results/",
+        "creator": {"@id": BASE + "#author"},
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "isAccessibleForFree": True,
+        "dateModified": MODIFIED,
+        "distribution": [
+            {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": BASE + "results/" + f["file"], "sha256": f["sha256"], "contentSize": f"{f['bytes']} B"}
+            for f in results["files"]
+        ],
+    }
+
+
 def asset(path: str) -> str:
     h = hashlib.sha256((SITE / path.lstrip("/")).read_bytes()).hexdigest()[:8]
     return f"{path}?v={h}"
@@ -203,6 +232,9 @@ def asset(path: str) -> str:
 def render() -> dict[str, str]:
     c = json.loads((ROOT / "data/canon.json").read_text(encoding="utf-8"))
     v = derive(c)
+    results = json.loads((SITE / "results/index.json").read_text(encoding="utf-8"))
+    for f in results["files"]:
+        f["kb"] = f"{f['bytes'] / 1000:,.0f}"
     echo = c["echo"]
     ch = {
         "wer": charts.wer_by_snr(c["e2"]),
@@ -236,14 +268,19 @@ def render() -> dict[str, str]:
     out: dict[str, str] = {}
     for p in PAGES:
         page = dict(p, modified=MODIFIED)
+        if p.get("og_image"):
+            page["og_alt"] = p["title"]
         if p["path"] == "/datasets/trcs/":
             page["og_image"] = "og/dataset.png"
             page["og_alt"] = "TRCS dataset card: 1,050 synthetic audio files, each with a SHA-256"
         extra = [dataset_ld(c)] if p.get("dataset") else []
+        if p.get("results"):
+            extra = [results_ld(results)]
         head = lib.head_meta(site_meta, page, extra)
         ctx = {
             "c": c,
             "v": v,
+            "results": results,
             "ch": ch,
             "head": head,
             "nav": NAV,
@@ -256,7 +293,7 @@ def render() -> dict[str, str]:
     nf = dict(path="/404.html", title="Page not found | RoamingPigs Research Notes", description="This page does not exist.", modified=MODIFIED, noindex=True)
     head = lib.head_meta(site_meta, nf)
     out["404.html"] = env.get_template("404.html").render(
-        c=c, v=v, ch=ch, head=head, nav=NAV, page=nf, site={"modified": MODIFIED, "modified_human": MODIFIED_HUMAN}
+        c=c, v=v, results=results, ch=ch, head=head, nav=NAV, page=nf, site={"modified": MODIFIED, "modified_human": MODIFIED_HUMAN}
     )
     return out
 
@@ -294,6 +331,10 @@ def static_files() -> dict[str, str]:
 /js/*
   Cache-Control: public, max-age=31536000, immutable
 
+/results/*
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=3600
+
 /og/*
   Cache-Control: public, max-age=86400
 
@@ -314,7 +355,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true")
     a = ap.parse_args()
-    canon_cmd = [sys.executable, str(Path.home() / "projects/siteops/scripts/rp-canon.py"), "--out", str(ROOT / "data/canon.json")]
+    canon_cmd = [sys.executable, str(Path.home() / "projects/siteops/scripts/rp-canon.py"), "--out", str(ROOT / "data/canon.json"), "--results-dir", str(SITE / "results")]
     if a.check:
         r = subprocess.run(canon_cmd + ["--check"])
         if r.returncode:

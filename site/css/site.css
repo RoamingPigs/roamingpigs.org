@@ -207,7 +207,6 @@ caption { text-align: left; padding: 0.75rem 0.9rem; font: 400 0.8125rem var(--s
 @media (min-width: 62rem) { .toc { position: sticky; top: 1.5rem; align-self: start; } }
 @media (max-width: 61.99rem) { .toc { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 0.75rem 1rem; } .toc ol { border: 0; } .toc a { padding-left: 0; border: 0; } }
 .doc h2 { margin-top: 2.75rem; scroll-margin-top: 5rem; }
-.doc h2:first-child { margin-top: 0; }
 .doc h2 .anchor { font: 500 0.7em var(--sans); color: var(--ink-3); margin-left: 0.4rem; text-decoration: none; opacity: 0; }
 .doc h2:hover .anchor, .doc h2 .anchor:focus { opacity: 1; }
 .doc ul, .doc ol.plain { padding-left: 1.2rem; max-width: var(--measure); }
@@ -266,3 +265,5 @@ caption { text-align: left; padding: 0.75rem 0.9rem; font: 400 0.8125rem var(--s
 }
 
 .doc .status-line { margin-bottom: 1.5rem; }
+
+td.hash { word-break: break-all; min-width: 15rem; font-size: 0.72rem; }

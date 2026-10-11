@@ -53,11 +53,12 @@
             <div><dt>Run</dt><dd class="mono">{{ v.e2_date }}</dd></div>
             <div><dt>Sample</dt><dd>{{ c.e2.models|length }} models ({{ v.e2_sizes }} parameters) &times; {{ c.e2.utterances }} utterances &times; {{ c.e2.codecs|length }} audio paths &times; {{ c.e2.snr_db|length }} noise levels = <span class="mono">{{ c.e2.records }}</span> transcripts</dd></div>
             <div><dt>Method</dt><dd>Word error rate against the script, greedy decoding, no resampling</dd></div>
-            <div><dt>Source</dt><dd class="mono">e2-telephone-grid-ledger.json</dd></div>
+            <div><dt>Source</dt><dd><a class="mono" href="/results/e2-telephone-grid-ledger.json">e2-telephone-grid-ledger.json</a></dd></div>
           </dl>
         </div>
         <ul class="record-links">
           <li><a href="/datasets/trcs/">The dataset</a></li>
+          <li><a href="/results/">All results files</a></li>
           <li><a href="https://roamingpigs.ai/codec-grid/">Explore every transcript</a></li>
           <li><a href="https://ciscocaceres.com/downloads/tactical-radio-channel-simulator/">Read the paper</a></li>
         </ul>
@@ -84,7 +85,7 @@
             <div><dt>Run</dt><dd class="mono">{{ v.e1_date }}</dd></div>
             <div><dt>Sample</dt><dd>{{ c.e1.models }} models &times; {{ c.e1.non_speech_conditions }} conditions &times; {{ c.e1.seeds }} seeds, {{ c.e1.clip_seconds }} s each</dd></div>
             <div><dt>Method</dt><dd>Count clips where the transcript contains any word. Gate: 20 ms frames, &minus;42 dBFS threshold</dd></div>
-            <div><dt>Source</dt><dd class="mono">e1-hallucination-ledger.json</dd></div>
+            <div><dt>Source</dt><dd><a class="mono" href="/results/e1-hallucination-ledger.json">e1-hallucination-ledger.json</a></dd></div>
           </dl>
         </div>
         <ul class="record-links">
@@ -114,7 +115,7 @@
             <div><dt>Run</dt><dd class="mono">{{ v.apu_date }}</dd></div>
             <div><dt>Sample</dt><dd>{{ v.n_runs|capitalize }} runs, one per model, {{ v.run_tokens }} generated tokens each</dd></div>
             <div><dt>Method</dt><dd>Smart-plug wall power averaged over the run, divided by tokens per second. Weights at {{ c.apu.metered_runs[0].quant }}</dd></div>
-            <div><dt>Source</dt><dd class="mono">sovereign-apu-inference-ledger.json</dd></div>
+            <div><dt>Source</dt><dd><a class="mono" href="/results/sovereign-apu-inference-ledger.json">sovereign-apu-inference-ledger.json</a></dd></div>
           </dl>
         </div>
         <ul class="record-links">
@@ -153,7 +154,7 @@
             <div><dt>Run</dt><dd class="mono">{{ v.vec_date }}</dd></div>
             <div><dt>Sample</dt><dd>{{ c.vec.tasks }} task slots, {{ v.cands }} simulated candidates on the calibration split, seed 42</dd></div>
             <div><dt>Method</dt><dd>Pearson correlation of the two verifiers' binary error indicators</dd></div>
-            <div><dt>Source</dt><dd class="mono">vec-scr-evaluation-ledger.json</dd></div>
+            <div><dt>Source</dt><dd><a class="mono" href="/results/vec-scr-evaluation-ledger.json">vec-scr-evaluation-ledger.json</a></dd></div>
           </dl>
         </div>
         <ul class="record-links">
@@ -182,7 +183,7 @@
             <div><dt>Run</dt><dd class="mono">{{ v.echo_date }}</dd></div>
             <div><dt>Sample</dt><dd>{{ c.echo.tasks }} tasks &times; 3 arms, {{ c.echo.attempts_per_arm }} attempts per arm ({{ c.echo.attempts_per_arm * 3 }} in all)</dd></div>
             <div><dt>Method</dt><dd>An attempt is accepted when all hidden acceptance checks pass</dd></div>
-            <div><dt>Source</dt><dd class="mono">e3-mast-coding-ledger.json</dd></div>
+            <div><dt>Source</dt><dd><a class="mono" href="/results/e3-mast-coding-ledger.json">e3-mast-coding-ledger.json</a></dd></div>
           </dl>
         </div>
         <ul class="record-links">
