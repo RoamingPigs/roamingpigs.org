@@ -34,3 +34,4 @@ Next work:
 
 ## 2026-10-12
 - Corrections shipped: strict hallucination rate, band-pass and codec description, generator link (corrections page logs it). Web Analytics auto-injection off. Stale pilot files still cached on custom domain; recheck 2026-10-19. Paper draft is in ~/projects/trcs/arxiv (untracked).
+- Stale pilot files fixed 2026-10-12: Pages kept serving them (zone purge and deleting old deployments did nothing); `_redirects` now 301s them. Cloudflare cache-purge and analytics tokens revoked.
