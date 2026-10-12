@@ -19,6 +19,22 @@
         <h2 id="log" class="log-h">Log</h2>
         <ol class="timeline">
           <li>
+            <time datetime="2026-10-11">11 October 2026, later</time>
+            <h3>The pilot speech results were replaced by a full run, and the dataset card was corrected</h3>
+            <p>The 10 October pilot scored 5 calls, not the 40 in the released dataset, on audio generated at a different speaking rate. It capped output at 48 tokens and gave no intervals. It also padded audio features to the longest clip in each batch. I then found that this made the text depend on batch composition: with that padding, about half of 24 test clips changed when the batch size changed. With the standard padding they did not. The pilot figures are removed from the records and replaced by a full run on the released files, with intervals and a plan written first. The pilot files stay in the <a href="/results/#old">results list</a> marked superseded.</p>
+            <ul>
+              <li><strong>Hugging Face card.</strong> It listed apache-2.0 for the dataset while the manifest says CC BY 4.0 for the audio. It described the data as drawn from &ldquo;operational&rdquo; Navy, Coast Guard and DHS profiles and as &ldquo;expert-generated&rdquo;. The speech is text to speech and the profiles are my own models. The card is rewritten to say so.</li>
+              <li><strong>Code link.</strong> The first version of this site linked to a GitHub repository that did not exist. It now exists, with the code and the plan.</li>
+              <li><strong>Energy figure.</strong> The third wall-meter run is excluded because its recorded speed implies more memory traffic than the bus can carry.</li>
+            </ul>
+          </li>
+          <li>
+            <time datetime="2026-10-11">11 October 2026 Pacific</time>
+            <h3>Energy estimators and annotation provenance clarified</h3>
+            <p>The energy headline previously called mean power divided by decode speed a meter reading and treated the first reported integrated-energy value as a peak-power ratio. Those quantities use different estimators and may use different windows. Raw timestamped power arrays are absent from the historical file, so the integrated value remains an unreconciled report. The chart now labels the ratio as an estimate. The bandwidth screen is a calculator assumption, not proof a measurement is wrong.</p>
+            <p>The Echo aggregate now comes from its original development record. The separate MAST file is explicitly labeled programmatic annotations and allocated resources; its coder agreement is not independent annotation reliability. Existing numbers are retained as historical data, with their corrected interpretation.</p>
+          </li>
+          <li>
             <time datetime="2026-10-11">11 October 2026</time>
             <h3>The first version of this site was withdrawn and rebuilt</h3>
             <p>The first version went live on {{ v.first_pub }}. {% if v.first_pub == site.modified_human %}Later that day{% else %}On {{ site.modified_human }}{% endif %} I checked every figure and identifier on it against the results files and removed what I could not trace.</p>
@@ -28,7 +44,7 @@
               <li><strong>Word error rates by codec.</strong> Five values with confidence intervals appeared in no results file. They are replaced by the means in the E2 ledger, as point estimates.</li>
               <li><strong>Agent coordination panel.</strong> The &ldquo;12,400 holds&rdquo; and &ldquo;0.00% collisions&rdquo; figures had no source, and an 84.7% consistency figure was another experiment&rsquo;s routing accuracy. The record now shows the 16-attempt diagnostic.</li>
               <li><strong>Error correlation.</strong> A value of 0.42 matched no statistic. The simulated correlation is {{ v.rho }}, and the record now says it is a simulation.</li>
-              <li><strong>Energy per token.</strong> A figure of 1.66 J came from dividing an assumed power by an assumed speed. Wall-meter runs read {{ v.j_min }} to {{ v.j_max }}.</li>
+              <li><strong>Energy per token.</strong> A figure of 1.66 J came from dividing an assumed power by an assumed speed. Power/rate estimates from reported summaries range from {{ v.j_min }} to {{ v.j_max }}; those ratios are not direct energy meter readings.</li>
               <li><strong>Dataset description.</strong> The files are 16 kHz with {{ c.trcs.conditions }} conditions, not 8 kHz with 30.</li>
               <li><strong>Labels.</strong> &ldquo;Proven&rdquo;, &ldquo;empirically verified&rdquo;, &ldquo;gate cleared&rdquo;, &ldquo;6/6 pass&rdquo; and an RFC-style header implied a reviewer and a standards body. There is neither. They are removed.</li>
             </ul>

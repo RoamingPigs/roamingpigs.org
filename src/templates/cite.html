@@ -8,6 +8,7 @@
       <nav class="toc" aria-label="On this page">
         <ol>
           <li><a href="#dataset">The dataset</a></li>
+          <li><a href="#repo">The code and results</a></li>
           <li><a href="#site">These notes</a></li>
           <li><a href="#numbers">A single number</a></li>
         </ol>
@@ -27,6 +28,19 @@
   howpublished = {Dataset, Hugging Face},
   url          = {https://huggingface.co/datasets/RoamingPigs/trcs-tactical-audio},
   note         = {Self-published, not peer reviewed. Manifest generated {{ c.trcs.generated_at }}.}
+}</code></pre>
+        </div>
+
+        <h2 id="repo">The evaluation code and results <a class="anchor" href="#repo" aria-label="Link to this section">#</a></h2>
+        <div class="codeblock">
+          <button class="copy" type="button" data-copy="bib-repo" hidden>Copy</button>
+<pre id="bib-repo" tabindex="0"><code>@software{caceres2026trcseval,
+  author  = {Caceres, Cisco},
+  title   = {% raw %}{{TRCS}{% endraw %} evaluation suite and results},
+  year    = {2026},
+  version = {2.0.0},
+  url     = {{ '{' }}{{ v.v2.plan.repo }}{{ '}' }},
+  note    = {Self-published, not peer reviewed. Analysis plan commit {{ v.v2.plan.commit[:7] }}.}
 }</code></pre>
         </div>
 

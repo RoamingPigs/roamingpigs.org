@@ -34,7 +34,7 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preload" href="/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/site.css?v=6e6fa96d">
+  <link rel="stylesheet" href="/css/site.css?v=b49ca785">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -52,14 +52,14 @@
     <a class="brand" href="/"><img src="/favicon.svg" alt="" width="28" height="28">RoamingPigs <span>Research Notes</span></a>
     <nav class="site-nav" aria-label="Main">
       <ul>
-<li><a href="/">Records</a></li><li><a href="/results/">Results</a></li><li><a href="/datasets/trcs/" aria-current="page">TRCS audio</a></li><li><a href="/method/">Method</a></li><li><a href="/cite/">Cite</a></li><li><a href="/about/">About</a></li>        <li><a class="sister" href="https://roamingpigs.ai/">Instruments <span aria-hidden="true">&nearr;</span><span class="sr-only"> (roamingpigs.ai)</span></a></li>
+<li><a href="/">Records</a></li><li><a href="/results/">Results</a></li><li><a href="/datasets/trcs/" aria-current="page">TRCS audio</a></li><li><a href="/method/">Method</a></li><li><a href="/reproduce/">Reproduce</a></li><li><a href="/about/">About</a></li>        <li><a class="sister" href="https://roamingpigs.ai/">Instruments <span aria-hidden="true">&nearr;</span><span class="sr-only"> (roamingpigs.ai)</span></a></li>
       </ul>
     </nav>
     <details class="nav-toggle">
       <summary>Menu</summary>
       <nav class="site-nav-mobile" aria-label="Main (mobile)">
         <ul>
-<li><a href="/">Records</a></li><li><a href="/results/">Results</a></li><li><a href="/datasets/trcs/" aria-current="page">TRCS audio</a></li><li><a href="/method/">Method</a></li><li><a href="/cite/">Cite</a></li><li><a href="/about/">About</a></li>          <li><a class="sister" href="https://roamingpigs.ai/">Instruments (roamingpigs.ai) &nearr;</a></li>
+<li><a href="/">Records</a></li><li><a href="/results/">Results</a></li><li><a href="/datasets/trcs/" aria-current="page">TRCS audio</a></li><li><a href="/method/">Method</a></li><li><a href="/reproduce/">Reproduce</a></li><li><a href="/about/">About</a></li>          <li><a class="sister" href="https://roamingpigs.ai/">Instruments (roamingpigs.ai) &nearr;</a></li>
         </ul>
       </nav>
     </details>
@@ -89,7 +89,7 @@
         <div class="prose">
         <h2 id="what">What it is <a class="anchor" href="#what" aria-label="Link to this section">#</a></h2>
         <p>TRCS stands for Tactical Radio Channel Simulator. It has two parts. One tests what a model does when there is nothing to transcribe. The other tests how accuracy falls as audio passes through narrowband telephone codecs and added noise.</p>
-        <p>The speech is synthetic. The calls are scripted and rendered with a text-to-speech engine, then degraded in software. The channel effects are simulated. Nothing here was captured from a real radio.</p>
+        <p>The speech is synthetic. The calls are scripted and rendered with a text-to-speech engine (espeak-ng, US English, 155 words per minute), then degraded in software. The codecs are real encoders and decoders. I recomputed one clip per codec from the generator and each matched the released file. The noise and squelch effects are my own models. Nothing here was captured from a real radio.</p>
 
         <h2 id="contents">Contents <a class="anchor" href="#contents" aria-label="Link to this section">#</a></h2>
         </div>
@@ -133,14 +133,16 @@ PY</code></pre>
         <ul>
           <li><strong>Synthetic speech.</strong> Real radio speech is faster, more varied and often clipped. Results here may not carry over.</li>
           <li><strong>Simulated channels.</strong> The codecs are standard, but the noise and squelch effects are my own models of them.</li>
-          <li><strong>The published results used a different configuration.</strong> The speech-model run scored 5 utterances at five noise levels including &minus;6 dB. The released files hold 40 utterances at four levels and no &minus;6 dB. The scored audio is not a subset of these files.</li>
+          <li><strong>Results on this page&rsquo;s files.</strong> The full-grid run scores exactly these 1050 files at the pinned revision. An earlier pilot scored 5 calls on different audio and is superseded.</li>
+          <li><strong>One voice, one rate.</strong> Every call is the same text-to-speech voice at the same speaking rate, so intervals cover the 40 scripts and not other speakers.</li>
+          <li><strong>Channel order.</strong> Noise is added after the codec, whereas on a real link noise arrives before it. The signal-to-noise ratio is measured over the whole clip including pauses.</li>
           <li><strong>Duplicate files.</strong> 18 files are byte-identical copies of another file (digital silence and speech control clips do not vary by seed). That leaves 1,032 distinct digests.</li>
           <li><strong>One author.</strong> Nobody else has re-run the benchmark.</li>
         </ul>
 
         <h2 id="use">Use and licence <a class="anchor" href="#use" aria-label="Link to this section">#</a></h2>
-        <p>Code is Apache-2.0. Audio fixtures are CC BY 4.0, as stated in the manifest. Please cite the dataset, with its manifest date, if you use it. <a href="/cite/">How to cite</a>.</p>
-        <p><a href="https://huggingface.co/datasets/RoamingPigs/trcs-tactical-audio">Dataset on Hugging Face</a> &middot; <a href="/#radio-audio">Results from it</a> &middot; <a href="https://ciscocaceres.com/downloads/tactical-radio-channel-simulator/">Paper</a></p>
+        <p>Audio and metadata are CC BY 4.0. Code is Apache-2.0. The Hugging Face card states the same. Please cite the dataset, with its manifest date, if you use it. <a href="/cite/">How to cite</a>.</p>
+        <p><a href="https://huggingface.co/datasets/RoamingPigs/trcs-tactical-audio">Dataset on Hugging Face</a> &middot; <a href="https://github.com/RoamingPigs/trcs">Evaluation code on GitHub</a> &middot; <a href="/#radio-audio">Results from it</a> &middot; <a href="/reproduce/">Reproduce them</a> &middot; <a href="https://ciscocaceres.com/downloads/tactical-radio-channel-simulator/">Paper</a></p>
         </div>
       </div>
     </div>
@@ -156,7 +158,7 @@ PY</code></pre>
     </div>
     <div>
       <h2>This site</h2>
-      <ul><li><a href="/">Records</a></li><li><a href="/results/">Results</a></li><li><a href="/datasets/trcs/">TRCS audio</a></li><li><a href="/method/">Method</a></li><li><a href="/cite/">Cite</a></li><li><a href="/about/">About</a></li><li><a href="/corrections/">Corrections</a></li></ul>
+      <ul><li><a href="/">Records</a></li><li><a href="/results/">Results</a></li><li><a href="/datasets/trcs/">TRCS audio</a></li><li><a href="/method/">Method</a></li><li><a href="/reproduce/">Reproduce</a></li><li><a href="/about/">About</a></li><li><a href="/corrections/">Corrections</a></li></ul>
     </div>
     <div>
       <h2>Elsewhere</h2>

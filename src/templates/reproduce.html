@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% from "macros.html" import chip %}
+{% block main %}
+<article class="doc">
+  <div class="wrap">
+    <nav class="breadcrumb crumbs" aria-label="Breadcrumb"><a href="/">Research Notes</a> / Reproduce</nav>
+    <div class="doc-grid">
+      <nav class="toc" aria-label="On this page">
+        <ol>
+          <li><a href="#status">Status</a></li>
+          <li><a href="#fast">The fast check</a></li>
+          <li><a href="#full">The full run</a></li>
+          <li><a href="#agree">What counts as agreement</a></li>
+          <li><a href="#report">Report what you got</a></li>
+          <li><a href="#rules">Rules</a></li>
+        </ol>
+      </nav>
+      <div>
+        <p class="eyebrow">Reproduce</p>
+        <h1>Check my work, and tell me where it fails</h1>
+        <p class="lede">Everything needed to repeat the speech experiments is public: the code, the data at a pinned revision, the exact models and a plan written before the run. If you reproduce a result, or fail to, I will publish your report.</p>
+        <p class="status-line" id="status"><span>Outside reproductions so far: <strong>none</strong></span><span aria-hidden="true">&middot;</span><span>Self-run checks do not count</span></p>
+
+        <div class="prose">
+        <h2 id="what">What is available <a class="anchor" href="#what" aria-label="Link to this section">#</a></h2>
+        <ul>
+          <li><a href="{{ v.v2.plan.repo }}">The code and results</a> on GitHub, with <a href="{{ v.v2.plan.repo }}/blob/{{ v.v2.plan.commit }}/PLAN.md">the analysis plan</a> as pushed on {{ v.v2.plan.pushed_at[:10] }} at {{ v.v2.plan.pushed_at[11:19] }} UTC, before the full run started. GitHub recorded that push time, not me. This is a dated plan. It is not a registered one, and I do not call it preregistration.</li>
+          <li><a href="https://huggingface.co/datasets/RoamingPigs/trcs-tactical-audio">The audio</a>, pinned to one revision and checked file by file against its manifest.</li>
+          <li>The six model checkpoints, pinned to commit hashes, in <a href="{{ v.v2.plan.repo }}/blob/main/MODELS.md">MODELS.md</a>. This site describes them by size and kind. The repository names them so you can re-run them.</li>
+          <li>The per-clip results with digests, here at <a href="/results/">/results/</a> (model names replaced by size and kind) and on GitHub (with names).</li>
+        </ul>
+
+        <h2 id="fast">The fast check, about five minutes <a class="anchor" href="#fast" aria-label="Link to this section">#</a></h2>
+        <p>This needs no models. It checks that the published files are intact and that the headline figures follow from the raw per-clip results.</p>
+        </div>
+        <div class="codeblock">
+          <button class="copy" type="button" data-copy="fast" hidden>Copy</button>
+<pre id="fast" tabindex="0"><code>git clone {{ v.v2.plan.repo }} &amp;&amp; cd trcs
+python3 -m pip install numpy
+python3 verify_results.py --published results</code></pre>
+        </div>
+        <div class="prose">
+        <p>It re-hashes every results file against <code>SHA256SUMS</code> and rebuilds <code>analysis.json</code> from the raw per-clip files. Expected: no mismatches, and the rebuilt analysis identical to the published one.</p>
+
+        <h2 id="full">The full run, about three hours on a 48-thread CPU <a class="anchor" href="#full" aria-label="Link to this section">#</a></h2>
+        <p>This downloads the audio and the six models, transcribes 5,760 clips, and compares your transcripts and rates with mine. The exact commands, versions and a one-model shortcut are in <a href="{{ v.v2.plan.repo }}/blob/main/REPRODUCING.md">REPRODUCING.md</a>. I ran Python {{ v.v2.versions.python }}, <code>transformers</code> {{ v.v2.versions.transformers }} and <code>torch</code> {{ v.v2.versions.torch }} on {{ v.v2.versions.cpu }}.</p>
+
+        <h2 id="agree">What counts as agreement <a class="anchor" href="#agree" aria-label="Link to this section">#</a></h2>
+        <p>The tolerances were written before any outside run and are in <a href="{{ v.v2.plan.repo }}/blob/main/expected/tolerances.json">expected/tolerances.json</a>. On the same software and a similar machine, at least 95% of transcripts should match exactly. On different hardware or library versions, rare tokens can flip, so the test is whether each published headline rate lies inside your own 95% interval.</p>
+        <p>Decoding is deterministic, and the transcript for a clip does not depend on its batch: I decoded 24 clips per model one at a time and in batches, and {{ v.v2.inv }} matched. Transcripts are not guaranteed to match across CPU and GPU or across library versions. That is a known property of floating-point inference, not a defect I am hiding.</p>
+
+        <h2 id="report">Report what you got <a class="anchor" href="#report" aria-label="Link to this section">#</a></h2>
+        <p><a href="{{ v.v2.plan.repo }}/issues/new?template=reproduction-report.yml">Open a reproduction report</a> on GitHub. Say what you ran, on what, and what came out, and attach the raw output. A failed or partial report is as welcome as a success. Reports are listed in <a href="{{ v.v2.plan.repo }}/blob/main/REPRODUCTIONS.md">REPRODUCTIONS.md</a> with your name or handle if you want one, and appear on this page.</p>
+
+        <h2 id="rules">Rules <a class="anchor" href="#rules" aria-label="Link to this section">#</a></h2>
+        <ul>
+          <li>&ldquo;Reproduced&rdquo; means someone outside the project ran the published code on the pinned data. &ldquo;Replicated&rdquo; means they wrote their own implementation. I use these words as the ACM artifact badging scheme (v1.1) defines them.</li>
+          <li>I do not count my own runs, collaborators&rsquo; runs without saying so, or a run on different data.</li>
+          <li>I may not delete or edit a report. If one finds a bug, I fix it in a new release, mark the old claim superseded and credit the reporter.</li>
+          <li>Any headline number on these sites states how many outside reproductions back it, including none.</li>
+        </ul>
+        <p>The full rules are in <a href="{{ v.v2.plan.repo }}/blob/main/REPRODUCTION-RULES.md">REPRODUCTION-RULES.md</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+{% endblock %}

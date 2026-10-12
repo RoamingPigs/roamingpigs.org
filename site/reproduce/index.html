@@ -1,0 +1,167 @@
+<!doctype html>
+<!-- nav-canonical-exempt: independent RoamingPigs property on a personal Cloudflare account, not an Abundera site; it has its own header and footer. -->
+<!-- footer-canonical-exempt: same reason as the nav exemption above. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Reproduce a Result: Code, Pinned Data and Tolerances</title>
+  <meta name="description" content="Run the TRCS evaluation yourself on pinned data and models, check it against the published results, and report what you got. Failed reports are published too.">
+  <link rel="canonical" href="https://roamingpigs.org/reproduce/">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <meta name="theme-color" content="#f6f3ec">
+  <meta name="color-scheme" content="light">
+  <meta name="author" content="Cisco Caceres">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="RoamingPigs Research Notes">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Reproduce a Result: Code, Pinned Data and Tolerances">
+  <meta property="og:description" content="Run the TRCS evaluation yourself on pinned data and models, check it against the published results, and report what you got. Failed reports are published too.">
+  <meta property="og:url" content="https://roamingpigs.org/reproduce/">
+  <meta property="og:image" content="https://roamingpigs.org/og/default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="RoamingPigs Research Notes: research notes with the limits printed next to the numbers">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Reproduce a Result: Code, Pinned Data and Tolerances">
+  <meta name="twitter:description" content="Run the TRCS evaluation yourself on pinned data and models, check it against the published results, and report what you got. Failed reports are published too.">
+  <meta name="twitter:image" content="https://roamingpigs.org/og/default.png">
+  <meta name="twitter:image:alt" content="RoamingPigs Research Notes: research notes with the limits printed next to the numbers">
+  <meta property="article:modified_time" content="2026-10-11">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://roamingpigs.org/#website","url":"https://roamingpigs.org/","name":"RoamingPigs Research Notes","inLanguage":"en","publisher":{"@id":"https://roamingpigs.org/#org"},"author":{"@id":"https://roamingpigs.org/#author"}},{"@type":"Organization","@id":"https://roamingpigs.org/#org","name":"RoamingPigs","url":"https://roamingpigs.org/","logo":"https://roamingpigs.org/icon-512.png","description":"An independent project publishing small AI systems experiments with their limits.","founder":{"@id":"https://roamingpigs.org/#author"},"sameAs":["https://roamingpigs.ai/","https://roamingpigs.com/","https://github.com/RoamingPigs","https://huggingface.co/RoamingPigs"]},{"@type":"Person","@id":"https://roamingpigs.org/#author","name":"Cisco Caceres","url":"https://ciscocaceres.com/","sameAs":["https://orcid.org/0009-0005-7810-5077","https://github.com/RoamingPigs","https://huggingface.co/RoamingPigs"]},{"@type":"WebPage","@id":"https://roamingpigs.org/reproduce/#page","url":"https://roamingpigs.org/reproduce/","name":"Reproduce a Result: Code, Pinned Data and Tolerances","description":"Run the TRCS evaluation yourself on pinned data and models, check it against the published results, and report what you got. Failed reports are published too.","inLanguage":"en","isPartOf":{"@id":"https://roamingpigs.org/#website"},"author":{"@id":"https://roamingpigs.org/#author"},"dateModified":"2026-10-11"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Research Notes","item":"https://roamingpigs.org/"},{"@type":"ListItem","position":2,"name":"Reproduce","item":"https://roamingpigs.org/reproduce/"}]}]}</script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preload" href="/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/site.css?v=b49ca785">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<svg class="defs" width="0" height="0" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="g-measured" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5" fill="currentColor"/></symbol>
+    <symbol id="g-modelled" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M8 2.5a5.5 5.5 0 0 1 0 11z" fill="currentColor"/></symbol>
+    <symbol id="g-simulated" viewBox="0 0 16 16"><path d="M8 1.8 14.2 8 8 14.2 1.8 8z" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/></symbol>
+    <symbol id="g-proposed" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-dasharray="2.6 2.2"/></symbol>
+  </defs>
+</svg>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/favicon.svg" alt="" width="28" height="28">RoamingPigs <span>Research Notes</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+<li><a href="/">Records</a></li><li><a href="/results/">Results</a></li><li><a href="/datasets/trcs/">TRCS audio</a></li><li><a href="/method/">Method</a></li><li><a href="/reproduce/" aria-current="page">Reproduce</a></li><li><a href="/about/">About</a></li>        <li><a class="sister" href="https://roamingpigs.ai/">Instruments <span aria-hidden="true">&nearr;</span><span class="sr-only"> (roamingpigs.ai)</span></a></li>
+      </ul>
+    </nav>
+    <details class="nav-toggle">
+      <summary>Menu</summary>
+      <nav class="site-nav-mobile" aria-label="Main (mobile)">
+        <ul>
+<li><a href="/">Records</a></li><li><a href="/results/">Results</a></li><li><a href="/datasets/trcs/">TRCS audio</a></li><li><a href="/method/">Method</a></li><li><a href="/reproduce/" aria-current="page">Reproduce</a></li><li><a href="/about/">About</a></li>          <li><a class="sister" href="https://roamingpigs.ai/">Instruments (roamingpigs.ai) &nearr;</a></li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main id="main">
+<article class="doc">
+  <div class="wrap">
+    <nav class="breadcrumb crumbs" aria-label="Breadcrumb"><a href="/">Research Notes</a> / Reproduce</nav>
+    <div class="doc-grid">
+      <nav class="toc" aria-label="On this page">
+        <ol>
+          <li><a href="#status">Status</a></li>
+          <li><a href="#fast">The fast check</a></li>
+          <li><a href="#full">The full run</a></li>
+          <li><a href="#agree">What counts as agreement</a></li>
+          <li><a href="#report">Report what you got</a></li>
+          <li><a href="#rules">Rules</a></li>
+        </ol>
+      </nav>
+      <div>
+        <p class="eyebrow">Reproduce</p>
+        <h1>Check my work, and tell me where it fails</h1>
+        <p class="lede">Everything needed to repeat the speech experiments is public: the code, the data at a pinned revision, the exact models and a plan written before the run. If you reproduce a result, or fail to, I will publish your report.</p>
+        <p class="status-line" id="status"><span>Outside reproductions so far: <strong>none</strong></span><span aria-hidden="true">&middot;</span><span>Self-run checks do not count</span></p>
+
+        <div class="prose">
+        <h2 id="what">What is available <a class="anchor" href="#what" aria-label="Link to this section">#</a></h2>
+        <ul>
+          <li><a href="https://github.com/RoamingPigs/trcs">The code and results</a> on GitHub, with <a href="https://github.com/RoamingPigs/trcs/blob/7af45c9b3afb15d41fa58d22c1687e6415789f0d/PLAN.md">the analysis plan</a> as pushed on 2026-10-11 at 22:51:28 UTC, before the full run started. GitHub recorded that push time, not me. This is a dated plan. It is not a registered one, and I do not call it preregistration.</li>
+          <li><a href="https://huggingface.co/datasets/RoamingPigs/trcs-tactical-audio">The audio</a>, pinned to one revision and checked file by file against its manifest.</li>
+          <li>The six model checkpoints, pinned to commit hashes, in <a href="https://github.com/RoamingPigs/trcs/blob/main/MODELS.md">MODELS.md</a>. This site describes them by size and kind. The repository names them so you can re-run them.</li>
+          <li>The per-clip results with digests, here at <a href="/results/">/results/</a> (model names replaced by size and kind) and on GitHub (with names).</li>
+        </ul>
+
+        <h2 id="fast">The fast check, about five minutes <a class="anchor" href="#fast" aria-label="Link to this section">#</a></h2>
+        <p>This needs no models. It checks that the published files are intact and that the headline figures follow from the raw per-clip results.</p>
+        </div>
+        <div class="codeblock">
+          <button class="copy" type="button" data-copy="fast" hidden>Copy</button>
+<pre id="fast" tabindex="0"><code>git clone https://github.com/RoamingPigs/trcs &amp;&amp; cd trcs
+python3 -m pip install numpy
+python3 verify_results.py --published results</code></pre>
+        </div>
+        <div class="prose">
+        <p>It re-hashes every results file against <code>SHA256SUMS</code> and rebuilds <code>analysis.json</code> from the raw per-clip files. Expected: no mismatches, and the rebuilt analysis identical to the published one.</p>
+
+        <h2 id="full">The full run, about three hours on a 48-thread CPU <a class="anchor" href="#full" aria-label="Link to this section">#</a></h2>
+        <p>This downloads the audio and the six models, transcribes 5,760 clips, and compares your transcripts and rates with mine. The exact commands, versions and a one-model shortcut are in <a href="https://github.com/RoamingPigs/trcs/blob/main/REPRODUCING.md">REPRODUCING.md</a>. I ran Python 3.14.4, <code>transformers</code> 5.16.1 and <code>torch</code> 2.14.0+cpu on Intel(R) Xeon(R) Platinum 8160 CPU @ 2.10GHz.</p>
+
+        <h2 id="agree">What counts as agreement <a class="anchor" href="#agree" aria-label="Link to this section">#</a></h2>
+        <p>The tolerances were written before any outside run and are in <a href="https://github.com/RoamingPigs/trcs/blob/main/expected/tolerances.json">expected/tolerances.json</a>. On the same software and a similar machine, at least 95% of transcripts should match exactly. On different hardware or library versions, rare tokens can flip, so the test is whether each published headline rate lies inside your own 95% interval.</p>
+        <p>Decoding is deterministic, and the transcript for a clip does not depend on its batch: I decoded 24 clips per model one at a time and in batches, and 144 of 144 matched. Transcripts are not guaranteed to match across CPU and GPU or across library versions. That is a known property of floating-point inference, not a defect I am hiding.</p>
+
+        <h2 id="report">Report what you got <a class="anchor" href="#report" aria-label="Link to this section">#</a></h2>
+        <p><a href="https://github.com/RoamingPigs/trcs/issues/new?template=reproduction-report.yml">Open a reproduction report</a> on GitHub. Say what you ran, on what, and what came out, and attach the raw output. A failed or partial report is as welcome as a success. Reports are listed in <a href="https://github.com/RoamingPigs/trcs/blob/main/REPRODUCTIONS.md">REPRODUCTIONS.md</a> with your name or handle if you want one, and appear on this page.</p>
+
+        <h2 id="rules">Rules <a class="anchor" href="#rules" aria-label="Link to this section">#</a></h2>
+        <ul>
+          <li>&ldquo;Reproduced&rdquo; means someone outside the project ran the published code on the pinned data. &ldquo;Replicated&rdquo; means they wrote their own implementation. I use these words as the ACM artifact badging scheme (v1.1) defines them.</li>
+          <li>I do not count my own runs, collaborators&rsquo; runs without saying so, or a run on different data.</li>
+          <li>I may not delete or edit a report. If one finds a bug, I fix it in a new release, mark the old claim superseded and credit the reporter.</li>
+          <li>Any headline number on these sites states how many outside reproductions back it, including none.</li>
+        </ul>
+        <p>The full rules are in <a href="https://github.com/RoamingPigs/trcs/blob/main/REPRODUCTION-RULES.md">REPRODUCTION-RULES.md</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <h2>RoamingPigs Research Notes</h2>
+      <p>Small experiments, published with their limits. Written by <a href="https://ciscocaceres.com/">Cisco Caceres</a>. Self-published and not peer reviewed.</p>
+    </div>
+    <div>
+      <h2>This site</h2>
+      <ul><li><a href="/">Records</a></li><li><a href="/results/">Results</a></li><li><a href="/datasets/trcs/">TRCS audio</a></li><li><a href="/method/">Method</a></li><li><a href="/reproduce/">Reproduce</a></li><li><a href="/about/">About</a></li><li><a href="/corrections/">Corrections</a></li></ul>
+    </div>
+    <div>
+      <h2>Elsewhere</h2>
+      <ul>
+        <li><a href="https://roamingpigs.ai/">Instruments (roamingpigs.ai)</a></li>
+        <li><a href="https://roamingpigs.com/">Field Manual (roamingpigs.com)</a></li>
+        <li><a href="https://ciscocaceres.com/research/">Papers (ciscocaceres.com)</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Records</h2>
+      <ul>
+        <li><a href="https://huggingface.co/datasets/RoamingPigs/trcs-tactical-audio">Dataset on Hugging Face</a></li>
+        <li><a href="https://github.com/RoamingPigs">GitHub</a></li>
+        <li><a href="https://orcid.org/0009-0005-7810-5077">ORCID 0009-0005-7810-5077</a></li>
+      </ul>
+    </div>
+    <p class="footer-note">&copy; 2026 Cisco Caceres. Data licences are stated on each dataset page. No cookies, no analytics, nothing loaded from other domains. Last build 11 October 2026.</p>
+  </div>
+</footer>
+<script src="/js/site.js?v=2d4f8d10" defer></script>
+</body>
+</html>

@@ -4,6 +4,7 @@
 2026-10-11
 
 ## Last big thing accomplished
+2026-10-12: ran and published the full-grid speech study (plan first, 5,760 transcripts, intervals), added /reproduce/ and a results folder, and fixed the dataset card. Earlier the same day:
 Rebuilt the site from scratch as RoamingPigs Research Notes: a light, serif-set research record where every figure carries an evidence class (measured, modelled, simulated, proposed), a run date, a sample and what it does not show. Pages: `/`, `/datasets/trcs/`, `/method/`, `/corrections/`, `/cite/`, `/about/`, 404. Built by `scripts/build.py` from `data/canon.json` (derived from the ledgers by `siteops/scripts/rp-canon.py`) and `src/templates`.
 
 ## First action next session

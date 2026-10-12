@@ -27,7 +27,7 @@
   <div class="wrap">
     <div class="section-head">
       <h2 id="records-h">Current records</h2>
-      <p>Five records, each with its date, sample and limits. The full papers live on <a href="https://ciscocaceres.com/research/">ciscocaceres.com</a>. These pages hold the numbers and what they do and do not show.</p>
+      <p>Five records, each with its date, sample and limits. The two speech records come from one pre-planned run on the released audio. The full papers live on <a href="https://ciscocaceres.com/research/">ciscocaceres.com</a>. These pages hold the numbers and what they do and do not show.</p>
     </div>
 
     <div class="records">
@@ -39,82 +39,94 @@
         </header>
         <div class="record-body">
           <div>
-            <p class="headline">Six open speech models transcribed five scripted maritime radio calls through six audio paths and five noise levels. Averaged over every path, word error was <strong class="num">{{ v.wer_clean }}%</strong> with no added noise and <strong class="num">{{ v.wer_0 }}%</strong> at 0 dB. Above 100% means the models wrote more wrong words than the call contained.</p>
+            <p class="headline">Six open speech models transcribed {{ v.v2.n_utt }} synthetic radio calls through six audio paths at four noise levels: {{ v.v2.n_transcripts }} transcripts. Averaged over models and paths, word error was <strong class="num">{{ v.v2.w['clean'].p }}%</strong> on clean audio (95% interval {{ v.v2.w['clean'].lo }} to {{ v.v2.w['clean'].hi }}) and <strong class="num">{{ v.v2.w['0 dB'].p }}%</strong> at 0 dB ({{ v.v2.w['0 dB'].lo }} to {{ v.v2.w['0 dB'].hi }}). {{ v.v2.codecs_worse }} of the {{ v.v2.codecs_total }} narrowband paths were worse than uncompressed audio on clean speech, with intervals that exclude zero.{% if v.v2.any_over_100 %} Above 100% means the model wrote more wrong words than the call contained.{% endif %}</p>
             <figure class="figure">
               {{ ch.wer|safe }}
-              <figcaption><strong>Mean word error rate by noise level.</strong> Mean of {{ c.e2.models|length }} models, {{ c.e2.codecs|length }} audio paths and {{ c.e2.utterances }} utterances per bar, point estimates. Run {{ v.e2_date }}.</figcaption>
+              <figcaption><strong>Corpus word error by noise level.</strong> Pooled over 6 models and 6 audio paths; whiskers are 95% intervals from resampling the {{ v.v2.n_utt }} scripted calls. Run finished {{ v.v2.run_end }} UTC.</figcaption>
+            </figure>
+            <figure class="figure">
+              {{ ch.model_clean|safe }}
+              <figcaption><strong>Clean, uncompressed audio, by model size.</strong> {{ v.v2.size_sentence }} With six models this is a description, not a test.</figcaption>
             </figure>
             <div class="limits">
               <h4>What this does not show</h4>
-              <p>Five utterances is a pilot. The speech is synthetic (text to speech), not recorded radio traffic. There are no confidence intervals, so small gaps between codecs mean nothing yet. Decoding was greedy with a 48-token cap, and error above 100% includes inserted words. It says nothing about any product.</p>
+              <p>The speech is one synthetic voice at one speaking rate, not recorded radio, and the channel is simulated: noise is added after the codec, and the signal-to-noise ratio is measured over the whole clip including pauses. The intervals cover the {{ v.v2.n_utt }} scripts, not other speakers, voices or phrasings. Scoring uses the Whisper English text normaliser, which was developed with those models. Results are for the Hugging Face library with greedy decoding on a CPU, and do not carry to other libraries, which apply extra thresholds by default. I did not test the five narrowband paths against each other, so I do not rank them. It says nothing about any product.</p>
+              <p>This run replaces a pilot published on 10 October that scored 5 calls on different audio and had decoding flaws, listed in the <a href="/corrections/">corrections</a>.</p>
             </div>
           </div>
           <dl class="facts">
-            <div><dt>Run</dt><dd class="mono">{{ v.e2_date }}</dd></div>
-            <div><dt>Sample</dt><dd>{{ c.e2.models|length }} models ({{ v.e2_sizes }} parameters) &times; {{ c.e2.utterances }} utterances &times; {{ c.e2.codecs|length }} audio paths &times; {{ c.e2.snr_db|length }} noise levels = <span class="mono">{{ c.e2.records }}</span> transcripts</dd></div>
-            <div><dt>Method</dt><dd>Word error rate against the script, greedy decoding, no resampling</dd></div>
-            <div><dt>Source</dt><dd><a class="mono" href="/results/e2-telephone-grid-ledger.json">e2-telephone-grid-ledger.json</a></dd></div>
+            <div><dt>Run</dt><dd class="mono">{{ v.v2.run_start }} to {{ v.v2.run_end }} UTC</dd></div>
+            <div><dt>Sample</dt><dd>6 models &times; {{ v.v2.n_utt }} calls &times; 6 audio paths &times; 4 noise levels = <span class="mono">{{ v.v2.n_transcripts }}</span> transcripts of the released files</dd></div>
+            <div><dt>Method</dt><dd>Corpus word error (total errors over total words), Whisper English normaliser, greedy decoding, 10,000-resample bootstrap over calls. Plan pushed before the run: <a class="mono" href="{{ v.v2.plan.repo }}/blob/{{ v.v2.plan.commit }}/PLAN.md">{{ v.v2.plan.commit[:7] }}</a></dd></div>
+            <div><dt>Source</dt><dd><a class="mono" href="/results/trcs-full-grid-analysis.json">trcs-full-grid-analysis.json</a></dd></div>
           </dl>
         </div>
         <ul class="record-links">
           <li><a href="/datasets/trcs/">The dataset</a></li>
-          <li><a href="/results/">All results files</a></li>
           <li><a href="https://roamingpigs.ai/codec-grid/">Explore every transcript</a></li>
+          <li><a href="/reproduce/">Reproduce it</a></li>
           <li><a href="https://ciscocaceres.com/downloads/tactical-radio-channel-simulator/">Read the paper</a></li>
         </ul>
       </article>
 
       <article class="record" id="silence-hallucination">
         <header class="record-head">
-          <h3 class="record-title"><a href="#silence-hallucination">Given silence, every model still wrote words</a></h3>
+          <h3 class="record-title"><a href="#silence-hallucination">Given silence, models still write words</a></h3>
           <div class="chips">{{ chip('measured') }}</div>
         </header>
         <div class="record-body">
           <div>
-            <p class="headline">On {{ c.e1.non_speech_clips_per_model }} clips of silence, static or radio squelch, each of {{ c.e1.models }} models wrote words on <strong class="num">{{ c.e1.ungated_hallucinated_clips[0] }} of {{ c.e1.non_speech_clips_per_model }}</strong>. A basic energy gate removed the words on both silence conditions. It did nothing on any of the six noise and squelch conditions, so <strong class="num">{{ c.e1.gated_hallucinated_clips[0] }} of {{ c.e1.non_speech_clips_per_model }}</strong> clips still produced text.</p>
+            <p class="headline">On {{ v.v2.e1_n_distinct }} distinct clips of silence, static or radio squelch, each of six models wrote words on <strong class="num">{{ v.v2.e1_none }}%</strong> of them. {{ v.v2.gate_energy }} {{ v.v2.gate_neural }} Across models the energy gate left {{ v.v2.e1_energy }}% of clips with text, and the neural gate {{ v.v2.e1_neural }}%.</p>
             <figure class="figure">
               {{ ch.hal|safe }}
-              <figcaption><strong>Clips with invented words, by condition.</strong> Each row pools {{ c.e1.models }} models &times; {{ c.e1.seeds }} seeds. Run {{ v.e1_date }}.</figcaption>
+              <figcaption><strong>Share of non-speech clips with any written word, by condition and gate.</strong> Pooled over six models. Digital silence is one distinct clip repeated, so it counts once. Run finished {{ v.v2.run_end }} UTC.</figcaption>
             </figure>
+            <p>What a gate costs on speech, measured on {{ v.v2.speech_clips }} transcripts of clean and 0 dB speech: the energy gate changed word error by {{ v.v2.cost_energy }}, with {{ v.v2.energy_same }} transcripts unchanged. The neural gate raised it by {{ v.v2.cost_neural }}. Neither gate skipped a speech clip.</p>
+            <div class="limits">
+              <h4>Where my written expectations were wrong</h4>
+              <p>Before the run I wrote down that the energy gate would clear silence but not squelch, that the neural gate would clear more but not everything, and that either gate would cost something on speech. The energy gate also cleared the squelch bursts. The neural gate cleared every non-speech clip. The energy gate cost nothing here because the synthetic pauses are already digital silence and noisy clips never fall below its level threshold, so that result says nothing about real recordings. The neural gate was tested on generated noise, which may be easier to separate from speech than real noise. <a href="{{ v.v2.plan.repo }}/blob/main/results/EXPECTATIONS.md">The full list</a>.</p>
+            </div>
             <div class="limits">
               <h4>What this does not show</h4>
-              <p>The clips are 2.5 seconds of generated audio, three seeds per condition, one gate setting (&minus;42 dBFS). Real radio recordings may behave differently. The same models can be quiet with a better gate or a different decoder. Peak speed reached {{ v.e1_wpm_cell }} words per minute in one noise condition, which is a single cell, not a typical rate.</p>
+              <p>The clips are 2.5 seconds of generated sound, ten seeds per condition, one setting for each gate. Real recordings may behave differently. A hallucination here means any word in the normalised output, which is a blunt definition: it does not separate a single stray word from a loop. The energy gate measures level only. The neural gate was tested as shipped, not tuned. Neither result applies to other models or to long recordings.</p>
+              <p>This replaces the 10 October pilot, which used 3 seeds and a different clip set.</p>
             </div>
           </div>
           <dl class="facts">
-            <div><dt>Run</dt><dd class="mono">{{ v.e1_date }}</dd></div>
-            <div><dt>Sample</dt><dd>{{ c.e1.models }} models &times; {{ c.e1.non_speech_conditions }} conditions &times; {{ c.e1.seeds }} seeds, {{ c.e1.clip_seconds }} s each</dd></div>
-            <div><dt>Method</dt><dd>Count clips where the transcript contains any word. Gate: 20 ms frames, &minus;42 dBFS threshold</dd></div>
-            <div><dt>Source</dt><dd><a class="mono" href="/results/e1-hallucination-ledger.json">e1-hallucination-ledger.json</a></dd></div>
+            <div><dt>Run</dt><dd class="mono">{{ v.v2.run_start }} to {{ v.v2.run_end }} UTC</dd></div>
+            <div><dt>Sample</dt><dd>6 models &times; {{ v.v2.e1_n_distinct }} distinct non-speech clips &times; 3 gate arms</dd></div>
+            <div><dt>Method</dt><dd>Count clips whose normalised output has any word. Wilson intervals per model; pooled rates by bootstrap over clips</dd></div>
+            <div><dt>Source</dt><dd><a class="mono" href="/results/trcs-full-grid-e1-per-clip.jsonl">trcs-full-grid-e1-per-clip.jsonl</a></dd></div>
           </dl>
         </div>
         <ul class="record-links">
           <li><a href="/datasets/trcs/">The dataset</a></li>
+          <li><a href="/reproduce/">Reproduce it</a></li>
           <li><a href="https://ciscocaceres.com/downloads/tactical-radio-channel-simulator/">Read the paper</a></li>
         </ul>
       </article>
 
       <article class="record" id="inference-energy">
         <header class="record-head">
-          <h3 class="record-title"><a href="#inference-energy">What a local model costs in energy, read off a wall meter</a></h3>
-          <div class="chips">{{ chip('measured') }}{{ chip('modelled') }}</div>
+          <h3 class="record-title"><a href="#inference-energy">Power/rate estimates from local inference summaries</a></h3>
+          <div class="chips">{{ chip('modelled') }}</div>
         </header>
         <div class="record-body">
           <div>
-            <p class="headline">On one {{ v.apu_mem }} GB unified-memory machine, a wall meter read <strong class="num">{{ v.j_min }} to {{ v.j_max }} joules</strong> per generated token across {{ v.n_runs }} models. Before I ran the meter, a calibrated model of mine had predicted <strong class="num">{{ c.apu.calibrated_9b.j_per_token }}</strong> for the smallest. The meter read <strong class="num">{{ v.j_first }}</strong>.</p>
+            <p class="headline">Dividing reported mean wall power by reported decode speed gives <strong class="num">{{ v.j_min }} to {{ v.j_max }} joules per token</strong> for {{ v.n_runs }} local-model summaries. These are derived estimates, not meter readings of token energy. A separate calculated scenario gives {{ c.apu.calculated_9b.j_per_token }} for the smallest model; it is not an independently validated prediction.</p>
             <figure class="figure">
               {{ ch.joules|safe }}
-              <figcaption><strong>Wall energy per generated token, mean power over the run.</strong> Includes the whole machine, with an idle floor of {{ c.apu.idle_wall_w|int }} W. Run {{ v.apu_date }}.</figcaption>
+              <figcaption><strong>Reported mean wall power divided by reported decode speed.</strong> This estimate uses whole-machine power. The named ledger lacks raw timestamped power arrays for these historical summaries. Record {{ v.apu_date }}.</figcaption>
             </figure>
             <div class="limits">
               <h4>What this does not show</h4>
-              <p>Each number is one run of {{ v.run_min }} to {{ v.run_max }} seconds and {{ v.run_tokens }} tokens. Energy per token uses mean wall power. Peak power gives higher values, up to {{ v.j_peak_first }} for the first run. This is one machine at batch size one. Serving many requests at once can lower energy per token several-fold, so this is not a comparison with data centre hardware.{% if v.excl %} A third run, on a {{ v.excl.params_b }}B mixture model, is left out. Its recorded speed implies {{ v.excl.implied_gbps|round|int }} GB/s of memory traffic on a {{ v.peak_gbps }} GB/s bus, so its speed or its active-parameter count is wrong in the ledger.{% endif %} <a href="https://roamingpigs.ai/inference-cost/">The calculator</a> shows the assumptions.</p>
+              <p>The summaries report {{ v.run_min }} to {{ v.run_max }} seconds and {{ v.run_tokens }} output tokens. The first summary separately reports integrated sample-window energy of {{ v.j_reported_first }} J/output token. That is a different estimator and window from the power/rate ratio; a similar peak-power ratio does not explain or replace it. Raw traces are absent, so the integrated value cannot be independently reconciled from this file. This is one machine at batch size one, with no matched datacenter comparison.{% if v.excl %} A third {{ v.excl.params_b }}B mixture-model summary falls outside the calculator's simplified active-weight traffic assumption ({{ v.excl.implied_gbps|round|int }} GB/s versus a declared {{ v.peak_gbps }} GB/s peak). It is retained in the results file; this diagnostic does not prove its recorded speed or parameter count is wrong.{% endif %} <a href="https://roamingpigs.ai/inference-cost/">The calculator</a> shows the assumptions.</p>
             </div>
           </div>
           <dl class="facts">
             <div><dt>Run</dt><dd class="mono">{{ v.apu_date }}</dd></div>
             <div><dt>Sample</dt><dd>{{ v.n_runs|capitalize }} runs, one per model, {{ v.run_tokens }} generated tokens each</dd></div>
-            <div><dt>Method</dt><dd>Smart-plug wall power averaged over the run, divided by tokens per second. Weights at {{ c.apu.metered_runs[0].quant }}</dd></div>
+            <div><dt>Method</dt><dd>Reported mean smart-plug power divided by reported decode tokens per second; windows may differ. Weights at {{ c.apu.reported_runs[0].quant }}</dd></div>
             <div><dt>Source</dt><dd><a class="mono" href="/results/sovereign-apu-inference-ledger.json">sovereign-apu-inference-ledger.json</a></dd></div>
           </dl>
         </div>
@@ -176,14 +188,14 @@
             </figure>
             <div class="limits">
               <h4>What this does not show</h4>
-              <p>The tasks were reused and the agents may have seen them, so this is a diagnostic, not a benchmark. Transport timings measure messaging speed, not task success. A coordination benefit would need fresh tasks and repeated runs.</p>
+              <p>The tasks were reused and the agents may have seen them, so this is a diagnostic, not a benchmark. Transport timings measure messaging speed, not task success. The per-attempt file is derived: failure labels such as merge conflicts are mapped by rules from each attempt&rsquo;s recorded status, the two &ldquo;coders&rdquo; are the same script so there is no inter-coder agreement to report, and per-attempt token counts are allocated from totals. The figures here are the summary counts. A coordination benefit would need fresh tasks and repeated runs.</p>
             </div>
           </div>
           <dl class="facts">
             <div><dt>Run</dt><dd class="mono">{{ v.echo_date }}</dd></div>
             <div><dt>Sample</dt><dd>{{ c.echo.tasks }} tasks &times; 3 arms, {{ c.echo.attempts_per_arm }} attempts per arm ({{ c.echo.attempts_per_arm * 3 }} in all)</dd></div>
             <div><dt>Method</dt><dd>An attempt is accepted when all hidden acceptance checks pass</dd></div>
-            <div><dt>Source</dt><dd><a class="mono" href="/results/e3-mast-coding-ledger.json">e3-mast-coding-ledger.json</a></dd></div>
+            <div><dt>Source</dt><dd><a class="mono" href="{{ c.echo.source_url }}">e3-mast-coding-ledger.json</a></dd></div>
           </dl>
         </div>
         <ul class="record-links">

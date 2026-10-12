@@ -1,10 +1,11 @@
 {
- "_note": "Scrubbed copies of the research ledgers. Models are labelled by size and kind; local paths, hosts and IPs are removed. The scrub changes no number (checked at export).",
+ "_note": "Scrubbed research files include observations, calculated scenarios, simulations and programmatic annotations. Evidence metadata qualifies each mixed or generated file. Model names, local paths, hosts and IPs are removed; all existing numbers are preserved, not validated, by export.",
  "files": [
   {
    "file": "e1-hallucination-ledger.json",
-   "description": "E1: words written for silence, noise and squelch, with and without an energy gate",
+   "description": "Pilot E1: words written for silence, noise and squelch, with and without an energy gate (3 seeds, 5 calls)",
    "record": "#silence-hallucination",
+   "status": "superseded",
    "bytes": 108847,
    "sha256": "759cf097edea2ec04becfebbbe2a024d1b356069fe961f19eeaa73c4376252d8",
    "source_sha256": "a3d2ed6b551322020184d15548c8911cd655c1468873104df76b7749c51392c6",
@@ -12,8 +13,9 @@
   },
   {
    "file": "e2-telephone-grid-ledger.json",
-   "description": "E2: six speech models through six audio paths and five noise levels, every transcript",
+   "description": "Pilot E2: six speech models through six audio paths and five noise levels, 5 calls, every transcript",
    "record": "#radio-audio",
+   "status": "superseded",
    "bytes": 880890,
    "sha256": "49390df45c82d52fa4278a61a935dee2d0b3a001a614fd3092205a6443943a16",
    "source_sha256": "279914aa1ab246eeb0222405f1a96c75df4ce5b0211d5311ae6bc134d1a3e961",
@@ -21,19 +23,21 @@
   },
   {
    "file": "e3-mast-coding-ledger.json",
-   "description": "E3: 48 development attempts coded for failure modes, single agent against two coordination setups",
+   "description": "E3 companion: programmatic labels and allocated resource rows; original development aggregates are separate",
    "record": "#agent-coordination",
-   "bytes": 28032,
-   "sha256": "4f7b2ae0f69237e36f4422bc2453a59d95a83cec225bb3b8f4b210f08b627f7c",
+   "status": "current",
+   "bytes": 28475,
+   "sha256": "72249aa478bc34bfa88c4bcd12d92474274276100d7ea7501e86b70e7410bc32",
    "source_sha256": "f4e7960edbb9342e04ad4c994bb94b2292b22e6a69f6946b47d6d63e4d63569d",
    "run_utc": "2026-10-10 17:40:21Z"
   },
   {
    "file": "sovereign-apu-inference-ledger.json",
-   "description": "Energy: wall-meter runs and calibrated model rows on one unified-memory machine",
+   "description": "Energy: limited live-labeled summaries and calculated scenarios, with different energy estimators",
    "record": "#inference-energy",
-   "bytes": 28715,
-   "sha256": "fa05c73f72adeb028ce7d0d0108df21f7b1c9da456d0a80d62ba92f74fe7eade",
+   "status": "current",
+   "bytes": 29119,
+   "sha256": "e63f4c0817df4436277d0113fe97765971f9d38ac409537b54a276eab4c7a972",
    "source_sha256": "ff28ea59d4ad9a517ebf786d83ccf8df905ca1f3b6e8e90b850e683e74d4f6c7",
    "run_utc": "2026-10-10 23:26:56Z"
   },
@@ -41,10 +45,61 @@
    "file": "vec-scr-evaluation-ledger.json",
    "description": "Verifier simulation: error covariance and budget sweeps on a seeded synthetic pool",
    "record": "#verifier-simulation",
-   "bytes": 27245,
-   "sha256": "180120350f19b243d6ab3da83498ee1022c70eeae744703f87458896db940d8c",
+   "status": "current",
+   "bytes": 27480,
+   "sha256": "bf4aadefd28386883f2c00a53da0a7ce8d14b908c45034936cecdde873b1c86a",
    "source_sha256": "c50fb6ccba60f7de8f72699976c9e798981ae58ed394d46588d8e5dfb6fae2bc",
    "run_utc": "2026-10-10 21:51:06Z"
+  },
+  {
+   "file": "trcs-full-grid-analysis.json",
+   "description": "Full grid: every pre-specified analysis with bootstrap intervals",
+   "record": "#radio-audio",
+   "bytes": 57512,
+   "sha256": "043f7883ffdd2e61f831e120b4924b100ac1d9b22adc14b7d5764f958c4a69f9",
+   "source_sha256": null,
+   "status": "current",
+   "run_utc": "2026-10-12 02:52"
+  },
+  {
+   "file": "trcs-full-grid-e2-per-clip.jsonl",
+   "description": "Full grid: per-clip transcripts and word-error counts, 6 models x 960 clips",
+   "record": "#radio-audio",
+   "bytes": 3527318,
+   "sha256": "fc33422c5d124a5aaacea14e7dfee336632dff5ce7e06125479ce3009a55b139",
+   "source_sha256": null,
+   "status": "current",
+   "run_utc": "2026-10-12 02:52"
+  },
+  {
+   "file": "trcs-full-grid-e1-per-clip.jsonl",
+   "description": "Full grid: per-clip outputs for 90 non-speech clips, three gate arms",
+   "record": "#silence-hallucination",
+   "bytes": 545310,
+   "sha256": "7a43ed509c98f4000376a58fbfa000d8b3b3b8370cbe2d76bd910db2fd8b6e40",
+   "source_sha256": null,
+   "status": "current",
+   "run_utc": "2026-10-12 02:52"
+  },
+  {
+   "file": "trcs-full-grid-speech-cost-per-clip.jsonl",
+   "description": "Full grid: what each gate costs on 80 speech clips",
+   "record": "#silence-hallucination",
+   "bytes": 456995,
+   "sha256": "0fce2e64e8b1f70e7d841480b4a798001dd4f25d5839a3824e06028f56458d0e",
+   "source_sha256": null,
+   "status": "current",
+   "run_utc": "2026-10-12 02:52"
+  },
+  {
+   "file": "trcs-full-grid-report.md",
+   "description": "Full grid: the auto-generated results report",
+   "record": "#radio-audio",
+   "bytes": 5474,
+   "sha256": "ad3d2c80d41a8b0bd3c5b0921d7aadf91d313fdb694043fafbb7edbce9e68f24",
+   "source_sha256": null,
+   "status": "current",
+   "run_utc": "2026-10-12 02:52"
   }
  ]
 }

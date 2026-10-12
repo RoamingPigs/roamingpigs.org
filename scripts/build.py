@@ -36,7 +36,7 @@ NAV = [
     {"path": "/results/", "label": "Results"},
     {"path": "/datasets/trcs/", "label": "TRCS audio"},
     {"path": "/method/", "label": "Method"},
-    {"path": "/cite/", "label": "Cite"},
+    {"path": "/reproduce/", "label": "Reproduce"},
     {"path": "/about/", "label": "About"},
 ]
 
@@ -72,6 +72,13 @@ PAGES = [
         "breadcrumb": [("Research Notes", "/"), ("Method", "/method/")],
     },
     {
+        "path": "/reproduce/",
+        "template": "reproduce.html",
+        "title": "Reproduce a Result: Code, Pinned Data and Tolerances",
+        "description": "Run the TRCS evaluation yourself on pinned data and models, check it against the published results, and report what you got. Failed reports are published too.",
+        "breadcrumb": [("Research Notes", "/"), ("Reproduce", "/reproduce/")],
+    },
+    {
         "path": "/corrections/",
         "template": "corrections.html",
         "title": "Corrections Log: What Was Wrong and What Replaced It",
@@ -98,23 +105,138 @@ PAGES = [
 
 def utc_label(s: str) -> str:
     m = re.match(r"(\d{4}-\d{2}-\d{2})[ T](\d{2}:\d{2})", s)
+    if not m and re.fullmatch(r"\d{4}-\d{2}-\d{2}", s):
+        return f"{s} UTC date (time not recorded)"
     assert m, s
     return f"{m.group(1)} {m.group(2)} UTC"
 
 
+LABELS_COND = {
+    "digital_silence": "digital silence", "ambient_silence": "a quiet room", "squelch_burst": "radio squelch bursts",
+    "noise_white": "white noise", "noise_pink": "pink noise", "noise_brown": "brown noise", "noise_engine": "engine noise", "noise_babble": "crowd babble",
+}
+
+
+def _join(xs: list[str]) -> str:
+    return xs[0] if len(xs) == 1 else ", ".join(xs[:-1]) + " and " + xs[-1]
+
+
+def pct(x: float, d: int = 0) -> str:
+    return f"{x * 100:.{d}f}"
+
+
+def span(r: tuple[float, float]) -> str:
+    lo, hi = pct(r[0]), pct(r[1])
+    return lo if lo == hi else f"{lo} to {hi}"
+
+
+def v2_values(c: dict) -> dict:
+    """Numbers and sentences for the full-grid run. Each claim is asserted so the copy cannot outrun the data."""
+    v2 = c["trcs_v2"]
+    A = v2["analysis"]
+    n = A["e2"]["n_utterances"]
+    norm = A["e2"]["normalised"]
+    a1 = norm["A1_by_noise"]
+    a3 = norm["A3_codec_minus_uncompressed_clean"]
+    a4 = norm["A4_noise_effect"]
+    for k, x in a4.items():
+        assert x["lo"] > 0, f"noise effect {k} is not established (interval includes zero); rewrite the copy"
+    worse = [k for k, x in a3.items() if x["lo"] > 0]
+    better = [k for k, x in a3.items() if x["hi"] < 0]
+    assert not better, "a narrowband path is better than uncompressed; rewrite the copy"
+    inv = v2["batch_invariance"]
+    inv_total = sum(x["checked"] for x in inv.values())
+    inv_same = sum(x["identical"] for x in inv.values())
+    e1 = A["e1"]
+    arms = {"none": "No gate", "energy": "Energy gate", "neural": "Neural VAD gate"}
+    per_model = e1["E1_1_rate_by_arm_and_model"]
+    rng = {a: (min(x["rate"] for k, x in per_model.items() if k.startswith(a + "|")), max(x["rate"] for k, x in per_model.items() if k.startswith(a + "|"))) for a in arms}
+    nd = next(x["n_distinct_clips"] for k, x in per_model.items() if k.startswith("none|"))
+    cond = e1["E1_2_rate_by_arm_and_condition"]
+    conds = [k.split("|")[1] for k in cond if k.startswith("none|")]
+
+    def gate_sentence(arm: str, name: str) -> str:
+        cleared = [LABELS_COND[x] for x in conds if cond[f"{arm}|{x}"]["rate"] <= 0.10]
+        if len(cleared) == len(conds):
+            return f"The {name} cleared every condition."
+        stuck = [LABELS_COND[x] for x in conds if cond[f"{arm}|{x}"]["rate"] >= 0.90]
+        part = [f"{LABELS_COND[x]} ({pct(cond[f'{arm}|{x}']['rate'])}%)" for x in conds if 0.10 < cond[f"{arm}|{x}"]["rate"] < 0.90]
+        bits = []
+        if cleared:
+            bits.append("cleared " + _join(cleared))
+        if part:
+            bits.append("cut " + _join(part))
+        if stuck:
+            bits.append("left " + _join(stuck) + " untouched")
+        return f"The {name} " + "; ".join(bits) + "."
+
+    assert min(x["rate"] for k, x in per_model.items() if k.startswith("none|")) >= 0.5, "ungated models do not mostly write words on non-speech; rewrite the record title and headline"
+    pts = [x["point"] for x in norm["A2_by_model_clean_uncompressed"].values()]
+    if all(a > b for a, b in zip(pts, pts[1:])):
+        size_sentence = "Error falls steadily as models get larger."
+    elif pts[0] == max(pts):
+        size_sentence = "The smallest model is worst, but error does not fall steadily with size."
+    else:
+        size_sentence = "Error does not fall steadily with model size."
+
+    # Guards for the prose in "where my expectations were wrong": each sentence is true only while these hold.
+    assert all(cond[f"neural|{x}"]["rate"] == 0 for x in conds), "neural gate no longer clears every non-speech clip; rewrite the expectations paragraph"
+    assert cond["energy|squelch_burst"]["rate"] <= 0.10, "energy gate no longer clears squelch; rewrite the expectations paragraph"
+    assert all(cond[f"energy|{x}"]["rate"] >= 0.90 for x in conds if x.startswith("noise_")), "energy gate now clears some noise; rewrite"
+    sc = A["speech_cost"]
+    assert abs(sc["delta_energy_minus_none"]["point"]) < 0.001 and sc["clips_skipped_neural"] == 0 and sc["clips_skipped_energy"] == 0, "speech-cost facts changed; rewrite"
+    assert sc["delta_neural_minus_none"]["lo"] > 0, "neural gate cost is no longer established; rewrite"
+    ident = c["trcs_v2"]["energy_gate_identical_transcripts"]
+    def signed(x: float, d: int) -> str:
+        s = f"{x * 100:+.{d}f}"
+        return s.replace("-", "\u2212")
+
+    def delta(arm: str) -> str:
+        d = sc[f"delta_{arm}_minus_none"]
+        tiny = abs(d["point"]) < 0.0005 and abs(d["lo"]) < 0.005 and abs(d["hi"]) < 0.005
+        dp = 2 if tiny else 1
+        point = "0.0" if tiny else signed(d["point"], 1)
+        return f"{point} points (95% interval {signed(d['lo'], dp)} to {signed(d['hi'], dp)})"
+    models = list(norm["A2_by_model_clean_uncompressed"])
+    return {
+        "n_utt": n,
+        "n_transcripts": f"{len(models) * 960:,}",
+        "w": {k: {"p": pct(x["point"]), "lo": pct(x["lo"]), "hi": pct(x["hi"])} for k, x in a1.items()},
+        "codecs_worse": len(worse), "codecs_total": len(a3),
+        "worse_list": worse,
+        "any_over_100": any(x["point"] > 1 for x in a1.values()),
+        "clean_by_model": {m: {"p": pct(x["point"]), "lo": pct(x["lo"]), "hi": pct(x["hi"])} for m, x in norm["A2_by_model_clean_uncompressed"].items()},
+        "inv": f"{inv_same} of {inv_total}",
+        "inv_ok": inv_same == inv_total,
+        "e1_none": span(rng["none"]), "e1_energy": span(rng["energy"]), "e1_neural": span(rng["neural"]),
+        "size_sentence": size_sentence,
+        "e1_n_distinct": nd,
+        "gate_energy": gate_sentence("energy", "energy gate"),
+        "gate_neural": gate_sentence("neural", "neural gate"),
+        "cost_energy": delta("energy"), "cost_neural": delta("neural"),
+        "skipped_energy": sc["clips_skipped_energy"], "skipped_neural": sc["clips_skipped_neural"],
+        "energy_same": f'{ident["same"]} of {ident["of"]}', "speech_clips": f'{ident["of"]}',
+        "cap_hits": f"{A['e2']['secondary']['outputs_hitting_token_cap']['count']:,}",
+        "over_100_clips": f"{A['e2']['secondary']['clips_with_more_edits_than_reference_words']['count']:,}",
+        "run_start": v2["run"]["started_utc"], "run_end": v2["run"]["finished_utc"],
+        "plan": v2["plan"], "versions": v2["versions"],
+    }
+
+
 def derive(c: dict) -> dict:
     e1, e2, apu, vec, echo = c["e1"], c["e2"], c["apu"], c["vec"], c["echo"]
-    runs = [r for r in apu["metered_runs"] if r["plausible"]]
-    excluded = [r for r in apu["metered_runs"] if not r["plausible"]]
+    runs = [r for r in apu["reported_runs"] if r["within_bandwidth_assumption"]]
+    excluded = [r for r in apu["reported_runs"] if not r["within_bandwidth_assumption"]]
     assert len(excluded) <= 1 and len(runs) >= 2, "unexpected set of metered runs"
     words = {1: "one", 2: "two", 3: "three"}
-    js = [r["j_per_token_mean_power"] for r in runs]
+    js = [r["power_rate_estimate_j_per_token"] for r in runs]
     assert len({r["generated_tokens"] for r in runs}) == 1, "runs differ in token count"
     assert c["trcs"]["rehash_mismatches"] == 0, "dataset re-hash found mismatches"
     assert echo["portfolio_agrees"], "portfolio headline disagrees with the E3 ledger"
     assert vec["generated_by_seeded_rng"], "VEC-SCR is no longer simulated; the evidence class must be rechecked"
     sizes = [m["params"] for m in e2["models"]]
     return {
+        "v2": v2_values(c),
         "wer_clean": round(e2["mean_wer_by_snr"]["clean"] * 100),
         "wer_0": round(e2["mean_wer_by_snr"]["snr_0"] * 100),
         "e2_date": utc_label(e2["date_utc"]),
@@ -129,7 +251,8 @@ def derive(c: dict) -> dict:
         "j_min": f"{min(js):.2f}",
         "j_max": f"{max(js):.2f}",
         "j_first": f'{js[0]:.2f}',
-        "j_peak_first": f'{runs[0]["j_per_token_peak_power"]:.2f}',
+        "j_peak_first": f'{runs[0]["peak_power_rate_estimate_j_per_token"]:.2f}',
+        "j_reported_first": f'{runs[0]["reported_integrated_j_per_token"]:.4f}',
         "run_min": f'{min(r["run_seconds"] for r in runs):.0f}',
         "run_max": f'{max(r["run_seconds"] for r in runs):.0f}',
         "run_tokens": runs[0]["generated_tokens"],
@@ -141,7 +264,7 @@ def derive(c: dict) -> dict:
         "eb": f'{vec["error_rate_b"]:.3f}',
         "echo_date": utc_label(echo["date_utc"]),
         "echo_tokens_x": f'{echo["tokens_per_attempt"]["echo"] / echo["tokens_per_attempt"]["single"]:.1f}',
-        "snr_list": [(k, f'{e2["mean_wer_by_snr"][k] * 100:.1f}') for k in ("clean", "snr_20", "snr_10", "snr_0", "snr_-6")],
+        "snr_pooled": [(lab, f"{c['trcs_v2']['analysis']['e2']['normalised']['A1_by_noise'][k]['point'] * 100:.1f}") for lab, k in (("None", "clean"), ("20.0", "20 dB"), ("10.0", "10 dB"), ("0.0", "0 dB"))],
         "first_pub": FIRST_PUB,
         "verify_date": MODIFIED_HUMAN,
         "verify_bad": c["trcs"]["rehash_mismatches"],
@@ -236,9 +359,15 @@ def render() -> dict[str, str]:
     for f in results["files"]:
         f["kb"] = f"{f['bytes'] / 1000:,.0f}"
     echo = c["echo"]
+    A = c["trcs_v2"]["analysis"]
+    norm = A["e2"]["normalised"]
+    a1 = norm["A1_by_noise"]
+    vmax = max(1.0, max(x["hi"] for x in a1.values()) * 1.12)
+    vmax = float(int(vmax * 4 + 0.999)) / 4
     ch = {
-        "wer": charts.wer_by_snr(c["e2"]),
-        "hal": charts.hallucination_by_condition(c["e1"]),
+        "wer": charts.wer_ci_bars([(lab, a1[k]) for k, lab in charts.NOISE_V2], "c-wer", "Corpus word error rate by noise level, with 95% intervals", vmax),
+        "model_clean": charts.wer_ci_bars(list(norm["A2_by_model_clean_uncompressed"].items()), "c-model", "Corpus word error rate on clean uncompressed audio, by model", max(0.5, max(x["hi"] for x in norm["A2_by_model_clean_uncompressed"].values()) * 1.15), ref100=False, label_w=210),
+        "hal": charts.hallucination_arms(A["e1"]),
         "joules": charts.joules_per_token(c["apu"]),
         "echo": charts.unit_chart(
             [

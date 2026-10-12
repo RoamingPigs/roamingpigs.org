@@ -998,5 +998,9 @@
     }
    }
   }
+ },
+ "_evidence": {
+  "classification": "seeded_synthetic_policy_simulation",
+  "limits": "Correctness, verifier scores, test outcomes, costs and latency were generated. No model or benchmark-test outcomes are measured by these rows."
  }
 }

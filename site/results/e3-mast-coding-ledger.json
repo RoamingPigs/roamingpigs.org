@@ -1177,5 +1177,11 @@
    },
    "adjudicated_mode": "FM-3.3"
   }
- ]
+ ],
+ "_evidence": {
+  "classification": "programmatic_annotation_and_resource_allocation_companion",
+  "labels": "Both coder columns come from rules in one script; agreement is not independent annotator reliability.",
+  "resources": "Per-attempt token and latency rows allocate aggregate totals by hash weights; they are not per-attempt measurements.",
+  "aggregate_source": "https://echo.cc/research/original-coding-development-results.json"
+ }
 }

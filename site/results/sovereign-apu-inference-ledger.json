@@ -955,5 +955,10 @@
    "sovereign_spend_usd": true,
    "description": "Sovereign unified-memory architecture (122.7GB LPDDR5X) at $0.00 marginal cloud fee"
   }
+ },
+ "_evidence": {
+  "classification": "mixed_reported_live_summaries_and_calculated_scenarios",
+  "limits": "Most benchmark rows and the bandwidth curve are formula-generated. Legacy live summaries lack raw timestamped power arrays in this file.",
+  "estimators": "Reported integrated energy is distinct from mean or peak power divided by decode throughput; do not interchange their sampling windows."
  }
 }
