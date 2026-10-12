@@ -34,7 +34,7 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preload" href="/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/site.css?v=1fb3f88c">
+  <link rel="stylesheet" href="/css/site.css?v=31bd8734">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -56,7 +56,7 @@
       </ul>
     </nav>
     <details class="nav-toggle">
-      <summary>Menu</summary>
+      <summary aria-label="Menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></summary>
       <nav class="site-nav-mobile" aria-label="Main (mobile)">
         <ul>
 <li><a href="/" aria-current="page">Records</a></li><li><a href="/results/">Results</a></li><li><a href="/datasets/trcs/">TRCS audio</a></li><li><a href="/method/">Method</a></li><li><a href="/reproduce/">Reproduce</a></li><li><a href="/about/">About</a></li>          <li><a class="sister" href="https://roamingpigs.ai/">Instruments (roamingpigs.ai) &nearr;</a></li>
@@ -179,7 +179,7 @@
         </header>
         <div class="record-body">
           <div>
-            <p class="headline">Dividing reported mean wall power by reported decode speed gives <strong class="num">2.54 to 3.81 joules per token</strong> for two local-model summaries. These are derived estimates, not meter readings of token energy. A separate calculated scenario gives 2.82 for the smallest model; it is not an independently validated prediction.</p>
+            <p class="headline">Dividing reported mean wall power by reported decode speed gives <strong class="num">2.54 to 3.81 joules per token</strong> for two local-model summaries. These are derived estimates, not meter readings of token energy. A separate calculated scenario gives 2.82 for the smallest model; it is not an independently validated prediction. I have since measured this machine with a plan written first; the <a href="https://github.com/RoamingPigs/strix-halo-energy/blob/main/RESULTS.md">results, plan and raw power logs</a> are public.</p>
             <figure class="figure">
               <svg class="chart" viewBox="0 0 660 164" role="img" aria-labelledby="c-j-t c-j-d"><title id="c-j-t">Derived mean-power/decode-speed estimates</title><desc id="c-j-d">2 historical summaries on one machine. 9.7B dense: 3.81 J per token at 140 W and 36.68 tokens per second; 31.1B mixture, 3B active: 2.54 J per token at 171 W and 67.32 tokens per second. Separate calculated scenario: 2.82; raw energy traces are absent.</desc><line class="grid" x1="190.0" y1="12" x2="190.0" y2="134"/><text class="mut" x="190.0" y="152" text-anchor="middle">0</text><line class="grid" x1="264.0" y1="12" x2="264.0" y2="134"/><text class="mut" x="264.0" y="152" text-anchor="middle">1</text><line class="grid" x1="338.0" y1="12" x2="338.0" y2="134"/><text class="mut" x="338.0" y="152" text-anchor="middle">2</text><line class="grid" x1="412.0" y1="12" x2="412.0" y2="134"/><text class="mut" x="412.0" y="152" text-anchor="middle">3</text><line class="grid" x1="486.0" y1="12" x2="486.0" y2="134"/><text class="mut" x="486.0" y="152" text-anchor="middle">4</text><line class="grid" x1="560.0" y1="12" x2="560.0" y2="134"/><text class="mut" x="560.0" y="152" text-anchor="middle">5</text><text class="mut" x="568" y="152">joules per token</text><text class="lbl" x="178" y="40" text-anchor="end">9.7B dense</text><text class="mut" x="178" y="56" text-anchor="end">36.68 tok/s, 140 W</text><rect class="bar-m" x="190" y="26" width="281.9" height="24" rx="2"/><text class="val" x="479.9" y="43">3.81</text><circle class="dot-mod" cx="398.7" cy="38" r="6"/><text class="mut" x="398.7" y="68" text-anchor="middle">calculated scenario 2.82</text><text class="lbl" x="178" y="94" text-anchor="end">31.1B mixture, 3B active</text><text class="mut" x="178" y="110" text-anchor="end">67.32 tok/s, 171 W</text><rect class="bar-m" x="190" y="80" width="188.0" height="24" rx="2"/><text class="val" x="386.0" y="97">2.54</text></svg>
               <figcaption><strong>Reported mean wall power divided by reported decode speed.</strong> This estimate uses whole-machine power. The named ledger lacks raw timestamped power arrays for these historical summaries. Record 2026-10-10 23:26 UTC.</figcaption>

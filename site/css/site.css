@@ -77,7 +77,7 @@ a:hover { color: var(--link-hover); }
 .nav-toggle { display: none; }
 @media (max-width: 64rem) {
   .nav-toggle { display: block; }
-  .nav-toggle > summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; min-height: 44px; padding: 0 0.85rem; border: 1px solid var(--rule-strong); border-radius: var(--radius); font: 600 0.9375rem var(--sans); color: var(--ink); background: var(--surface); }
+  .nav-toggle > summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; padding: 0; border: 1px solid var(--rule-strong); border-radius: var(--radius); font: 600 0.9375rem var(--sans); color: var(--ink); background: var(--surface); }
   .nav-toggle > summary::-webkit-details-marker { display: none; }
   .nav-toggle[open] > summary { background: var(--paper-deep); }
   .site-nav { display: none; }
