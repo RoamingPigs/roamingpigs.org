@@ -70,6 +70,7 @@ PY</code></pre>
           <li><strong>Results on this page&rsquo;s files.</strong> The full-grid run scores exactly these {{ c.trcs.files }} files at the pinned revision. An earlier pilot scored 5 calls on different audio and is superseded.</li>
           <li><strong>One voice, one rate.</strong> Every call is the same text-to-speech voice at the same speaking rate, so intervals cover the {{ c.trcs.grid_utterances }} scripts and not other speakers.</li>
           <li><strong>Channel order.</strong> Noise is added after the codec, whereas on a real link noise arrives before it. The signal-to-noise ratio is measured over the whole clip including pauses.</li>
+          <li><strong>Band-pass and codec.</strong> Every narrowband path first resamples to 8 kHz and applies a 300 to 3400 Hz band-pass, so a codec result includes band-limiting. G.711 uses Python&rsquo;s audioop companding; GSM full-rate and Opus use ffmpeg; AMR-NB uses the OpenCORE library. The <a href="https://github.com/RoamingPigs/trcs/tree/main/generator">generator</a> is public, and regenerating the audio reproduced every file hash.</li>
           <li><strong>Duplicate files.</strong> {{ c.trcs.duplicate_files }} files are byte-identical copies of another file ({{ c.trcs.duplicate_conditions|join(' and ')|replace('_',' ') }} clips do not vary by seed). That leaves {{ "{:,}".format(c.trcs.unique_digests) }} distinct digests.</li>
           <li><strong>One author.</strong> Nobody else has re-run the benchmark.</li>
         </ul>

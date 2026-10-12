@@ -152,6 +152,19 @@ def v2_values(c: dict) -> dict:
     per_model = e1["E1_1_rate_by_arm_and_model"]
     rng = {a: (min(x["rate"] for k, x in per_model.items() if k.startswith(a + "|")), max(x["rate"] for k, x in per_model.items() if k.startswith(a + "|"))) for a in arms}
     nd = next(x["n_distinct_clips"] for k, x in per_model.items() if k.startswith("none|"))
+    # Strict variant of the plan's measure: an output counts only if it holds a letter or digit.
+    # The plan's normaliser reduces an ellipsis to one full stop, so an ellipsis-only output counts under the plan.
+    _clips = [json.loads(x) for x in (SITE / "results/trcs-full-grid-e1-per-clip.jsonl").read_text(encoding="utf-8").splitlines() if x]
+    _strict: dict[str, dict[str, bool]] = {}
+    _punct_only = 0
+    for r in _clips:
+        if r["is_speech"] or r["arm"] != "none":
+            continue
+        has = bool(re.search(r"[A-Za-z0-9]", r["hypothesis"]))
+        _punct_only += 0 if has else 1
+        _strict.setdefault(r["model"], {})[r["sha256"]] = has
+    _strict_rates = [sum(v.values()) / len(v) for v in _strict.values()]
+    assert len(_strict) == len(per_model) // 3 and all(len(v) == nd for v in _strict.values()), "strict-rate input does not match the plan's counts"
     cond = e1["E1_2_rate_by_arm_and_condition"]
     conds = [k.split("|")[1] for k in cond if k.startswith("none|")]
 
@@ -211,6 +224,7 @@ def v2_values(c: dict) -> dict:
         "e1_none": span(rng["none"]), "e1_energy": span(rng["energy"]), "e1_neural": span(rng["neural"]),
         "size_sentence": size_sentence,
         "e1_n_distinct": nd,
+        "e1_strict_none": span((min(_strict_rates), max(_strict_rates))), "e1_punct_only": _punct_only,
         "gate_energy": gate_sentence("energy", "energy gate"),
         "gate_neural": gate_sentence("neural", "neural gate"),
         "cost_energy": delta("energy"), "cost_neural": delta("neural"),

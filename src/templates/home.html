@@ -50,7 +50,7 @@
             </figure>
             <div class="limits">
               <h4>What this does not show</h4>
-              <p>The speech is one synthetic voice at one speaking rate, not recorded radio, and the channel is simulated: noise is added after the codec, and the signal-to-noise ratio is measured over the whole clip including pauses. The intervals cover the {{ v.v2.n_utt }} scripts, not other speakers, voices or phrasings. Scoring uses the Whisper English text normaliser, which was developed with those models. Results are for the Hugging Face library with greedy decoding on a CPU, and do not carry to other libraries, which apply extra thresholds by default. I did not test the five narrowband paths against each other, so I do not rank them. It says nothing about any product.</p>
+              <p>The speech is one synthetic voice at one speaking rate, not recorded radio, and the channel is simulated: noise is added after the codec, and the signal-to-noise ratio is measured over the whole clip including pauses. Every narrowband path also passes a 300 to 3400 Hz band-pass before coding, so a narrowband result combines band-limiting with the codec. The intervals cover the {{ v.v2.n_utt }} scripts, not other speakers, voices or phrasings. Scoring uses the Whisper English text normaliser, which was developed with those models. Results are for the Hugging Face library with greedy decoding on a CPU, and do not carry to other libraries, which apply extra thresholds by default. I did not test the five narrowband paths against each other, so I do not rank them. It says nothing about any product.</p>
               <p>This run replaces a pilot published on 10 October that scored 5 calls on different audio and had decoding flaws, listed in the <a href="/corrections/">corrections</a>.</p>
             </div>
           </div>
@@ -76,7 +76,7 @@
         </header>
         <div class="record-body">
           <div>
-            <p class="headline">On {{ v.v2.e1_n_distinct }} distinct clips of silence, static or radio squelch, each of six models wrote words on <strong class="num">{{ v.v2.e1_none }}%</strong> of them. {{ v.v2.gate_energy }} {{ v.v2.gate_neural }} Across models the energy gate left {{ v.v2.e1_energy }}% of clips with text, and the neural gate {{ v.v2.e1_neural }}%.</p>
+            <p class="headline">On {{ v.v2.e1_n_distinct }} distinct clips of silence, static or radio squelch, each of six models returned text on <strong class="num">{{ v.v2.e1_none }}%</strong> of them. Counting only text that contains a letter or digit, the rate was {{ v.v2.e1_strict_none }}% by model, because {{ v.v2.e1_punct_only }} outputs were only an ellipsis. {{ v.v2.gate_energy }} {{ v.v2.gate_neural }} Across models the energy gate left {{ v.v2.e1_energy }}% of clips with text, and the neural gate {{ v.v2.e1_neural }}%.</p>
             <figure class="figure">
               {{ ch.hal|safe }}
               <figcaption><strong>Share of non-speech clips with any written word, by condition and gate.</strong> Pooled over six models. Digital silence is one distinct clip repeated, so it counts once. Run finished {{ v.v2.run_end }} UTC.</figcaption>

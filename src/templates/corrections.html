@@ -19,6 +19,16 @@
         <h2 id="log" class="log-h">Log</h2>
         <ol class="timeline">
           <li>
+            <time datetime="2026-10-12">12 October 2026</time>
+            <h3>An ellipsis counted as text, the codec description was wrong, and the generator was missing</h3>
+            <p>A review of the full run found three things I had stated too strongly or had left out.</p>
+            <ul>
+              <li><strong>&ldquo;Wrote words.&rdquo;</strong> The plan counts any non-empty normalised output on a non-speech clip. The normaliser turns an ellipsis into a full stop, so eight outputs that were only &ldquo;...&rdquo; counted as text: seven from one model and one from another. This site said every model wrote words on every clip. It now says &ldquo;returned text&rdquo;, and gives the stricter rate, which counts only outputs with a letter or digit. The plan&rsquo;s rate, and every number derived from it, is unchanged.</li>
+              <li><strong>Codec description.</strong> The dataset card said G.711 used ffmpeg. It uses Python&rsquo;s audioop companding. It also did not say that every narrowband path is band-passed to 300 to 3400 Hz before coding, so a narrowband result combines band-limiting and the codec. The card and this site are corrected. The audio files did not change.</li>
+              <li><strong>Generator.</strong> The code that made the audio was not in the public repository, although a page implied it was. It is now in the <a href="https://github.com/RoamingPigs/trcs/tree/main/generator">generator</a> directory. I ran it, and every one of the 1,050 files matched its published SHA-256. It was added after the full run, so its commit is later than the plan&rsquo;s.</li>
+            </ul>
+          </li>
+          <li>
             <time datetime="2026-10-11">11 October 2026, later</time>
             <h3>The pilot speech results were replaced by a full run, and the dataset card was corrected</h3>
             <p>The 10 October pilot scored 5 calls, not the 40 in the released dataset, on audio generated at a different speaking rate. It capped output at 48 tokens and gave no intervals. It also padded audio features to the longest clip in each batch. I then found that this made the text depend on batch composition: with that padding, about half of 24 test clips changed when the batch size changed. With the standard padding they did not. The pilot figures are removed from the records and replaced by a full run on the released files, with intervals and a plan written first. The pilot files stay in the <a href="/results/#old">results list</a> marked superseded.</p>
