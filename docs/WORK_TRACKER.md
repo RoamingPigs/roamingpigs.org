@@ -31,3 +31,6 @@ Next work:
 - [ ] Confirm the CC BY 4.0 licence on the results files.
 - [ ] Core Web Vitals field data once there is traffic.
 - [ ] **Old unlinked files at the edge.** A few files from the retired designs (`/css/style.css`, `/js/provenance.js` on .org; `/js/calculator.js`, `/css/style.css`, `/data/e2-grid.json` on .ai) are still served from Cloudflare's cache. The deployments no longer contain them (`.pages.dev` returns 404 for the stylesheet) and nothing links to them. A full-zone purge and per-URL purges did not clear them. Their old cache headers allowed up to seven days, so they should expire by about 18 October. Re-check then.
+
+## 2026-10-12
+- Corrections shipped: strict hallucination rate, band-pass and codec description, generator link (corrections page logs it). Web Analytics auto-injection off. Stale pilot files still cached on custom domain; recheck 2026-10-19. Paper draft is in ~/projects/trcs/arxiv (untracked).
