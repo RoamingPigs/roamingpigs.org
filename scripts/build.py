@@ -489,9 +489,14 @@ def static_files() -> dict[str, str]:
     return {
         "site.webmanifest": json.dumps(manifest, indent=2) + "\n",
         "_headers": headers,
+        "_redirects": RETIRED_REDIRECTS,
         ".well-known/security.txt": sec,
         ".well-known/gpc.json": gpc,
     }
+
+
+# Files from the withdrawn first design. Pages kept serving them after they left the deployment, so they redirect.
+RETIRED_REDIRECTS = "/css/style.css /css/site.css 301\n/js/provenance.js /js/site.js 301\n"
 
 
 def main() -> int:
