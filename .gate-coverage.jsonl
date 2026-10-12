@@ -1,2 +1,2 @@
-{"gate": "siteops-predeploy", "unit": "HTML page", "count": 8, "scope": "present"}
-{"gate": "llm-smell-audit", "unit": "surface", "count": 10, "scope": "present"}
+{"gate": "siteops-predeploy", "unit": "HTML page", "count": 9, "scope": "present"}
+{"gate": "llm-smell-audit", "unit": "surface", "count": 12, "scope": "present"}
