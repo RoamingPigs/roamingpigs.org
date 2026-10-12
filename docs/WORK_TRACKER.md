@@ -30,3 +30,4 @@ Next work:
 - [ ] A second dataset with recorded (not synthetic) speech, so claims can leave the synthetic regime. This is the main thing the current results cannot show.
 - [ ] Confirm the CC BY 4.0 licence on the results files.
 - [ ] Core Web Vitals field data once there is traffic.
+- [ ] **Old unlinked files at the edge.** A few files from the retired designs (`/css/style.css`, `/js/provenance.js` on .org; `/js/calculator.js`, `/css/style.css`, `/data/e2-grid.json` on .ai) are still served from Cloudflare's cache. The deployments no longer contain them (`.pages.dev` returns 404 for the stylesheet) and nothing links to them. A full-zone purge and per-URL purges did not clear them. Their old cache headers allowed up to seven days, so they should expire by about 18 October. Re-check then.
