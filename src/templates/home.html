@@ -177,18 +177,18 @@
       <article class="record" id="agent-coordination">
         <header class="record-head">
           <h3 class="record-title"><a href="#agent-coordination">Do coordinated AI coding agents beat one agent?</a></h3>
-          <div class="chips">{{ chip('measured') }}</div>
+          <div class="chips">{{ chip('measured', 'Historical development diagnostic') }}</div>
         </header>
         <div class="record-body">
           <div>
-            <p class="headline">On {{ c.echo.tasks }} small Python tasks, with {{ c.echo.attempts_per_arm }} attempts per arm, a single agent produced <strong class="num">{{ c.echo.accepted.single }}</strong> accepted solutions. Ordinary two-worker messaging produced <strong class="num">{{ c.echo.accepted.plain }}</strong>. Echo, the coordination layer I build, also produced <strong class="num">{{ c.echo.accepted.echo }}</strong>, with Git merge conflicts in {{ c.echo.merge_conflicts.echo }} of {{ c.echo.attempts_per_arm }} attempts. No coordination benefit is established.</p>
+            <p class="headline">In the retained October 6, 2026 diagnostic, on {{ c.echo.tasks }} small Python tasks, with {{ c.echo.attempts_per_arm }} attempts per arm, a single agent produced <strong class="num">{{ c.echo.accepted.single }}</strong> accepted solutions. Ordinary two-worker messaging produced <strong class="num">{{ c.echo.accepted.plain }}</strong>. Echo, the coordination layer I build, also produced <strong class="num">{{ c.echo.accepted.echo }}</strong>, with Git merge conflicts in {{ c.echo.merge_conflicts.echo }} of {{ c.echo.attempts_per_arm }} attempts. No coordination benefit is established.</p>
             <figure class="figure">
               {{ ch.echo|safe }}
               <figcaption><strong>Accepted solutions out of {{ c.echo.attempts_per_arm }} attempts.</strong> The Echo arm used about {{ v.echo_tokens_x }} times the tokens per attempt of the single agent. Echo is my own project, so I have a stake in the result.</figcaption>
             </figure>
             <div class="limits">
               <h4>What this does not show</h4>
-              <p>The tasks were reused and the agents may have seen them, so this is a diagnostic, not a benchmark. Transport timings measure messaging speed, not task success. The per-attempt file is derived: failure labels such as merge conflicts are mapped by rules from each attempt&rsquo;s recorded status, the two &ldquo;coders&rdquo; are the same script so there is no inter-coder agreement to report, and per-attempt token counts are allocated from totals. The figures here are the summary counts. A coordination benefit would need fresh tasks and repeated runs.</p>
+              <p>The tasks were reused and the agents may have seen them, so this is a diagnostic, not a benchmark. Transport timings measure messaging speed, not task success. The per-attempt file is derived: failure labels such as merge conflicts are mapped by rules from each attempt&rsquo;s recorded status, the two &ldquo;coders&rdquo; are the same script so there is no inter-coder agreement to report, and per-attempt token counts are allocated from totals. The figures here are the summary counts. These counts describe that historical implementation and run; later software or recovery tests do not update them. A coordination benefit for the current platform would need fresh tasks and repeated runs.</p>
             </div>
           </div>
           <dl class="facts">
