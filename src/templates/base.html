@@ -12,6 +12,9 @@
   <link rel="preload" href="/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{{ asset('/css/site.css') }}">
+{% if page.path == '/studies/strix-halo-energy/' %}
+  <link rel="stylesheet" href="{{ asset('/css/figures.css') }}">
+{% endif %}
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>

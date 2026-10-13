@@ -1,0 +1,8 @@
+# Default rules plus one allowlisted file: PROVENANCE.json is a map of file path to SHA-256 digest, which the
+# generic-api-key rule reads as a key and a value. It holds no secret (the digests are public by design).
+[extend]
+useDefault = true
+
+[allowlist]
+description = "SHA-256 digests in the study provenance file"
+paths = ['''data/strix-halo-energy/PROVENANCE\.json''']

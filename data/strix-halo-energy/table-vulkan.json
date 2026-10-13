@@ -1,0 +1,162 @@
+[
+ {
+  "model": "9B dense, 4-bit",
+  "context": "64",
+  "tok_s": 37.8,
+  "wall_w": 140,
+  "pkg_w": 95,
+  "wall_j": 3.3,
+  "pkg_j": 2.47,
+  "n": 3
+ },
+ {
+  "model": "9B dense, 4-bit",
+  "context": "4k",
+  "tok_s": 37.2,
+  "wall_w": 139,
+  "pkg_w": 94,
+  "wall_j": 3.31,
+  "pkg_j": 2.47,
+  "n": 3
+ },
+ {
+  "model": "9B dense, 4-bit",
+  "context": "16k",
+  "tok_s": 34.7,
+  "wall_w": 146,
+  "pkg_w": 100,
+  "wall_j": 3.76,
+  "pkg_j": 2.82,
+  "n": 3
+ },
+ {
+  "model": "9B dense, 4-bit",
+  "context": "32k",
+  "tok_s": 31.6,
+  "wall_w": 145,
+  "pkg_w": 99,
+  "wall_j": 4.07,
+  "pkg_j": 3.07,
+  "n": 3
+ },
+ {
+  "model": "12B dense, 4-bit",
+  "context": "64",
+  "tok_s": 29.3,
+  "wall_w": 151,
+  "pkg_w": 104,
+  "wall_j": 4.55,
+  "pkg_j": 3.42,
+  "n": 3
+ },
+ {
+  "model": "12B dense, 4-bit",
+  "context": "4k",
+  "tok_s": 27.3,
+  "wall_w": 147,
+  "pkg_w": 101,
+  "wall_j": 4.73,
+  "pkg_j": 3.58,
+  "n": 3
+ },
+ {
+  "model": "12B dense, 4-bit",
+  "context": "16k",
+  "tok_s": 26.5,
+  "wall_w": 145,
+  "pkg_w": 99,
+  "wall_j": 4.76,
+  "pkg_j": 3.58,
+  "n": 3
+ },
+ {
+  "model": "12B dense, 4-bit",
+  "context": "32k",
+  "tok_s": 25.7,
+  "wall_w": 141,
+  "pkg_w": 96,
+  "wall_j": 4.8,
+  "pkg_j": 3.58,
+  "n": 3
+ },
+ {
+  "model": "26B mixture, 4B active, 4-bit",
+  "context": "64",
+  "tok_s": 72.5,
+  "wall_w": 130,
+  "pkg_w": 86,
+  "wall_j": 1.67,
+  "pkg_j": 1.22,
+  "n": 3
+ },
+ {
+  "model": "26B mixture, 4B active, 4-bit",
+  "context": "4k",
+  "tok_s": 64.7,
+  "wall_w": 126,
+  "pkg_w": 83,
+  "wall_j": 1.87,
+  "pkg_j": 1.36,
+  "n": 3
+ },
+ {
+  "model": "26B mixture, 4B active, 4-bit",
+  "context": "16k",
+  "tok_s": 59.0,
+  "wall_w": 124,
+  "pkg_w": 81,
+  "wall_j": 1.99,
+  "pkg_j": 1.45,
+  "n": 3
+ },
+ {
+  "model": "26B mixture, 4B active, 4-bit",
+  "context": "32k",
+  "tok_s": 53.1,
+  "wall_w": 125,
+  "pkg_w": 83,
+  "wall_j": 2.23,
+  "pkg_j": 1.63,
+  "n": 3
+ },
+ {
+  "model": "35B mixture, 3B active, 8-bit",
+  "context": "64",
+  "tok_s": 54.3,
+  "wall_w": 140,
+  "pkg_w": 94,
+  "wall_j": 2.33,
+  "pkg_j": 1.72,
+  "n": 3
+ },
+ {
+  "model": "35B mixture, 3B active, 8-bit",
+  "context": "4k",
+  "tok_s": 52.7,
+  "wall_w": 138,
+  "pkg_w": 93,
+  "wall_j": 2.34,
+  "pkg_j": 1.75,
+  "n": 3
+ },
+ {
+  "model": "35B mixture, 3B active, 8-bit",
+  "context": "16k",
+  "tok_s": 49.2,
+  "wall_w": 140,
+  "pkg_w": 94,
+  "wall_j": 2.54,
+  "pkg_j": 1.89,
+  "n": 3
+ },
+ {
+  "model": "35B mixture, 3B active, 8-bit",
+  "context": "32k",
+  "tok_s": 44.7,
+  "wall_w": 135,
+  "pkg_w": 91,
+  "wall_j": 2.69,
+  "pkg_j": 2.01,
+  "n": 3
+ }
+]

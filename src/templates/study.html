@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% from "macros.html" import chip %}
+{% block main %}
+<article class="doc">
+  <div class="wrap">
+    <nav class="breadcrumb crumbs" aria-label="Breadcrumb"><a href="/">Research Notes</a> / Energy study</nav>
+    <div class="doc-grid">
+      <nav class="toc" aria-label="On this page">
+        <ol>
+          <li><a href="#found">What I found</a></li>
+          <li><a href="#speed">Speed</a></li>
+          <li><a href="#energy">Energy per token</a></li>
+          <li><a href="#watts">Where the watts go</a></li>
+          <li><a href="#how">How it was measured</a></li>
+          <li><a href="#rocm">ROCm against Vulkan</a></li>
+          <li><a href="#plan">Plan and expectations</a></li>
+          <li><a href="#numbers">All the numbers</a></li>
+          <li><a href="#limits">What this does not show</a></li>
+          <li><a href="#check">Check it</a></li>
+        </ol>
+      </nav>
+      <div>
+        <p class="eyebrow">Record</p>
+        <h1>Energy and speed per token on one mini PC: Vulkan against ROCm</h1>
+        <p class="lede">Four local language models at four context lengths, three repeats each, on two software backends, measured at the wall plug and at the chip. I wrote the plan and my expectations down first and pushed them before the run.</p>
+        <p class="status-line"><span>{{ chip('measured') }}</span><span aria-hidden="true">&middot;</span><span>Self-published, not peer reviewed</span><span aria-hidden="true">&middot;</span><span>One machine</span><span aria-hidden="true">&middot;</span><span>Run <span class="mono">{{ st.prov.run }}</span>, 12 to 13 October 2026</span></p>
+
+        <div class="prose">
+        <p>The machine is an AMD Ryzen AI MAX+ 395 mini PC with 128 GB of memory. It replaces the energy figures I published earlier, which were derived from reported power and speed, not measured per token. Idle, the whole box draws {{ st.stats.idle_w }} W at the wall. Across the {{ st.stats.cells_v }} Vulkan cells, energy per generated token (wall plug, net of idle) is {{ st.stats.j_lo }} to {{ st.stats.j_hi }} joules ({{ st.stats.cells }} cells were measured in all, on the two backends). {{ st.stats.held }} of my {{ st.stats.n_ex }} written expectations held.</p>
+
+        <h2 id="found">What I found <a class="anchor" href="#found" aria-label="Link to this section">#</a></h2>
+        </div>
+        <ul class="prose">
+          {% for f in st.findings %}
+          <li><strong>{{ f.label }}.</strong> {{ f.text }}</li>
+          {% endfor %}
+        </ul>
+
+        <div class="prose"><h2 id="speed">Speed against context length <a class="anchor" href="#speed" aria-label="Link to this section">#</a></h2></div>
+        <figure class="figure fig-sh">
+          {{ st.figs['speed-vs-depth']|safe }}
+          <figcaption><strong>Decode speed.</strong> Tokens per second as the prompt already in the cache grows from 64 to 32,768 tokens. The band is the lowest to highest of three repeats. All four panels share one scale.</figcaption>
+        </figure>
+
+        <div class="prose"><h2 id="energy">Energy per token <a class="anchor" href="#energy" aria-label="Link to this section">#</a></h2></div>
+        <figure class="figure fig-sh">
+          {{ st.figs['energy-per-token']|safe }}
+          <figcaption><strong>Joules per generated token, net of idle.</strong> Filled dots are the wall plug, hollow dots the chip's own sensor, each from 64 tokens of context (small dot) to 32k (large). The chip sensor always reads lower than the plug, because it sees only the chip.</figcaption>
+        </figure>
+
+        <div class="prose"><h2 id="watts">Where the watts go <a class="anchor" href="#watts" aria-label="Link to this section">#</a></h2></div>
+        <figure class="figure fig-sh">
+          {{ st.figs['where-watts-go']|safe }}
+          <figcaption><strong>While decoding (Vulkan, 64 tokens of context).</strong> The whole box draws about {{ st.stats.idle_w }} W idle. The chip package accounts for most of what is added. The rest is everything else in the box that the chip sensor does not see.</figcaption>
+        </figure>
+
+        <div class="prose"><h2 id="how">How it was measured <a class="anchor" href="#how" aria-label="Link to this section">#</a></h2></div>
+        <figure class="figure fig-sh">
+          {{ st.figs['power-timeline']|safe }}
+          <figcaption><strong>One measured cell, raw.</strong> The plug is read about once a second and the chip sensor ten times a second. Each dip is the gap between one 512-token request and the next. Energy per token is the area above the idle line inside the window, divided by the tokens generated in it.</figcaption>
+        </figure>
+
+        <div class="prose"><h2 id="rocm">ROCm against Vulkan <a class="anchor" href="#rocm" aria-label="Link to this section">#</a></h2></div>
+        <figure class="figure fig-sh">
+          {{ st.figs['ratio']|safe }}
+          <figcaption><strong>ROCm decode speed as a share of Vulkan.</strong> A plain number means the repeat ranges of the two backends do not overlap. A dotted outline means they overlap, so I make no claim. ROCm here is the 7.1 runtime packaged in Ubuntu 26.04.</figcaption>
+        </figure>
+
+        <div class="prose"><h2 id="plan">Plan and expectations <a class="anchor" href="#plan" aria-label="Link to this section">#</a></h2>
+        <p>Each line below was written before the run and is reported whether it held or not. The first study's six expectations also held on both backends. Several of today's lines are not independent predictions, because I had seen the first study's results and one smoke test before writing them; the plan says so.</p>
+        </div>
+        <figure class="figure fig-sh">
+          {{ st.figs['scorecard']|safe }}
+          <figcaption>{% if st.wrong %}Wrong: {{ st.wrong|join(', ') }}. {% endif %}The server answered HTTP 500 on {{ st.stats.parse_errors }} requests with one model, after a reply containing bytes that are not valid text. The harness took those timings from the server's own log and the report counts them.</figcaption>
+        </figure>
+
+        <div class="prose"><h2 id="numbers">All the numbers <a class="anchor" href="#numbers" aria-label="Link to this section">#</a></h2></div>
+        {% for name, rows in [('Vulkan', st.table_v), ('ROCm', st.table_r)] %}
+        <div class="table-wrap" tabindex="0" role="region" aria-label="{{ name }} results, scrolls sideways on small screens">
+          <table>
+            <caption>{{ name }}: mean over three repeats. Energy is net of idle.</caption>
+            <thead><tr><th>Model</th><th>Context</th><th class="n">tok/s</th><th class="n">Wall W</th><th class="n">Chip W</th><th class="n">Wall J/token</th><th class="n">Chip J/token</th><th class="n">Repeats</th></tr></thead>
+            <tbody>
+              {% for r in rows %}
+              <tr><td>{{ r.model }}</td><td>{{ r.context }}</td><td class="n">{{ r.tok_s }}</td><td class="n">{{ r.wall_w }}</td><td class="n">{{ r.pkg_w }}</td><td class="n">{{ r.wall_j }}</td><td class="n">{{ r.pkg_j }}</td><td class="n">{{ r.n }}</td></tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        {% endfor %}
+
+        <div class="prose">
+        <h2 id="limits">What this does not show <a class="anchor" href="#limits" aria-label="Link to this section">#</a></h2>
+        <ul>
+          <li>Anything about other hardware, other chips, discrete GPUs, other ROCm versions or packaging, or other builds of <code>llama.cpp</code>.</li>
+          <li>The accuracy of the wall watts. The plug is uncalibrated and reads whole watts; its own energy counter and the sum of its readings differ by {{ st.stats.counter_gap }}%, but both come from the same plug.</li>
+          <li>Batched or concurrent serving. Everything is one stream at a time.</li>
+          <li>Quality of the output. The prompts are licence texts and the replies are not scored.</li>
+          <li>That anyone outside this project has repeated it.</li>
+        </ul>
+        <p>Three earlier starts of this run were stopped after a few cells each because outside load reached the machine (requests from an unknown caller on the network, backup pushes from two other computers, a backup job on the machine itself). The last start had no failed cell and no contaminated cell. The whole account is in the repository's <code>DEVIATIONS.md</code>.</p>
+
+        <h2 id="check">Check it <a class="anchor" href="#check" aria-label="Link to this section">#</a></h2>
+        <p>The plan, the harness, the raw wall-power and chip-power logs, every deviation from the plan and a standalone version of this report with a PDF are in <a href="{{ st.prov.source }}">{{ st.prov.source|replace('https://', '') }}</a>. The files this page draws on are copies with a SHA-256 for each, taken from commit <span class="mono">{{ st.prov.commit }}</span>. Corrections to earlier energy figures are in the <a href="/corrections/">corrections log</a>. Self-published by Cisco Caceres. No DOI exists.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+{% endblock %}

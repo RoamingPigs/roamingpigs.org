@@ -35,6 +35,7 @@ NAV = [
     {"path": "/", "label": "Records"},
     {"path": "/results/", "label": "Results"},
     {"path": "/datasets/trcs/", "label": "TRCS audio"},
+    {"path": "/studies/strix-halo-energy/", "label": "Energy study"},
     {"path": "/method/", "label": "Method"},
     {"path": "/reproduce/", "label": "Reproduce"},
     {"path": "/about/", "label": "About"},
@@ -54,6 +55,13 @@ PAGES = [
         "description": "1,050 synthetic audio files with a SHA-256 for each, built to test speech models on silence, noise and telephone codecs. Contents, checks and known limits.",
         "breadcrumb": [("Research Notes", "/"), ("TRCS dataset", "/datasets/trcs/")],
         "dataset": True,
+    },
+    {
+        "path": "/studies/strix-halo-energy/",
+        "template": "study.html",
+        "title": "Energy and Speed per Token on One Mini PC: Vulkan Against ROCm",
+        "description": "Four local models, four context lengths, three repeats on each of two software backends, measured at the wall plug and at the chip, with the plan and the expectations written first.",
+        "breadcrumb": [("Research Notes", "/"), ("Energy study", "/studies/strix-halo-energy/")],
     },
     {
         "path": "/results/",
@@ -361,6 +369,46 @@ def results_ld(results: dict) -> dict:
     }
 
 
+STUDY = ROOT / "data/strix-halo-energy"
+FIG_MAP = """
+/* Maps the study figures' colour variables onto this site's tokens. The rules above come from the study repository. */
+.fig-sh { --f-ink: var(--ink); --f-ink2: var(--ink-2); --f-mut: var(--ink-3); --f-rule: var(--rule); --f-rule2: var(--rule-strong);
+  --f-bg: var(--surface); --f-a: #1a47c9; --f-b: #c2410c; --f-ok: var(--measured); --f-bad: #a32020; --f-chip: var(--measured-bg); --f-chipb: #f6dede;
+  --f-sans: var(--sans); --f-mono: var(--mono); }
+.fig-sh svg { display: block; width: 100%; height: auto; overflow: visible; }
+"""
+
+
+def figures_css() -> str:
+    return (STUDY / "figures.css").read_text(encoding="utf-8") + FIG_MAP
+
+
+def load_study() -> dict:
+    """The study's exported files, each checked against the SHA-256 in PROVENANCE.json before anything is rendered from it."""
+    prov = json.loads((STUDY / "PROVENANCE.json").read_text(encoding="utf-8"))
+    for rel, want in prov["files"].items():
+        got = hashlib.sha256((STUDY / rel).read_bytes()).hexdigest()
+        if got != want:
+            raise SystemExit(f"data/strix-halo-energy/{rel} does not match PROVENANCE.json; re-export it from the study repository")
+    rd = lambda n: json.loads((STUDY / n).read_text(encoding="utf-8"))
+    V, R, EV = rd("summary-vulkan.json"), rd("summary-rocm.json"), rd("evaluation.json")
+    figs = {p.stem: p.read_text(encoding="utf-8") for p in sorted((STUDY / "figures").glob("*.svg"))}
+    ratios = [R["cells"][k]["tok_per_s"]["mean"] / V["cells"][k]["tok_per_s"]["mean"] for k in V["cells"] if k in R["cells"]]
+    jw = [x["wall_net_j_per_tok"]["mean"] for x in V["cells"].values()]
+    idle = V["idle"].get("bare_idle_block") or next(iter(V["idle"].values()))
+    held = [k for k, v in EV.items() if v["holds"]]
+    return {
+        "findings": rd("findings.json"), "table_v": rd("table-vulkan.json"), "table_r": rd("table-rocm.json"), "figs": figs, "ev": EV,
+        "wrong": [k for k, v in EV.items() if not v["holds"]],
+        "stats": {
+            "cells": V["n_cells"] + R["n_cells"], "cells_v": V["n_cells"], "idle_w": f"{idle['wall_w_median']:g}", "ratio_lo": f"{min(ratios) * 100:.0f}", "ratio_hi": f"{max(ratios) * 100:.0f}",
+            "j_lo": f"{min(jw):.1f}", "j_hi": f"{max(jw):.1f}", "held": len(held), "n_ex": len(EV), "counter_gap": f"{abs(V['crosscheck_total_counter']['diff_pct']):.1f}",
+            "parse_errors": EV["P8"]["parse_error_requests"],
+        },
+        "prov": {"commit": prov["source_commit"][:7], "run": prov["run"], "source": prov["source"]},
+    }
+
+
 def asset(path: str) -> str:
     h = hashlib.sha256((SITE / path.lstrip("/")).read_bytes()).hexdigest()[:8]
     return f"{path}?v={h}"
@@ -408,6 +456,7 @@ def render() -> dict[str, str]:
         "person_id": BASE + "#author",
         "ld": site_ld(),
     }
+    st = load_study()
     out: dict[str, str] = {}
     for p in PAGES:
         page = dict(p, modified=MODIFIED)
@@ -425,6 +474,7 @@ def render() -> dict[str, str]:
             "v": v,
             "results": results,
             "ch": ch,
+            "st": st,
             "head": head,
             "nav": NAV,
             "page": page,
@@ -436,7 +486,7 @@ def render() -> dict[str, str]:
     nf = dict(path="/404.html", title="Page not found | RoamingPigs Research Notes", description="This page does not exist.", modified=MODIFIED, noindex=True)
     head = lib.head_meta(site_meta, nf)
     out["404.html"] = env.get_template("404.html").render(
-        c=c, v=v, results=results, ch=ch, head=head, nav=NAV, page=nf, site={"modified": MODIFIED, "modified_human": MODIFIED_HUMAN}
+        c=c, v=v, results=results, ch=ch, st=st, head=head, nav=NAV, page=nf, site={"modified": MODIFIED, "modified_human": MODIFIED_HUMAN}
     )
     return out
 
@@ -508,6 +558,13 @@ def main() -> int:
         r = subprocess.run(canon_cmd + ["--check"])
         if r.returncode:
             return 1
+    css_path = SITE / "css/figures.css"
+    if a.check:
+        if not css_path.exists() or css_path.read_text(encoding="utf-8") != figures_css():
+            print("STALE output: css/figures.css", file=sys.stderr)
+            return 1
+    else:
+        css_path.write_text(figures_css(), encoding="utf-8")
     out = render()
     out.update(static_files())
     stale = []

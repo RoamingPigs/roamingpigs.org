@@ -80,6 +80,7 @@ a:hover { color: var(--link-hover); }
   .nav-toggle > summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; padding: 0; border: 1px solid var(--rule-strong); border-radius: var(--radius); font: 600 0.9375rem var(--sans); color: var(--ink); background: var(--surface); }
   .nav-toggle > summary::-webkit-details-marker { display: none; }
   .nav-toggle[open] > summary { background: var(--paper-deep); }
+  .nav-toggle:not([open]) > .site-nav-mobile { display: none; }
   .site-nav { display: none; }
   .site-nav-mobile { position: absolute; left: 0; right: 0; top: 100%; background: var(--paper); border-bottom: 1px solid var(--rule); padding: 0.5rem var(--gutter) 1rem; box-shadow: 0 12px 24px -16px rgba(21,19,15,0.35); }
   .site-nav-mobile ul { flex-direction: column; align-items: stretch; gap: 0; }

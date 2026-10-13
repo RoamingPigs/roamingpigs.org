@@ -1,0 +1,26 @@
+[
+ {
+  "label": "Speed",
+  "text": "ROCm decoded more slowly than Vulkan in 16 of 16 cells, by 1 to 12%, and the repeat ranges of the two backends do not overlap in those cells. It was never faster."
+ },
+ {
+  "label": "Energy, 9B dense",
+  "text": "ROCm used more energy per token than Vulkan: +8 to +20% across the four context lengths (wall plug, net of idle)."
+ },
+ {
+  "label": "Energy, 12B dense",
+  "text": "ROCm used about the same (the repeat ranges overlap in some cells) energy per token than Vulkan: -6 to +3% across the four context lengths (wall plug, net of idle)."
+ },
+ {
+  "label": "Energy, 26B mixture",
+  "text": "ROCm used about the same (the repeat ranges overlap in some cells) energy per token than Vulkan: -6 to -1% across the four context lengths (wall plug, net of idle)."
+ },
+ {
+  "label": "Energy, 35B mixture",
+  "text": "ROCm used less energy per token than Vulkan: -8 to -6% across the four context lengths (wall plug, net of idle)."
+ },
+ {
+  "label": "Repeatability",
+  "text": "Vulkan on the newer kernel, on another day, matched study 1 within 1.52% in every one of the 16 cells. Idle power was 17 W against 16.5 W."
+ }
+]
