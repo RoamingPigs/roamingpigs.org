@@ -1,0 +1,38 @@
+[
+ {
+  "id": "qwen35-9b-q4km",
+  "label": "9B dense, 4-bit",
+  "short": "9B dense",
+  "kind": "dense",
+  "total_b": 9.0,
+  "active_b": 9.0,
+  "file_bytes": 5680522464
+ },
+ {
+  "id": "gemma4-12b-q4",
+  "label": "12B dense, 4-bit",
+  "short": "12B dense",
+  "kind": "dense",
+  "total_b": 12.0,
+  "active_b": 12.0,
+  "file_bytes": 6716356800
+ },
+ {
+  "id": "gemma4-26b-a4b-q4",
+  "label": "26B mixture, 4B active, 4-bit",
+  "short": "26B mixture",
+  "kind": "moe",
+  "total_b": 26.0,
+  "active_b": 4.0,
+  "file_bytes": 14249047104
+ },
+ {
+  "id": "qwen36-35b-a3b-q8",
+  "label": "35B mixture, 3B active, 8-bit",
+  "short": "35B mixture",
+  "kind": "moe",
+  "total_b": 35.0,
+  "active_b": 3.0,
+  "file_bytes": 37801097504
+ }
+]

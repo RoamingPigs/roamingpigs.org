@@ -1,6 +1,6 @@
 {
  "source": "https://github.com/RoamingPigs/strix-halo-energy",
- "source_commit": "74af0005c9ffb816132fb155837f97c253c78670",
+ "source_commit": "d82510a0f6ccd844012954472b42cdc282ce20fa",
  "run": "paired4",
  "files": {
   "evaluation.json": "600603ecb04740d23309910de2d7508ff2dc897b44498048c8e269526d26da38",
@@ -12,6 +12,7 @@
   "figures/where-watts-go.svg": "8626845887cd46253800b713abcd10f66415de9b1a3098f2d9f37ff45c5d822a",
   "figures.css": "7f9ab36fcd96c01b3141144d1398bc098d38310e2a4a6d35102b8103b3c248a9",
   "findings.json": "f2d428c1350ac597aa1a27cd56d4f55f337abd40aa1c8f2b47fb8c72d4ea1ea9",
+  "models.json": "f57b02f0992e651c83ed85b1aa4aa1ab325079ec3741476bf9c47289f289ea18",
   "summary-rocm.json": "91de7b2e06e9356920f057aa20ecfe3607a7a037df5e693c9c23e56573856a6a",
   "summary-vulkan.json": "47d7112e9a4590931bd83c3157dac472ab6c76431ccc663c729d809d153feaf9",
   "table-rocm.json": "9a0d62a0466007ba628ce1170da474fb608f511c7f2223e1ae47ca3eda833d61",
